@@ -10,129 +10,99 @@ let revealObserver;
 let lastRsvpName = "";
 const openingSkip = document.querySelector(".opening-skip");
 const openingDuration = 6600;
-let audioContext;
-let masterGain;
-let effectsGain;
-let musicGain;
 let soundEnabled = false;
 let soundChoiceMade = false;
-let musicLoop;
-const openingAudioNodes = new Set();
-const musicAudioNodes = new Set();
-
-function ensureAudio() {
-  if (audioContext) return true;
-  const AudioEngine = window.AudioContext || window.webkitAudioContext;
-  if (!AudioEngine) return false;
-  try {
-    audioContext = new AudioEngine();
-    masterGain = audioContext.createGain();
-    effectsGain = audioContext.createGain();
-    musicGain = audioContext.createGain();
-    masterGain.gain.value = .72;
-    effectsGain.gain.value = .72;
-    musicGain.gain.value = .5;
-    effectsGain.connect(masterGain);
-    musicGain.connect(masterGain);
-    masterGain.connect(audioContext.destination);
-    return true;
-  } catch { return false; }
-}
-
-function stopNodes(nodes) {
-  nodes.forEach(node => { try { node.stop(); } catch { /* Already finished. */ } });
-  nodes.clear();
-}
-
-function scheduleTone(frequency, start, duration, volume, destination, type = "sine", nodes = openingAudioNodes, endFrequency) {
-  if (!audioContext || !destination) return;
-  const oscillator = audioContext.createOscillator();
-  const envelope = audioContext.createGain();
-  oscillator.type = type;
-  oscillator.frequency.setValueAtTime(frequency, start);
-  if (endFrequency) oscillator.frequency.exponentialRampToValueAtTime(endFrequency, start + duration * .78);
-  envelope.gain.setValueAtTime(.0001, start);
-  envelope.gain.exponentialRampToValueAtTime(volume, start + Math.min(.045, duration * .16));
-  envelope.gain.exponentialRampToValueAtTime(.0001, start + duration);
-  oscillator.connect(envelope).connect(destination);
-  nodes.add(oscillator);
-  oscillator.addEventListener("ended", () => nodes.delete(oscillator), { once:true });
-  oscillator.start(start);
-  oscillator.stop(start + duration + .03);
-}
-
-function scheduleRustle(start, duration, volume, frequency = 900) {
-  if (!audioContext || !effectsGain) return;
-  const frameCount = Math.max(1, Math.floor(audioContext.sampleRate * duration));
-  const buffer = audioContext.createBuffer(1, frameCount, audioContext.sampleRate);
-  const data = buffer.getChannelData(0);
-  for (let i = 0; i < frameCount; i += 1) data[i] = (Math.random() * 2 - 1) * (1 - i / frameCount);
-  const source = audioContext.createBufferSource();
-  const filter = audioContext.createBiquadFilter();
-  const envelope = audioContext.createGain();
-  filter.type = "bandpass";
-  filter.frequency.value = frequency;
-  filter.Q.value = .65;
-  envelope.gain.setValueAtTime(.0001, start);
-  envelope.gain.exponentialRampToValueAtTime(volume, start + .04);
-  envelope.gain.exponentialRampToValueAtTime(.0001, start + duration);
-  source.buffer = buffer;
-  source.connect(filter).connect(envelope).connect(effectsGain);
-  openingAudioNodes.add(source);
-  source.addEventListener("ended", () => openingAudioNodes.delete(source), { once:true });
-  source.start(start);
-}
-
-function playOpeningSoundscape() {
-  if (!soundEnabled || !ensureAudio()) return;
-  stopNodes(openingAudioNodes);
-  const now = audioContext.currentTime + .035;
-  scheduleTone(523.25, now, .5, .042, effectsGain, "sine");
-  scheduleTone(783.99, now + .025, .64, .022, effectsGain, "triangle");
-  scheduleRustle(now + .28, .72, .032, 2200);
-  scheduleRustle(now + 1.02, 1.05, .04, 1050);
-  scheduleTone(329.63, now + 1.26, 1.25, .025, effectsGain, "sine", openingAudioNodes, 493.88);
-  scheduleTone(659.25, now + 2.65, .68, .022, effectsGain, "triangle");
-  scheduleRustle(now + 3.1, 1.45, .046, 1350);
-  scheduleRustle(now + 4.2, .9, .028, 2600);
-  [523.25, 659.25, 783.99, 987.77].forEach((note, index) => scheduleTone(note, now + 5.65 + index * .075, 1.45, .024, effectsGain, index % 2 ? "triangle" : "sine"));
-}
-
-const scores = {
-  en: { beat:.56, type:"triangle", notes:[60,64,67,69,67,64,62,67,65,69,72,69,67,64,62,59] },
-  th: { beat:.5, type:"sine", notes:[62,64,66,69,71,69,66,64,62,66,69,74,71,69,66,64] },
-  my: { beat:.54, type:"triangle", notes:[60,62,64,67,69,67,64,62,60,64,67,72,69,67,64,62] },
+let musicFadeTimer;
+const openingAudioTimers = new Set();
+const musicTracks = {
+  en: { src:"https://assets.mixkit.co/music/672/672.mp3", title:"Wedding Harp", artist:"Francisco Alvear" },
+  th: { src:"https://assets.mixkit.co/music/599/599.mp3", title:"Possible Dreams", artist:"Eugenio Mininni" },
+  my: { src:"https://assets.mixkit.co/music/37/37.mp3", title:"Love is Eternal", artist:"Ahjay Stelino" },
 };
+const musicPlayer = new Audio();
+musicPlayer.loop = true;
+musicPlayer.preload = "metadata";
+musicPlayer.playsInline = true;
+const openingSounds = {
+  seal: new Audio("https://assets.mixkit.co/active_storage/sfx/1530/1530-preview.mp3"),
+  lift: new Audio("https://assets.mixkit.co/active_storage/sfx/1103/1103-preview.mp3"),
+  rustle: new Audio("https://assets.mixkit.co/active_storage/sfx/2379/2379-preview.mp3"),
+  unfold: new Audio("https://assets.mixkit.co/active_storage/sfx/1105/1105-preview.mp3"),
+};
+Object.values(openingSounds).forEach(audio => { audio.preload = "auto"; audio.playsInline = true; });
 
-function midiToFrequency(note) { return 440 * (2 ** ((note - 69) / 12)); }
+function playRecordedSound(audio, volume, startAt = 0) {
+  if (!soundEnabled) return;
+  try {
+    audio.pause();
+    audio.currentTime = startAt;
+    audio.volume = volume;
+    audio.play().catch(() => {});
+  } catch { /* Audio remains optional when a browser blocks playback. */ }
+}
 
-function scheduleMusicPhrase(language) {
-  if (!soundEnabled || document.hidden || !audioContext || !musicGain) return;
-  const score = scores[language] || scores.en;
-  const start = audioContext.currentTime + .08;
-  score.notes.forEach((note, index) => {
-    const time = start + index * score.beat;
-    const accent = index % 4 === 0;
-    scheduleTone(midiToFrequency(note), time, score.beat * 1.7, accent ? .025 : .016, musicGain, score.type, musicAudioNodes);
-    if (accent) scheduleTone(midiToFrequency(note - 12), time, score.beat * 3.1, .012, musicGain, "sine", musicAudioNodes);
+function scheduleOpeningSound(name, delay, volume, startAt = 0) {
+  const timer = window.setTimeout(() => {
+    openingAudioTimers.delete(timer);
+    playRecordedSound(openingSounds[name], volume, startAt);
+  }, delay);
+  openingAudioTimers.add(timer);
+}
+
+function stopOpeningAudio() {
+  openingAudioTimers.forEach(timer => window.clearTimeout(timer));
+  openingAudioTimers.clear();
+  Object.values(openingSounds).forEach(audio => {
+    audio.pause();
+    try { audio.currentTime = 0; } catch { /* Metadata may still be loading. */ }
   });
 }
 
-function stopMusic() {
-  window.clearInterval(musicLoop);
-  musicLoop = undefined;
-  stopNodes(musicAudioNodes);
+function playOpeningSoundscape() {
+  if (!soundEnabled) return;
+  stopOpeningAudio();
+  playRecordedSound(openingSounds.seal, .48);
+  scheduleOpeningSound("lift", 650, .28, .18);
+  scheduleOpeningSound("rustle", 2050, .24, .35);
+  scheduleOpeningSound("unfold", 3580, .42);
+  scheduleOpeningSound("unfold", 4480, .32);
+}
+
+function stopMusic(reset = true) {
+  window.clearInterval(musicFadeTimer);
+  musicFadeTimer = undefined;
+  musicPlayer.pause();
+  if (reset) {
+    try { musicPlayer.currentTime = 0; } catch { /* Metadata may still be loading. */ }
+  }
   document.body.classList.remove("music-playing");
 }
 
 function startMusic(language = document.documentElement.lang) {
-  stopMusic();
-  if (!soundEnabled || document.hidden || !invitationIntro.hidden || !ensureAudio()) return;
+  if (!soundEnabled || document.hidden || !invitationIntro.hidden) return;
+  language = musicTracks[language] ? language : "en";
+  const track = musicTracks[language];
+  const changingTrack = musicPlayer.dataset.language !== language;
+  if (changingTrack) {
+    stopMusic();
+    musicPlayer.src = track.src;
+    musicPlayer.dataset.language = language;
+    musicPlayer.load();
+  }
+  musicPlayer.volume = 0;
   document.body.dataset.score = language;
-  document.body.classList.add("music-playing");
-  scheduleMusicPhrase(language);
-  const phraseLength = (scores[language] || scores.en).beat * 16 * 1000;
-  musicLoop = window.setInterval(() => scheduleMusicPhrase(document.documentElement.lang), phraseLength);
+  document.body.dataset.track = track.title;
+  musicPlayer.play().then(() => {
+    document.body.classList.add("music-playing");
+    window.clearInterval(musicFadeTimer);
+    musicFadeTimer = window.setInterval(() => {
+      musicPlayer.volume = Math.min(.24, musicPlayer.volume + .018);
+      if (musicPlayer.volume >= .24) {
+        window.clearInterval(musicFadeTimer);
+        musicFadeTimer = undefined;
+      }
+    }, 110);
+  }).catch(() => document.body.classList.remove("music-playing"));
 }
 
 function refreshSoundButton() {
@@ -145,13 +115,12 @@ function refreshSoundButton() {
 
 function setSoundEnabled(enabled, userChoice = true) {
   if (userChoice) soundChoiceMade = true;
-  soundEnabled = enabled && ensureAudio();
+  soundEnabled = Boolean(enabled);
   document.body.classList.toggle("sound-enabled", soundEnabled);
   if (soundEnabled) {
-    audioContext.resume().catch(() => {});
     if (invitationIntro.hidden) startMusic();
   } else {
-    stopNodes(openingAudioNodes);
+    stopOpeningAudio();
     stopMusic();
   }
   refreshSoundButton();
@@ -177,12 +146,8 @@ function finishOpening() {
   document.body.classList.remove("invitation-open", "invitation-opening");
   pageContent.forEach(element => { element.inert = false; });
   document.body.classList.add("invitation-ready");
-  stopNodes(openingAudioNodes);
-  if (soundEnabled) {
-    const now = audioContext.currentTime + .025;
-    [523.25, 659.25, 783.99].forEach((note, index) => scheduleTone(note, now + index * .06, 1.25, .02, effectsGain, "sine"));
-    window.setTimeout(() => startMusic(), 420);
-  }
+  stopOpeningAudio();
+  if (soundEnabled) window.setTimeout(() => startMusic(), 180);
   document.querySelector("#couple-names").focus({ preventScroll: true });
   observeReveals();
 }
@@ -190,7 +155,6 @@ function finishOpening() {
 function revealInvitation() {
   if (invitationIntro.hidden || document.body.classList.contains("invitation-opening")) return;
   if (!soundChoiceMade) setSoundEnabled(true, false);
-  else if (soundEnabled) audioContext?.resume().catch(() => {});
   playOpeningSoundscape();
   if (motionPaused) { finishOpening(); return; }
   positionFoldedCard();
@@ -204,7 +168,7 @@ function revealInvitation() {
 function showEnvelope() {
   window.clearTimeout(openingTimer);
   revealObserver?.disconnect();
-  stopNodes(openingAudioNodes);
+  stopOpeningAudio();
   stopMusic();
   document.body.classList.remove("invitation-ready", "invitation-opening");
   document.body.classList.remove("controls-compact");

@@ -25,7 +25,7 @@ Geometry is measured from the actual envelope and untransformed card dimensions 
 - Venue directions are a simple centered invitation detail; the decorative route graphic has been removed. Both calendar buttons and the Maps button retain their prominent themed design and original destinations.
 - The countdown is printed directly on the paper, without dashboard tiles. The RSVP closes the letter rather than repeating a call to action in the hero.
 - Slow ink fades, drawn ornamental dividers, a revealing signature and gentle ribbon movement replace presentation-style card tilts. `letter.css` scopes the redesign to the main invitation without changing envelope styles.
-- The opening has a synchronized original sound sequence for the seal, ribbon, paper and reveal. The invitation continues with quiet original English-romantic, Thai-inspired or Burmese-inspired instrumental colors selected by the active language, with a persistent mute control.
+- The opening uses recorded physical paper, sliding, lifting and unfolding sounds synchronized to the envelope choreography. The invitation then crossfades into a full recorded wedding track selected by the active language, with a persistent mute control.
 - Flower motion is articulated: roots remain planted while middle stems and blossom tips bend by different amounts, creating a stronger but still natural breeze.
 
 ## Heirloom refinement
@@ -139,4 +139,9 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 - Large floral cutouts no longer translate as one rectangular image. Each is rendered as a planted lower stem, a gently bending middle section and a more responsive flower-heavy tip.
 - The envelope garden is split into independently moving left and right banks, each anchored at its own lower corner.
 - The monogram seal is enlarged to 70 pixels on desktop and 60 pixels on phones so it remains the visual focal point inside the fuller garden.
+
+## Recorded soundtrack
+
+- English uses “Wedding Harp” by Francisco Alvear, Thai uses “Possible Dreams” by Eugenio Mininni, and Burmese uses “Love is Eternal” by Ahjay Stelino.
+- Music and paper recordings stream from Mixkit's audio CDN under the Mixkit Stock Music Free License and Mixkit Sound Effects Free License. See `AUDIO-CREDITS.md`.
 
