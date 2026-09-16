@@ -117,3 +117,10 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 - The floral frame is original transparent artwork generated for this invitation, not a character or scene copied from an existing film or franchise.
 - The artwork gently breathes before opening and brightens as the envelope releases, while the approved extraction and unfolding choreography remains unchanged.
 - New optimized asset: `assets/enchanted-envelope-garden.webp`, 1200 × 800, transparent WebP, approximately 368 KB.
+
+## Pink-blossom layer
+
+- The approved main invitation gains additional small climbing accents made exclusively from pale blush, petal pink and dusty-rose flowers; no white, cream, purple, blue or red blossoms are present in the new artwork.
+- Eight asymmetric placements enrich the hero, personal note, calendar area, program, venue, countdown and RSVP while remaining behind all text and controls. The hero receives a balanced high-right and low-left pair.
+- The vines unfurl with their section and then move through a restrained slow sway. Mobile versions retreat toward the paper edges and reduced-motion mode keeps them static.
+- New optimized asset: `assets/pink-blossom-vine.webp`, 733 × 1100, transparent WebP.

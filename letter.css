@@ -890,6 +890,38 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
 @keyframes flower-breathe { from { translate:0 0; } to { translate:0 6px; } }
 .motion-paused .floral-sprig { animation:none!important;opacity:var(--flower-opacity)!important;clip-path:none!important;translate:0 0!important; }
 
+/* Pink-only blossom accents: more romance without changing content geometry. */
+.pink-vine {
+  --pink-vine-opacity:.78;position:absolute;z-index:0;display:block;width:78px;height:178px;
+  pointer-events:none;opacity:var(--pink-vine-opacity);transform-origin:50% 10%;
+  filter:saturate(.94) brightness(1.03) drop-shadow(0 8px 11px #a65f7a14);
+}
+.pink-vine img { display:block;width:100%;height:100%;object-fit:contain; }
+.pink-vine--hero { right:2%;top:10%;width:92px;height:215px;rotate:-12deg; }
+.pink-vine--hero-lower { left:1%;bottom:9%;width:82px;height:190px;rotate:18deg; }
+.pink-vine--intro { left:-20px;bottom:1%;rotate:22deg; }
+.pink-vine--save { right:-18px;top:-25px;width:68px;height:155px;rotate:-20deg;scale:-1 1; }
+.pink-vine--schedule { right:-22px;top:26%;width:82px;height:190px;rotate:-18deg;scale:-1 1; }
+.pink-vine--venue { left:-18px;top:5%;width:76px;height:175px;rotate:20deg; }
+.pink-vine--count { right:-20px;top:4%;width:78px;height:180px;rotate:-22deg;scale:-1 1; }
+.pink-vine--reply { right:-22px;top:18%;width:84px;height:194px;rotate:-20deg;scale:-1 1; }
+
+.js-motion .pink-vine { opacity:0;clip-path:inset(0 0 100%); }
+.js-motion.invitation-ready .hero .pink-vine { animation:pink-vine-unfurl 2.6s var(--ease) 1.35s both; }
+.js-motion .section:has([data-reveal].is-visible) .pink-vine,
+.js-motion .savebar:has([data-reveal].is-visible) .pink-vine { animation:pink-vine-unfurl 2.4s var(--ease) .35s both; }
+.motion-enabled.invitation-ready .hero .pink-vine,
+.motion-enabled .section:has([data-reveal].is-visible) .pink-vine,
+.motion-enabled .savebar:has([data-reveal].is-visible) .pink-vine {
+  animation:pink-vine-unfurl 2.4s var(--ease) .35s both,pink-vine-breathe 10s ease-in-out 2.9s infinite alternate;
+}
+@keyframes pink-vine-unfurl {
+  from { opacity:0;clip-path:inset(0 0 100%);translate:0 15px; }
+  to { opacity:var(--pink-vine-opacity);clip-path:inset(-8%);translate:0 0; }
+}
+@keyframes pink-vine-breathe { from { translate:0 0; } to { translate:2px -6px; } }
+.motion-paused .pink-vine { animation:none!important;opacity:var(--pink-vine-opacity)!important;clip-path:none!important;translate:0 0!important; }
+
 @media(max-width:700px) {
   .wedding-letter .hero { min-height:760px;padding-top:104px;padding-bottom:62px; }
   .wedding-letter .intro { padding-top:49px;padding-bottom:34px; }
@@ -913,6 +945,11 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
   .floral-sprig--save-left,.floral-sprig--schedule-left,.floral-sprig--count-left,.floral-sprig--reply-left { left:-25px;width:68px;height:138px; }
   .floral-sprig--save-right,.floral-sprig--count-right { right:-24px;width:54px;height:108px; }
   .margin-sprig { opacity:.42; }
+  .pink-vine { --pink-vine-opacity:.68;width:57px;height:132px; }
+  .pink-vine--hero { right:-2px;top:12%;width:68px;height:158px; }
+  .pink-vine--hero-lower { left:-4px;bottom:10%;width:61px;height:142px; }
+  .pink-vine--intro,.pink-vine--venue { left:-8px; }
+  .pink-vine--save,.pink-vine--schedule,.pink-vine--count,.pink-vine--reply { right:-9px; }
 }
 
 /* Cinematic love-letter finish: one continuous paper, one floral journey. */
