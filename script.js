@@ -103,7 +103,7 @@ function initializeInvitation() {
   });
   document.querySelectorAll(".hero__copy-inner > *").forEach((element, index) => element.style.setProperty("--order", index));
   const groups = [
-    ".savebar__copy, .calendar-actions", ".intro__heading, .intro__copy",
+    ".savebar__copy, .calendar-actions", ".intro__heading, .intro__copy", ".photo-story:not([hidden]) .photo-story__heading, .photo-story:not([hidden]) .photo-frame",
     ".schedule > .container > .eyebrow, .schedule h2", ".schedule-card", ".love-divider, .program-note, .letter-bow--reply",
     ".venue__visual, .venue__copy", ".countdown .eyebrow, .countdown h2",
     ".countdown__grid > div", ".rsvp__frame", ".rsvp__content > :not(.rsvp-thanks):not(noscript)", "footer > *"
@@ -264,6 +264,8 @@ const translations = {
 };
 
 Object.assign(translations.en, {
+  photoEyebrow: "A glimpse of us",
+  photoTitle: "Our love, in photographs",
   guestName: "Your name",
   guestNamePlaceholder: "Your full name",
   willAttend: "Will you be joining us?",
@@ -297,6 +299,8 @@ Object.assign(translations.en, {
   resumeMotion: "Resume motion",
 });
 Object.assign(translations.th, {
+  photoEyebrow: "ภาพเล็ก ๆ ของเรา",
+  photoTitle: "เรื่องราวความรักผ่านภาพถ่าย",
   guestName: "ชื่อของคุณ",
   guestNamePlaceholder: "ชื่อ-นามสกุล",
   willAttend: "คุณจะมาร่วมงานกับเราไหม",
@@ -331,6 +335,8 @@ Object.assign(translations.th, {
 });
 
 translations.my = {
+  photoEyebrow: "ကျွန်ုပ်တို့ရဲ့ အမှတ်တရပုံရိပ်များ",
+  photoTitle: "ဓာတ်ပုံများထဲက ကျွန်ုပ်တို့ရဲ့ အချစ်ဇာတ်လမ်း",
   guestName: "သင့်နာမည်",
   guestNamePlaceholder: "အမည်အပြည့်အစုံ",
   willAttend: "ကျွန်ုပ်တို့နှင့်အတူ ပါဝင်ဆင်နွှဲမည်လား",
@@ -401,6 +407,56 @@ translations.my = {
   resumeMotion: "လှုပ်ရှားမှု ပြန်စရန်",
 };
 
+function photoText(value, language) {
+  if (!value) return "";
+  if (typeof value === "string") return value;
+  return value[language] || value.en || "";
+}
+
+function updateWeddingPhotoLanguage(language = document.documentElement.lang) {
+  const moments = window.WEDDING_PHOTOS?.moments || [];
+  document.querySelectorAll(".photo-frame").forEach((figure) => {
+    const moment = moments[Number(figure.dataset.photoIndex)];
+    if (!moment) return;
+    figure.querySelector("img").alt = photoText(moment.alt, language);
+    const caption = figure.querySelector("figcaption");
+    const copy = photoText(moment.caption, language);
+    caption.textContent = copy;
+    caption.hidden = !copy;
+  });
+}
+
+function initializeWeddingPhotos() {
+  const section = document.querySelector(".photo-story");
+  const grid = section?.querySelector(".photo-story__grid");
+  const configuration = window.WEDDING_PHOTOS;
+  const moments = configuration?.enabled && Array.isArray(configuration.moments)
+    ? configuration.moments.filter(moment => moment?.src)
+    : [];
+  if (!section || !grid || !moments.length) return;
+
+  moments.slice(0, 5).forEach((moment, index) => {
+    const figure = document.createElement("figure");
+    figure.className = `photo-frame${index === 0 ? " photo-frame--feature" : ""}`;
+    figure.dataset.photoIndex = String(configuration.moments.indexOf(moment));
+    const image = document.createElement("img");
+    image.src = moment.src;
+    image.loading = "lazy";
+    image.decoding = "async";
+    image.style.objectPosition = moment.focus || "50% 50%";
+    const caption = document.createElement("figcaption");
+    figure.append(image, caption);
+    grid.append(figure);
+    image.addEventListener("error", () => {
+      figure.remove();
+      if (!grid.children.length) section.hidden = true;
+    });
+  });
+  section.hidden = false;
+  document.body.classList.add("has-wedding-photos");
+  updateWeddingPhotoLanguage();
+}
+
 function updateCountdown() {
   const remaining = Math.max(0, weddingDate.getTime() - Date.now());
   const totalSeconds = Math.floor(remaining / 1000);
@@ -438,6 +494,7 @@ function setLanguage(language) {
   });
   document.querySelectorAll("[data-i18n-aria]").forEach(element => element.setAttribute("aria-label", copy[element.dataset.i18nAria]));
   document.querySelectorAll("[data-i18n-placeholder]").forEach(element => element.setAttribute("placeholder", copy[element.dataset.i18nPlaceholder]));
+  updateWeddingPhotoLanguage(language);
   refreshMotionButton();
   document.querySelectorAll("[data-language]").forEach((button) => {
     const isActive = button.dataset.language === language;
@@ -514,6 +571,7 @@ function initializeRsvp() {
 let savedLanguage = "en";
 try { savedLanguage = window.localStorage.getItem("invitation-language") || "en"; } catch { /* Storage is optional. */ }
 const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+initializeWeddingPhotos();
 setLanguage(requestedLanguage ?? savedLanguage);
 
 updateCountdown();

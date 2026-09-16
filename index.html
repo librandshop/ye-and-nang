@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#fffaf8" />
     <link rel="preload" as="image" href="assets/jasmine-vine.webp" />
     <link rel="stylesheet" href="styles.css?v=20260915-buttons-1" />
-    <link rel="stylesheet" href="letter.css?v=20260915-rsvp-1" />
+    <link rel="stylesheet" href="letter.css?v=20260916-mobile-lines-1" />
   </head>
   <body class="letter-page">
     <div class="reading-progress" aria-hidden="true"></div>
@@ -133,6 +133,16 @@
             </p>
             <p class="letter-signature" aria-label="Ye and Nang">Ye <em>&amp;</em> Nang</p>
           </div>
+        </div>
+      </section>
+
+      <section class="photo-story section" id="our-story" aria-labelledby="photo-story-title" hidden>
+        <div class="container photo-story__inner">
+          <div class="photo-story__heading">
+            <p class="eyebrow" data-i18n="photoEyebrow">A glimpse of us</p>
+            <h2 id="photo-story-title" data-i18n="photoTitle">Our love, in photographs</h2>
+          </div>
+          <div class="photo-story__grid"></div>
         </div>
       </section>
 
@@ -289,7 +299,8 @@
       <button class="replay-button" type="button" data-i18n="replay" hidden>Open the envelope again</button>
     </footer>
     <button class="motion-toggle" type="button" aria-pressed="false" hidden><span class="motion-toggle__icon" aria-hidden="true">Ⅱ</span><span class="motion-toggle__label">Pause motion</span></button>
-    <script src="script.js?v=20260915-rsvp-1"></script>
+    <script src="photo-config.js?v=20260915-photo-ready-1"></script>
+    <script src="script.js?v=20260915-photo-ready-1"></script>
   </body>
 </html>
 

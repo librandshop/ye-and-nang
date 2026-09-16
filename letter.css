@@ -206,6 +206,31 @@ html[lang="my"] .rsvp-choice b { font-size:11px; }
 }
 .motion-paused .rsvp-form.is-submitting .rsvp-form__submit span:last-child,.motion-paused .rsvp-thanks>span { animation:none!important; }
 
+/* Photo-ready editorial chapter. It remains completely absent until enabled in photo-config.js. */
+.wedding-letter .photo-story { padding-top:28px;padding-bottom:58px; }
+.photo-story__inner { max-width:760px; }
+.photo-story__heading { margin:0 auto 38px; }
+.photo-story__grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px;align-items:start; }
+.photo-frame { position:relative;margin:0;padding:10px 10px 30px;background:#fff;box-shadow:0 18px 45px #85566517;transform:rotate(var(--photo-tilt,-.7deg)); }
+.photo-frame:nth-child(even) { --photo-tilt:.8deg;margin-top:35px; }
+.photo-frame--feature { grid-column:1/-1;width:min(540px,92%);margin:0 auto 20px;--photo-tilt:0deg; }
+.photo-frame img { display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#f8edf1;filter:saturate(.9) contrast(.98); }
+.photo-frame--feature img { aspect-ratio:5/6; }
+.photo-frame::after { content:"";position:absolute;inset:6px;border:1px solid #eedde3;pointer-events:none; }
+.photo-frame figcaption { position:relative;z-index:1;margin:16px 8px -12px;color:#8d6977;font:italic 17px/1.55 "Cormorant Garamond",Georgia,serif;text-align:center; }
+.photo-frame[hidden],.photo-frame figcaption[hidden] { display:none!important; }
+.js-motion .photo-frame.is-visible { animation:photo-settle 1.8s var(--ease) both; }
+@keyframes photo-settle { from { opacity:0;transform:translateY(22px) rotate(calc(var(--photo-tilt) * 1.8)); } to { opacity:1;transform:rotate(var(--photo-tilt)); } }
+html[lang="th"] .photo-frame figcaption { font-family:"Noto Serif Thai",serif;font-style:normal; }
+html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif;font-style:normal;line-height:1.9; }
+@media(max-width:600px) {
+  .wedding-letter .photo-story { padding-top:20px;padding-bottom:44px; }
+  .photo-story__grid { grid-template-columns:1fr;gap:24px; }
+  .photo-frame,.photo-frame:nth-child(even),.photo-frame--feature { grid-column:auto;width:92%;margin:0 auto;--photo-tilt:0deg; }
+  .photo-frame img,.photo-frame--feature img { aspect-ratio:4/5; }
+}
+.motion-paused .photo-frame { animation:none!important;transform:none!important;opacity:1!important; }
+
 /* Heirloom finish: intimate stationery, floral margins and a quiet visual cadence. */
 .letter-page {
   background:
@@ -331,13 +356,12 @@ html[lang="my"] .rsvp-choice b { font-size:11px; }
   .wedding-letter .schedule-card:nth-child(even) .line-icon { grid-column:1; }
   .wedding-letter .schedule-card:nth-child(even) h3,.wedding-letter .schedule-card:nth-child(even) p { grid-column:2; }
   .wedding-letter .schedule-card .line-icon { width:46px;height:46px; }
-  .wedding-letter .schedule-card::before { left:17%;right:17%; }
+  .wedding-letter .schedule-card::before { display:none; }
   .wedding-letter .venue { padding:55px 25px 67px; }
   .wedding-letter .venue__layout { padding:40px 22px 43px;border-radius:45% 45% 5px 5px / 18% 18% 5px 5px; }
   .wedding-letter .countdown { padding:54px 24px 65px; }
   .wedding-letter .countdown__grid { margin-top:35px; }
-  .wedding-letter .countdown__grid::before { top:22px; }
-  .wedding-letter .countdown__grid>div:not(:last-child)::after { top:2px;font-size:23px; }
+  .wedding-letter .countdown__grid::before,.wedding-letter .countdown__grid>div:not(:last-child)::after { display:none; }
   .wedding-letter .rsvp { padding:75px 25px 80px; }
   .wedding-letter .rsvp__frame { padding:35px 18px 45px;border-radius:48% 48% 5px 5px / 16% 16% 5px 5px; }
   .margin-sprig { width:62px;height:120px;opacity:.32; }
