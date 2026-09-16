@@ -24,12 +24,18 @@ musicPlayer.loop = true;
 musicPlayer.preload = "metadata";
 musicPlayer.playsInline = true;
 const openingSounds = {
-  seal: new Audio("https://assets.mixkit.co/active_storage/sfx/1530/1530-preview.mp3"),
-  lift: new Audio("https://assets.mixkit.co/active_storage/sfx/1103/1103-preview.mp3"),
-  rustle: new Audio("https://assets.mixkit.co/active_storage/sfx/2379/2379-preview.mp3"),
-  unfold: new Audio("https://assets.mixkit.co/active_storage/sfx/1105/1105-preview.mp3"),
+  seal: "https://assets.mixkit.co/active_storage/sfx/1530/1530-preview.mp3",
+  lift: "https://assets.mixkit.co/active_storage/sfx/1103/1103-preview.mp3",
+  rustle: "https://assets.mixkit.co/active_storage/sfx/2379/2379-preview.mp3",
+  unfold: "https://assets.mixkit.co/active_storage/sfx/1105/1105-preview.mp3",
 };
-Object.values(openingSounds).forEach(audio => { audio.preload = "auto"; audio.playsInline = true; });
+Object.entries(openingSounds).forEach(([name, src]) => {
+  const audio = new Audio();
+  audio.preload = "none";
+  audio.playsInline = true;
+  audio.src = src;
+  openingSounds[name] = audio;
+});
 
 function playRecordedSound(audio, volume, startAt = 0) {
   if (!soundEnabled) return;
@@ -180,23 +186,41 @@ function showEnvelope() {
   document.body.classList.add("invitation-open");
   pageContent.forEach(element => { element.inert = true; });
   document.querySelectorAll("[data-reveal]").forEach(element => element.classList.remove("is-visible"));
+  document.querySelectorAll(".has-visible-reveal").forEach(element => element.classList.remove("has-visible-reveal"));
   openInvitation.focus({ preventScroll: true });
 }
 
 function observeReveals() {
   const elements = document.querySelectorAll("[data-reveal]");
+  const reveal = element => {
+    element.classList.add("is-visible");
+    element.closest(".section, .savebar")?.classList.add("has-visible-reveal");
+  };
   if (motionPaused || !("IntersectionObserver" in window)) {
-    elements.forEach(element => element.classList.add("is-visible"));
+    elements.forEach(reveal);
     return;
   }
   revealObserver ??= new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      entry.target.classList.add("is-visible");
+      reveal(entry.target);
       revealObserver.unobserve(entry.target);
     });
   }, { threshold: .12, rootMargin: "0px 0px -25px 0px" });
   elements.forEach(element => revealObserver.observe(element));
+}
+
+function initializeMotionZones() {
+  const zones = document.querySelectorAll(".wedding-letter > .hero, .wedding-letter > .section, .wedding-letter > .savebar, footer");
+  zones.forEach(zone => zone.classList.add("motion-zone"));
+  if (!("IntersectionObserver" in window)) {
+    zones.forEach(zone => zone.classList.add("is-motion-active"));
+    return;
+  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.target.classList.toggle("is-motion-active", entry.isIntersecting));
+  }, { rootMargin: "80% 0px 80% 0px" });
+  zones.forEach(zone => observer.observe(zone));
 }
 
 function refreshMotionButton() {
@@ -227,6 +251,7 @@ function initializeInvitation() {
   });
   document.querySelectorAll(".opening-stars i").forEach((star, index) => star.style.setProperty("--star-order", index));
   document.querySelectorAll(".hero__copy-inner > *").forEach((element, index) => element.style.setProperty("--order", index));
+  initializeMotionZones();
   const groups = [
     ".savebar__copy, .calendar-actions", ".intro__heading, .intro__copy", ".photo-story:not([hidden]) .photo-story__heading, .photo-story:not([hidden]) .photo-frame",
     ".schedule > .container > .eyebrow, .schedule h2", ".schedule-card", ".love-divider, .program-note, .letter-bow--reply",
@@ -269,22 +294,39 @@ function initializeInvitation() {
   let scrollFrame = false;
   const hero = document.querySelector(".hero");
   const venueArt = document.querySelector(".venue__visual");
+  let lastPaperLight = -1;
   function updateProgress() {
-    const distance = document.documentElement.scrollHeight - window.innerHeight;
-    const readingProgress = distance > 0 ? Math.min(1, window.scrollY / distance) : 0;
+    const viewportHeight = window.innerHeight;
+    const scrollY = window.scrollY;
+    const distance = document.documentElement.scrollHeight - viewportHeight;
+    const readingProgress = distance > 0 ? Math.min(1, scrollY / distance) : 0;
+    const invitationVisible = invitationIntro.hidden;
+    let flowerDepth;
+    let paperAngle;
+    let paperLift;
+    if (!motionPaused && invitationVisible) {
+      const heroBounds = hero.getBoundingClientRect();
+      if (heroBounds.bottom > 0) flowerDepth = Math.min(scrollY * .09, 70);
+      const artBounds = venueArt.getBoundingClientRect();
+      if (artBounds.bottom > 0 && artBounds.top < viewportHeight) {
+        const travel = Math.max(0, Math.min(1, (viewportHeight - artBounds.top) / (viewportHeight + artBounds.height)));
+        paperAngle = -10 + travel * 9;
+        paperLift = 16 - travel * 32;
+      }
+    }
+
     progress.style.setProperty("--reading-progress", readingProgress);
     progress.style.transform = `scaleX(${readingProgress})`;
-    weddingLetter.style.setProperty("--paper-light", `${18 + readingProgress * 64}%`);
-    document.body.classList.toggle("controls-compact", invitationIntro.hidden && window.scrollY > Math.min(420, window.innerHeight * .52));
-    if (!motionPaused && invitationIntro.hidden) {
-      const heroBounds = hero.getBoundingClientRect();
-      if (heroBounds.bottom > 0) hero.style.setProperty("--flower-depth", `${Math.min(window.scrollY * .09, 70)}px`);
-      const artBounds = venueArt.getBoundingClientRect();
-      if (artBounds.bottom > 0 && artBounds.top < innerHeight) {
-        const travel = Math.max(0, Math.min(1, (innerHeight - artBounds.top) / (innerHeight + artBounds.height)));
-        venueArt.style.setProperty("--paper-angle", `${-10 + travel * 9}deg`);
-        venueArt.style.setProperty("--paper-lift", `${16 - travel * 32}px`);
-      }
+    const paperLight = Math.round((18 + readingProgress * 64) / 2) * 2;
+    if (paperLight !== lastPaperLight) {
+      weddingLetter.style.setProperty("--paper-light", `${paperLight}%`);
+      lastPaperLight = paperLight;
+    }
+    document.body.classList.toggle("controls-compact", invitationVisible && scrollY > Math.min(420, viewportHeight * .52));
+    if (flowerDepth !== undefined) hero.style.setProperty("--flower-depth", `${flowerDepth}px`);
+    if (paperAngle !== undefined) {
+      venueArt.style.setProperty("--paper-angle", `${paperAngle}deg`);
+      venueArt.style.setProperty("--paper-lift", `${paperLift}px`);
     }
     scrollFrame = false;
   }
@@ -314,6 +356,15 @@ const units = {
   minutes: document.querySelector("#minutes"),
   seconds: document.querySelector("#seconds"),
 };
+let countdownVisible = false;
+const countdownSection = document.querySelector(".countdown");
+if ("IntersectionObserver" in window) {
+  new IntersectionObserver(([entry]) => { countdownVisible = entry.isIntersecting; }, {
+    rootMargin: "120px 0px",
+  }).observe(countdownSection);
+} else {
+  countdownVisible = true;
+}
 
 const translations = {
   en: {
@@ -616,13 +667,13 @@ function updateCountdown() {
     seconds: totalSeconds % 60,
   };
 
+  const animateChanges = !motionPaused && !document.hidden && invitationIntro.hidden && countdownVisible;
   for (const [unit, value] of Object.entries(values)) {
     const nextValue = String(value).padStart(2, "0");
     const element = units[unit];
     if (element.textContent === nextValue) continue;
     element.textContent = nextValue;
-    const bounds = element.getBoundingClientRect();
-    if (!motionPaused && !document.hidden && bounds.top < window.innerHeight && bounds.bottom > 0 && invitationIntro.hidden) {
+    if (animateChanges) {
       element.animate([{ opacity: .45, transform: "translateY(5px)" }, { opacity: 1, transform: "translateY(0)" }], { duration: 350, easing: "ease-out" });
     }
   }

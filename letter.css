@@ -778,8 +778,8 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
 .js-motion.invitation-ready .hero__date-card { animation:date-keepsake 1.5s var(--ease) 1.65s both; }
 .js-motion.invitation-ready .hero__date-card::before { animation:oval-trace 1.7s ease 2s both; }
 .js-motion .margin-sprig { opacity:0;clip-path:inset(0 0 100%); }
-.js-motion .section:has([data-reveal].is-visible) .margin-sprig { animation:margin-vine-grow 2.2s var(--ease) .25s both; }
-.motion-enabled .section:has([data-reveal].is-visible) .margin-sprig { animation:margin-vine-grow 2.2s var(--ease) .25s both,margin-vine-breathe 8s ease-in-out 2.6s infinite alternate; }
+.js-motion .section.has-visible-reveal .margin-sprig { animation:margin-vine-grow 2.2s var(--ease) .25s both; }
+.motion-enabled .section.has-visible-reveal .margin-sprig { animation:margin-vine-grow 2.2s var(--ease) .25s both,margin-vine-breathe 8s ease-in-out 2.6s infinite alternate; }
 .js-motion .wedding-letter .schedule-card:nth-child(odd)[data-reveal] { transform:translate(-24px,15px); }
 .js-motion .wedding-letter .schedule-card:nth-child(even)[data-reveal] { transform:translate(24px,15px); }
 .js-motion .wedding-letter .schedule-card.is-visible { transform:none; }
@@ -891,11 +891,11 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
 /* Flowers unfurl with the letter, then settle into an almost imperceptible sway. */
 .js-motion .floral-sprig { opacity:0;clip-path:inset(0 0 100%); }
 .js-motion.invitation-ready .hero .floral-sprig { animation:flower-unfurl 2.5s var(--ease) 1.15s both; }
-.js-motion .section:has([data-reveal].is-visible) .floral-sprig,
-.js-motion .savebar:has([data-reveal].is-visible) .floral-sprig { animation:flower-unfurl 2.3s var(--ease) .2s both; }
+.js-motion .section.has-visible-reveal .floral-sprig,
+.js-motion .savebar.has-visible-reveal .floral-sprig { animation:flower-unfurl 2.3s var(--ease) .2s both; }
 .motion-enabled.invitation-ready .hero .floral-sprig,
-.motion-enabled .section:has([data-reveal].is-visible) .floral-sprig,
-.motion-enabled .savebar:has([data-reveal].is-visible) .floral-sprig { animation:flower-unfurl 2.3s var(--ease) .2s both,flower-breathe 9s ease-in-out 2.7s infinite alternate; }
+.motion-enabled .section.has-visible-reveal .floral-sprig,
+.motion-enabled .savebar.has-visible-reveal .floral-sprig { animation:flower-unfurl 2.3s var(--ease) .2s both,flower-breathe 9s ease-in-out 2.7s infinite alternate; }
 .js-motion .wedding-letter .schedule-card:nth-child(odd)[data-reveal],
 .js-motion .wedding-letter .schedule-card:nth-child(even)[data-reveal] { transform:translateY(15px); }
 @keyframes flower-unfurl { from { opacity:0;clip-path:inset(0 0 100%);translate:0 -12px; } to { opacity:var(--flower-opacity);clip-path:inset(0);translate:0 0; } }
@@ -926,11 +926,11 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
 
 .js-motion .pink-vine { opacity:0;clip-path:inset(0 0 100%); }
 .js-motion.invitation-ready .hero .pink-vine { animation:pink-vine-unfurl 2.6s var(--ease) 1.35s both; }
-.js-motion .section:has([data-reveal].is-visible) .pink-vine,
-.js-motion .savebar:has([data-reveal].is-visible) .pink-vine { animation:pink-vine-unfurl 2.4s var(--ease) .35s both; }
+.js-motion .section.has-visible-reveal .pink-vine,
+.js-motion .savebar.has-visible-reveal .pink-vine { animation:pink-vine-unfurl 2.4s var(--ease) .35s both; }
 .motion-enabled.invitation-ready .hero .pink-vine,
-.motion-enabled .section:has([data-reveal].is-visible) .pink-vine,
-.motion-enabled .savebar:has([data-reveal].is-visible) .pink-vine {
+.motion-enabled .section.has-visible-reveal .pink-vine,
+.motion-enabled .savebar.has-visible-reveal .pink-vine {
   animation:pink-vine-unfurl 2.4s var(--ease) .35s both,pink-vine-breathe 10s ease-in-out 2.9s infinite alternate;
 }
 @keyframes pink-vine-unfurl {
@@ -1017,6 +1017,24 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
 .motion-paused .wedding-letter .floral-sprig::before,.motion-paused .wedding-letter .floral-sprig::after,
 .motion-paused .wedding-letter .margin-sprig::before,.motion-paused .wedding-letter .margin-sprig::after,
 .motion-paused .envelope__botanical::before,.motion-paused .envelope__botanical::after { animation:none!important;transform:none!important; }
+
+/* Keep the garden alive near the viewport without making distant flowers repaint while scrolling. */
+.motion-enabled.invitation-ready .motion-zone:not(.is-motion-active),
+.motion-enabled.invitation-ready .motion-zone:not(.is-motion-active)::before,
+.motion-enabled.invitation-ready .motion-zone:not(.is-motion-active)::after,
+.motion-enabled.invitation-ready .motion-zone:not(.is-motion-active) *,
+.motion-enabled.invitation-ready .motion-zone:not(.is-motion-active) *::before,
+.motion-enabled.invitation-ready .motion-zone:not(.is-motion-active) *::after {
+  animation-play-state:paused!important;
+}
+.motion-enabled.invitation-ready .motion-zone.is-motion-active .pink-vine::before,
+.motion-enabled.invitation-ready .motion-zone.is-motion-active .pink-vine::after,
+.motion-enabled.invitation-ready .motion-zone.is-motion-active .floral-sprig::before,
+.motion-enabled.invitation-ready .motion-zone.is-motion-active .floral-sprig::after,
+.motion-enabled.invitation-ready .motion-zone.is-motion-active .margin-sprig::before,
+.motion-enabled.invitation-ready .motion-zone.is-motion-active .margin-sprig::after {
+  will-change:transform;
+}
 
 @media(max-width:700px) {
   .wedding-letter .hero { min-height:760px;padding-top:104px;padding-bottom:62px; }
