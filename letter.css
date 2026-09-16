@@ -411,8 +411,10 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
    -------------------------------------------------------------------------- */
 .invitation-intro {
   background:
-    radial-gradient(ellipse at 50% 54%,#fff 0 20%,#fffafc 45%,transparent 69%),
-    linear-gradient(135deg,#fffdfc,#f8eff3 52%,#fffdfc);
+    radial-gradient(ellipse at 50% 55%,#fff 0 18%,#fff8fb 43%,transparent 67%),
+    radial-gradient(circle at 4% 100%,#b9c7a12e,transparent 31%),
+    radial-gradient(circle at 96% 3%,#d8b0bf2b,transparent 29%),
+    linear-gradient(135deg,#fffdfc,#f8edf3 52%,#fffdfc);
 }
 .invitation-intro::before {
   border-color:#d4b47e6b;
@@ -421,8 +423,8 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 .invitation-intro::after { border-color:#e8cbd6; }
 .opening-halo {
   width:min(800px,78vw);aspect-ratio:1.35;
-  background:radial-gradient(ellipse,#fff 0 24%,#fff8e96b 42%,#efdce32b 60%,transparent 73%);
-  filter:blur(1px) drop-shadow(0 30px 90px #794b5a13);
+  background:radial-gradient(ellipse,#fffef9 0 22%,#fff0c776 40%,#e7cbd633 57%,#aeba9618 66%,transparent 75%);
+  filter:blur(1px) drop-shadow(0 30px 90px #794b5a18);
 }
 .opening-halo::before,.opening-halo::after,.opening-halo i { display:none; }
 .opening-curtain--left { background:linear-gradient(90deg,#eee3df 0,#fffdfbd9 64%,#fffdfa 100%); }
@@ -447,34 +449,34 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
   background-size:260% 100%;
 }
 .envelope__back {
-  background:linear-gradient(145deg,#f2e6eb,#e8d7de);
+  background:linear-gradient(145deg,#f5e8ee,#ead7df);
   box-shadow:inset 0 0 0 1px #fff9fb,0 22px 55px #794b5a18;
 }
-.envelope__front { background:linear-gradient(145deg,#fffafc,#f4e8ed 64%,#eadce2); }
-.envelope__front::after { background:linear-gradient(5deg,#f4e8ed,#fffdfc 72%);filter:drop-shadow(0 -1px 0 #c9aeba55); }
+.envelope__front { background:linear-gradient(145deg,#fff9fc,#f6e6ed 64%,#ead6df); }
+.envelope__front::after { background:linear-gradient(5deg,#f4e4eb,#fffafc 72%);filter:drop-shadow(0 -1px 0 #c9aeba55); }
 .envelope__flap {
-  background:linear-gradient(168deg,#fffdfc 0,#f7edf1 62%,#eadbe1);
+  background:linear-gradient(168deg,#fffdfc 0,#f8e8ef 62%,#ead5de);
   filter:drop-shadow(0 1px 0 #c9aeba4d);
 }
 .envelope__ribbon {
   top:calc(50% - 6px);height:12px;
-  background:#d9b3c180;
+  background:#dcaec0a6;
   border-block:1px solid #fffafccc;
   box-shadow:none;
 }
 .envelope__seal {
   width:56px;height:56px;top:50%;transform:translate(-50%,-50%);
-  background:#6b4853;
+  background:linear-gradient(145deg,#bd7891,#8e5269);
   border:1px solid #d4b47e;
   border-radius:50%;
-  box-shadow:0 9px 22px #593b4530,inset 0 0 0 4px #74515c,inset 0 0 0 5px #d9bd8e;
+  box-shadow:0 9px 22px #6f405130,inset 0 0 0 4px #a9657d,inset 0 0 0 5px #e2c89c;
 }
 .envelope__seal::after { inset:-5px;border-color:#d4b47e80;animation:modern-seal-breathe 4.4s ease-in-out infinite; }
 .envelope__seal>span { color:#fffaf8;font-size:20px;letter-spacing:.015em;text-shadow:none; }
-.envelope__botanical { opacity:.78; }
+.envelope__botanical { opacity:1; }
 .envelope__botanical img {
-  width:24%;height:82%;left:auto;right:2%;bottom:-8%;object-fit:contain;
-  transform:rotate(15deg);filter:saturate(.78) brightness(1.08);
+  width:110%;height:110%;max-width:none;left:-5%;right:auto;bottom:-5%;object-fit:contain;
+  transform:none;filter:saturate(.92) brightness(1.04) drop-shadow(0 8px 10px #5d654926);
 }
 .envelope__shell::after {
   content:"08  ·  11  ·  2026";position:absolute;z-index:5;right:22px;bottom:18px;
@@ -515,6 +517,17 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 @keyframes ribbon-left { to { transform:translateX(-104%);opacity:0; } }
 @keyframes ribbon-right { to { transform:translateX(104%);opacity:0; } }
 @keyframes band-release { to { transform:translateY(22px);opacity:0;filter:blur(1px); } }
+@keyframes enchanted-garden-breathe {
+  0%,100% { transform:scale(1);filter:saturate(.9) brightness(1.03) drop-shadow(0 8px 10px #5d65491f); }
+  50% { transform:scale(1.018);filter:saturate(1) brightness(1.08) drop-shadow(0 10px 14px #8d6c7a25); }
+}
+@keyframes enchanted-garden-awaken {
+  0% { transform:scale(1);filter:saturate(.92) brightness(1.04); }
+  55% { transform:scale(1.035);filter:saturate(1.12) brightness(1.12); }
+  100% { transform:scale(1.055);filter:saturate(1.02) brightness(1.08); }
+}
+.motion-enabled:not(.invitation-opening) .envelope__botanical img { animation:enchanted-garden-breathe 7s ease-in-out infinite; }
+.invitation-opening .envelope__botanical img { animation:enchanted-garden-awaken 1.65s var(--ease) both; }
 
 /* The border belongs to the closed envelope, so it leaves with the pocket. */
 .invitation-opening .envelope::before,
@@ -559,6 +572,7 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 
 @media(prefers-reduced-motion:reduce) {
   .invitation-opening .envelope::before,.invitation-opening .envelope::after { opacity:0; }
+  .envelope__botanical img { animation:none!important; }
 }
 
 /* A custom reply card submits quietly to the existing Google Form. */

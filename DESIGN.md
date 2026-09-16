@@ -110,3 +110,10 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 - A thin translucent belly band, small pressed monogram seal, fine date imprint and single jasmine corner replace the oversized ribbon-and-wax treatment. The folded inner card uses the same narrow band and single-line letterpress framing.
 - The ambient effect is a soft field of paper light rather than concentric rings. The seal lifts and the band parts horizontally for a cleaner editorial opening gesture.
 - These changes are limited to the cover envelope; the approved main invitation composition is unchanged.
+
+## Enchanted-garden envelope
+
+- The opening cover now feels like a romantic fairytale garden: blush and ivory flowers, sage climbing vines and warm firefly-like light form a living doorway around the seal.
+- The floral frame is original transparent artwork generated for this invitation, not a character or scene copied from an existing film or franchise.
+- The artwork gently breathes before opening and brightens as the envelope releases, while the approved extraction and unfolding choreography remains unchanged.
+- New optimized asset: `assets/enchanted-envelope-garden.webp`, 1200 × 800, transparent WebP, approximately 368 KB.
