@@ -721,22 +721,38 @@ function initializeRsvp() {
   const thanks = document.querySelector(".rsvp-thanks");
   const status = form.querySelector(".rsvp-form__status");
   const submit = form.querySelector(".rsvp-form__submit");
+  const attendingDetails = form.querySelectorAll("[data-attending-details]");
   const guestDetails = form.querySelector(".rsvp-guest-details");
   const guestCount = form.elements.namedItem("entry.1498135098");
+  const plusOneField = form.querySelector("[data-plus-one-field]");
   const plusOne = form.elements.namedItem("entry.1424661284");
   const acceptanceValue = "Joyfully accepts / ยินดีเข้าร่วมงาน";
   const declineValue = "Regretfully declines / ขออภัย ไม่สามารถเข้าร่วมงานได้";
   form.dataset.rsvpStartedAt = String(Date.now());
 
+  function setPlusOneRequired(required) {
+    plusOneField.hidden = !required;
+    plusOne.disabled = !required;
+    plusOne.required = required;
+    guestDetails.classList.toggle("is-single-guest", !required);
+  }
+
+  function setAttendingDetails(attending) {
+    attendingDetails.forEach(section => {
+      section.hidden = !attending;
+      section.querySelectorAll("input, select, textarea").forEach(control => { control.disabled = !attending; });
+    });
+    if (attending && !guestCount.value) guestCount.value = "1";
+    setPlusOneRequired(attending && guestCount.value === "2");
+  }
+
   form.querySelectorAll('input[name="entry.877086558"]').forEach(choice => {
     choice.addEventListener("change", () => {
-      const attending = choice.value === acceptanceValue;
-      guestDetails.hidden = !attending;
-      plusOne.disabled = !attending;
-      if (attending && (!guestCount.value || guestCount.value === "0")) guestCount.value = "1";
-      if (!attending) guestCount.value = "0";
+      setAttendingDetails(choice.value === acceptanceValue);
     });
   });
+  guestCount.addEventListener("change", () => setPlusOneRequired(guestCount.value === "2"));
+  setPlusOneRequired(guestCount.value === "2");
 
   form.addEventListener("submit", async event => {
     if (!("fetch" in window)) return;
@@ -758,9 +774,9 @@ function initializeRsvp() {
         body: JSON.stringify({
           name: responseName,
           attendance: attendanceValue === acceptanceValue ? "accept" : attendanceValue === declineValue ? "decline" : "",
-          partySize: formData.get("entry.1498135098"),
-          plusOne: formData.get("entry.1424661284") || "",
-          dietary: formData.get("entry.649557088") || "",
+          partySize: attendanceValue === declineValue ? "0" : formData.get("entry.1498135098"),
+          plusOne: attendanceValue === declineValue ? "" : formData.get("entry.1424661284") || "",
+          dietary: attendanceValue === declineValue ? "" : formData.get("entry.649557088") || "",
           language: document.documentElement.lang || "en",
           website: formData.get("website") || "",
           startedAt: Number(form.dataset.rsvpStartedAt)
@@ -786,8 +802,8 @@ function initializeRsvp() {
     lastRsvpName = "";
     form.reset();
     form.dataset.rsvpStartedAt = String(Date.now());
-    guestDetails.hidden = false;
-    plusOne.disabled = false;
+    setAttendingDetails(true);
+    guestCount.value = "";
     submit.disabled = false;
     form.classList.remove("is-submitting");
     status.textContent = "";

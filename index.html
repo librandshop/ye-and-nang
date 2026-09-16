@@ -27,7 +27,7 @@
     <link rel="preload" as="image" href="assets/enchanted-envelope-garden.webp" />
     <link rel="preload" as="image" href="assets/pink-blossom-vine.webp" />
     <link rel="stylesheet" href="styles.css?v=20260915-buttons-1" />
-    <link rel="stylesheet" href="letter.css?v=20260916-smooth-motion-10" />
+    <link rel="stylesheet" href="letter.css?v=20260916-decline-fields-11" />
   </head>
   <body class="letter-page">
     <div class="reading-progress" aria-hidden="true"></div>
@@ -291,20 +291,20 @@
                   </label>
                 </div>
               </fieldset>
-              <div class="rsvp-guest-details">
+              <div class="rsvp-guest-details" data-attending-details>
                 <label class="rsvp-field">
                   <span data-i18n="partySize">Guests attending, including you</span>
                   <select name="entry.1498135098" required>
                     <option value="" disabled selected data-i18n="chooseGuestCount">Choose</option>
-                    <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+                    <option value="1">1</option><option value="2">2</option>
                   </select>
                 </label>
-                <label class="rsvp-field">
+                <label class="rsvp-field" data-plus-one-field>
                   <span data-i18n="plusOneName">Your plus-one's name</span>
-                  <input name="entry.1424661284" type="text" autocomplete="name" data-i18n-placeholder="optionalPlaceholder" placeholder="Optional" />
+                  <input name="entry.1424661284" type="text" autocomplete="name" data-i18n-placeholder="guestNamePlaceholder" placeholder="Full name" />
                 </label>
               </div>
-              <label class="rsvp-field">
+              <label class="rsvp-field" data-attending-details>
                 <span data-i18n="dietaryNeeds">Dietary requirements or allergies</span>
                 <textarea name="entry.649557088" rows="3" data-i18n-placeholder="dietaryPlaceholder" placeholder="Please tell us anything we should know"></textarea>
               </label>
@@ -334,7 +334,7 @@
     <button class="motion-toggle" type="button" aria-pressed="false" hidden><span class="motion-toggle__icon" aria-hidden="true">Ⅱ</span><span class="motion-toggle__label">Pause motion</span></button>
     <script src="photo-config.js?v=20260915-photo-ready-1"></script>
     <script src="rsvp-config.js?v=20260916-secure-rsvp-2"></script>
-    <script src="script.js?v=20260916-smooth-motion-4"></script>
+    <script src="script.js?v=20260916-smart-guests-6"></script>
   </body>
 </html>
 

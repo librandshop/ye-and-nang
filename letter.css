@@ -621,6 +621,9 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 .rsvp-choice input:checked+span { border-color:#ae6682;background:linear-gradient(135deg,#f4dce6,#fff7fa);box-shadow:inset 0 0 0 4px #fff,0 7px 19px #a46d8015; }
 .rsvp-choice input:focus-visible+span { outline:2px solid #91516e;outline-offset:4px; }
 .rsvp-guest-details { display:grid;grid-template-columns:1fr 1.45fr;gap:22px; }
+.rsvp-guest-details.is-single-guest { grid-template-columns:1fr; }
+.rsvp-form [data-attending-details][hidden] { display:none!important; }
+.rsvp-form [data-plus-one-field][hidden] { display:none!important; }
 .rsvp-form__status { min-height:20px;margin:-7px 0 -11px!important;color:#9a5f77!important;font:italic 15px/1.5 "Cormorant Garamond",serif!important;text-align:center; }
 .rsvp-form__submit { justify-self:center;gap:12px;min-width:210px; }
 .rsvp-form__submit span:last-child { font-size:13px; }
