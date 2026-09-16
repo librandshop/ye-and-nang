@@ -411,48 +411,110 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
    -------------------------------------------------------------------------- */
 .invitation-intro {
   background:
-    radial-gradient(circle at 50% 47%,#fffefd 0 19%,#fffaf6 43%,transparent 67%),
-    radial-gradient(ellipse at 50% 112%,#c9a4a017 0 25%,transparent 64%),
-    linear-gradient(135deg,#fffdfa,#f7f0ed 52%,#fffdfb);
+    radial-gradient(ellipse at 50% 54%,#fff 0 20%,#fffafc 45%,transparent 69%),
+    linear-gradient(135deg,#fffdfc,#f8eff3 52%,#fffdfc);
 }
 .invitation-intro::before {
-  border-color:#c6a77773;
-  box-shadow:inset 0 0 0 5px #fffdfb,inset 0 0 0 6px #ddcec866;
+  border-color:#d4b47e6b;
+  box-shadow:inset 0 0 0 5px #fffdfc,inset 0 0 0 6px #efdce3;
 }
-.invitation-intro::after { border-color:#ddd0cb; }
+.invitation-intro::after { border-color:#e8cbd6; }
 .opening-halo {
-  background:radial-gradient(circle,#fff 0 27%,#fff9ed61 41%,#cfb3aa16 58%,transparent 71%);
-  filter:drop-shadow(0 26px 80px #76584f17);
+  width:min(800px,78vw);aspect-ratio:1.35;
+  background:radial-gradient(ellipse,#fff 0 24%,#fff8e96b 42%,#efdce32b 60%,transparent 73%);
+  filter:blur(1px) drop-shadow(0 30px 90px #794b5a13);
 }
+.opening-halo::before,.opening-halo::after,.opening-halo i { display:none; }
 .opening-curtain--left { background:linear-gradient(90deg,#eee3df 0,#fffdfbd9 64%,#fffdfa 100%); }
 .opening-curtain--right { background:linear-gradient(270deg,#eee3df 0,#fffdfbd9 64%,#fffdfa 100%); }
 
+.envelope-scene { width:min(86vw,520px); }
+.envelope {
+  filter:drop-shadow(0 26px 35px #6947541c);
+  transition:transform .65s var(--ease),filter .65s ease;
+}
+.motion-enabled .envelope:hover {
+  transform:translateY(-4px);
+  filter:drop-shadow(0 32px 42px #69475422);
+}
 .envelope::before {
-  border-color:#b99a687d;
-  box-shadow:0 0 0 3px #fffdfb,0 0 0 4px #d8c7c0,0 20px 55px #5e49411a;
+  inset:-5px;border-color:#d4b47e78;border-radius:3px;
+  box-shadow:0 0 0 4px #fffdfc,0 16px 45px #714c5912;
+}
+.envelope::after {
+  inset:-5px;border-radius:3px;
+  background:linear-gradient(108deg,transparent 36%,#fffdf6a8 48%,transparent 60%);
+  background-size:260% 100%;
 }
 .envelope__back {
-  background:repeating-linear-gradient(90deg,#a9928510 0 1px,transparent 1px 5px),linear-gradient(145deg,#e9ddd8,#d5c3bd);
-  box-shadow:inset 0 0 0 1px #fff,inset 0 -22px 45px #76594f0d,0 28px 70px #55463f1f;
+  background:linear-gradient(145deg,#f2e6eb,#e8d7de);
+  box-shadow:inset 0 0 0 1px #fff9fb,0 22px 55px #794b5a18;
 }
-.envelope__front { background:linear-gradient(145deg,#fffaf7,#eaded9 58%,#d8c6bf); }
-.envelope__front::after { background:linear-gradient(5deg,#eee3df,#fffdfb 68%);filter:drop-shadow(0 -1px 0 #a98e8460); }
+.envelope__front { background:linear-gradient(145deg,#fffafc,#f4e8ed 64%,#eadce2); }
+.envelope__front::after { background:linear-gradient(5deg,#f4e8ed,#fffdfc 72%);filter:drop-shadow(0 -1px 0 #c9aeba55); }
 .envelope__flap {
-  background:linear-gradient(168deg,#fffefd 0,#eee4e0 60%,#d8c5be);
-  filter:drop-shadow(0 2px 1px #8d706650);
+  background:linear-gradient(168deg,#fffdfc 0,#f7edf1 62%,#eadbe1);
+  filter:drop-shadow(0 1px 0 #c9aeba4d);
 }
 .envelope__ribbon {
-  background:linear-gradient(#efe2dd,#fffaf6 26%,#d8c5bd 49%,#f7eee8 70%,#d9c6be);
-  border-color:#fffdf8;
-  box-shadow:0 3px 8px #5f4c4530,inset 0 1px #fff,inset 0 -1px #aa9188;
+  top:calc(50% - 6px);height:12px;
+  background:#d9b3c180;
+  border-block:1px solid #fffafccc;
+  box-shadow:none;
 }
 .envelope__seal {
-  background:
-    radial-gradient(circle at 32% 24%,#ecd8d5 0 5%,transparent 26%),
-    radial-gradient(circle at 46% 52%,#bd8e91,#8e6367 76%);
-  border-color:#ecddda;
-  box-shadow:0 10px 20px #5b444254,inset 0 0 0 4px #b98c8f,inset 0 0 0 6px #e0c4c3;
+  width:56px;height:56px;top:50%;transform:translate(-50%,-50%);
+  background:#6b4853;
+  border:1px solid #d4b47e;
+  border-radius:50%;
+  box-shadow:0 9px 22px #593b4530,inset 0 0 0 4px #74515c,inset 0 0 0 5px #d9bd8e;
 }
+.envelope__seal::after { inset:-5px;border-color:#d4b47e80;animation:modern-seal-breathe 4.4s ease-in-out infinite; }
+.envelope__seal>span { color:#fffaf8;font-size:20px;letter-spacing:.015em;text-shadow:none; }
+.envelope__botanical { opacity:.78; }
+.envelope__botanical img {
+  width:24%;height:82%;left:auto;right:2%;bottom:-8%;object-fit:contain;
+  transform:rotate(15deg);filter:saturate(.78) brightness(1.08);
+}
+.envelope__shell::after {
+  content:"08  ·  11  ·  2026";position:absolute;z-index:5;right:22px;bottom:18px;
+  color:#9b6947;font:500 7px/1 "Manrope",Arial,sans-serif;letter-spacing:.22em;
+}
+.keepsake__inside {
+  background:linear-gradient(110deg,transparent 38%,#fff9df42 50%,transparent 62%),#fffdfb;
+  border-color:#d4b47e8f;box-shadow:0 30px 80px #5e37432b,0 0 58px #fff8e8;
+}
+.keepsake__inside::before { display:none; }
+.keepsake__inside::after { inset:12px;border-color:#e8cbd6; }
+.keepsake__door {
+  background:linear-gradient(90deg,#fffafc,#fff 82%,#f8eef2);
+  border-color:#d4b47e8f;box-shadow:inset 0 0 24px #bd84930a;
+}
+.keepsake__door--right { background:linear-gradient(90deg,#f8eef2,#fff 16%,#fffafc); }
+.keepsake__door::before { display:none; }
+.keepsake__door::after { inset:12px;border-color:#e8cbd6; }
+.keepsake__band {
+  top:calc(50% - 20px);height:40px;
+  background:#f1e1e7e8;border-color:#d4b47e80;
+  box-shadow:0 7px 20px #70445012;
+}
+.keepsake__band span { color:#69464f;font-size:23px;letter-spacing:.01em; }
+.opening-heading::before { color:#b08143; }
+.opening-heading h2 { color:#593b45; }
+.opening-heading .eyebrow { color:#95546c; }
+.invitation-intro__prompt { color:#75505d; }
+
+@keyframes modern-seal-breathe {
+  0%,68%,100% { opacity:.25;scale:1; }
+  82% { opacity:.72;scale:1.12; }
+}
+@keyframes seal-release {
+  38% { transform:translate(-50%,-58%) scale(.96);opacity:1; }
+  to { transform:translate(-50%,-92%) scale(.82);opacity:0;filter:blur(1px); }
+}
+@keyframes ribbon-left { to { transform:translateX(-104%);opacity:0; } }
+@keyframes ribbon-right { to { transform:translateX(104%);opacity:0; } }
+@keyframes band-release { to { transform:translateY(22px);opacity:0;filter:blur(1px); } }
 
 /* The border belongs to the closed envelope, so it leaves with the pocket. */
 .invitation-opening .envelope::before,
@@ -464,6 +526,12 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 }
 
 @media(max-width:700px) {
+  .opening-halo { top:55%;width:145vw; }
+  .envelope-scene { width:min(84vw,400px); }
+  .envelope::before { inset:-4px;box-shadow:0 0 0 3px #fffdfc,0 14px 34px #714c5912; }
+  .envelope__seal { width:48px;height:48px; }
+  .envelope__seal>span { font-size:17px; }
+  .envelope__shell::after { right:16px;bottom:13px;font-size:6px; }
   /* One arch and one paper edge: no lines may cross the invitation copy. */
   .hero::after { display:none; }
   .hero__arch {

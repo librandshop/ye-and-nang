@@ -103,3 +103,10 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 - The envelope palette is pearl ivory, warm stone, muted rose and champagne rather than saturated pink.
 - The envelope outline leaves with the pocket during opening, so no rectangular frame remains around the unfolded letter.
 - Mobile hero framing is reduced to one clean inner arch and the paper edge; circular accent lines no longer cross headings, names or the date card.
+
+## Modern envelope system
+
+- The cover now uses the main invitation's ivory, pale blush, champagne and wine palette without glossy pink bevels.
+- A thin translucent belly band, small pressed monogram seal, fine date imprint and single jasmine corner replace the oversized ribbon-and-wax treatment. The folded inner card uses the same narrow band and single-line letterpress framing.
+- The ambient effect is a soft field of paper light rather than concentric rings. The seal lifts and the band parts horizontally for a cleaner editorial opening gesture.
+- These changes are limited to the cover envelope; the approved main invitation composition is unchanged.
