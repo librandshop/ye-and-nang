@@ -1,2 +1,2 @@
-// Filled after the secure RSVP Worker is deployed. Never put credentials here.
-window.RSVP_API_URL = "";
+// Public endpoint only. The GitHub credential remains encrypted inside Cloudflare.
+window.RSVP_API_URL = "https://ye-and-nang-rsvp.librandshop.workers.dev";

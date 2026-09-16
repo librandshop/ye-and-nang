@@ -1,6 +1,6 @@
-# RSVP Google Form backend
+# Archived RSVP Google Form backend
 
-> Current implementation: guests use the custom English, Thai and Burmese RSVP card built into `index.html`. It submits to the existing Google Form response sheet without opening Google's standard form design. The field IDs and exact attendance values are documented in the HTML and covered by `rsvp-check.cjs`; keep them unchanged unless the live Google Form questions are replaced.
+> Archived on 16 September 2026. The invitation no longer submits to Google Forms. Responses now pass through the Cloudflare Worker documented in `RSVP-SECURE-SETUP.md` and become private issues in `librandshop/ye-and-nang-rsvp`. The notes below remain only as historical reference.
 
 The setup notes below are retained as the original form brief and may not exactly match the current five-field live form.
 

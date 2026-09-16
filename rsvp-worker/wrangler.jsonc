@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "ye-and-nang-rsvp",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-16",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://librandshop.github.io",
+    "GITHUB_REPOSITORY": "librandshop/ye-and-nang-rsvp"
+  },
+  "secrets": {
+    "required": ["GITHUB_TOKEN"]
+  },
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "head_sampling_rate": 1
+    }
+  }
+}

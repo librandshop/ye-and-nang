@@ -563,28 +563,25 @@ function initializeRsvp() {
     const responseName = form.elements.namedItem("entry.1459528256").value.trim();
     try {
       const apiUrl = typeof window.RSVP_API_URL === "string" ? window.RSVP_API_URL.trim() : "";
-      if (apiUrl) {
-        const formData = new FormData(form);
-        const attendanceValue = formData.get("entry.877086558");
-        const response = await fetch(apiUrl, {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({
-            name: responseName,
-            attendance: attendanceValue === acceptanceValue ? "accept" : attendanceValue === declineValue ? "decline" : "",
-            partySize: formData.get("entry.1498135098"),
-            plusOne: formData.get("entry.1424661284") || "",
-            dietary: formData.get("entry.649557088") || "",
-            language: document.documentElement.lang || "en",
-            website: formData.get("website") || "",
-            startedAt: Number(form.dataset.rsvpStartedAt)
-          })
-        });
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok || !result.ok) throw new Error(result.error || "RSVP could not be saved.");
-      } else {
-        await fetch(form.action, { method: "POST", mode: "no-cors", body: new URLSearchParams(new FormData(form)) });
-      }
+      if (!apiUrl) throw new Error("RSVP service is not configured.");
+      const formData = new FormData(form);
+      const attendanceValue = formData.get("entry.877086558");
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name: responseName,
+          attendance: attendanceValue === acceptanceValue ? "accept" : attendanceValue === declineValue ? "decline" : "",
+          partySize: formData.get("entry.1498135098"),
+          plusOne: formData.get("entry.1424661284") || "",
+          dietary: formData.get("entry.649557088") || "",
+          language: document.documentElement.lang || "en",
+          website: formData.get("website") || "",
+          startedAt: Number(form.dataset.rsvpStartedAt)
+        })
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) throw new Error(result.error || "RSVP could not be saved.");
       form.hidden = true;
       thanks.hidden = false;
       lastRsvpName = responseName;

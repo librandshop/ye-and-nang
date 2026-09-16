@@ -1,8 +1,0 @@
-name = "ye-and-nang-rsvp"
-main = "src/index.js"
-compatibility_date = "2026-09-16"
-
-[vars]
-ALLOWED_ORIGINS = "https://librandshop.github.io"
-
-# Encrypted secrets: GITHUB_TOKEN and GITHUB_REPOSITORY

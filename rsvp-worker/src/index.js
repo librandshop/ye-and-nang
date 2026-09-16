@@ -26,7 +26,7 @@ function clean(value, maxLength) {
 }
 
 function markdown(value) {
-  return value ? value.replace(/[<>]/g, character => character === "<" ? "&lt;" : "&gt;") : "—";
+  return value ? value.replace(/[<>|]/g, character => ({ "<": "&lt;", ">": "&gt;", "|": "\\|" })[character]) : "—";
 }
 
 function validate(payload) {
