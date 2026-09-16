@@ -124,3 +124,10 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 - Eight asymmetric placements enrich the hero, personal note, calendar area, program, venue, countdown and RSVP while remaining behind all text and controls. The hero receives a balanced high-right and low-left pair.
 - The vines unfurl with their section and then move through a restrained slow sway. Mobile versions retreat toward the paper edges and reduced-motion mode keeps them static.
 - New optimized asset: `assets/pink-blossom-vine.webp`, 733 × 1100, transparent WebP.
+
+## Wind garden motion
+
+- Six additional small pink vines fill previously quiet lower corners, bringing the main invitation to fourteen pink-blossom placements without changing content geometry.
+- Every botanical family now participates in the breeze: enchanted envelope florals, folded-card vines, hero name sprigs, pink vines, blush sprigs, jasmine margin vines and the continuous letter vine.
+- Motion is layered rather than synchronized. Stems bend in alternating directions and durations while their parent arrangements drift more slowly, producing a natural wind effect instead of identical looping movement.
+- Pause-motion and operating-system reduced-motion preferences stop every new wind animation.
