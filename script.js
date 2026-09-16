@@ -468,6 +468,19 @@ Object.assign(translations.en, {
   rsvpThanksNamed: "Thank you, {name}",
   rsvpThanksCopy: "Your reply has been received. We cannot wait to celebrate with you.",
   sendAnotherRsvp: "Send another response",
+  giftOffer: "We cannot attend, but we would love to send a wedding gift",
+  giftTitle: "A gift sent with love",
+  giftCopy: "Your warm wishes already mean so much to us. If you wish, you may use any option below.",
+  promptPay: "PromptPay",
+  kasikornBank: "Kasikorn Bank",
+  kpay: "KPay",
+  paymentMethod: "Payment method used",
+  choosePaymentMethod: "Choose a payment method",
+  uploadSlip: "Attach your transfer slip",
+  uploadSlipHelp: "Optional · JPG, PNG or WebP · up to 5 MB",
+  selectedSlip: "Selected: {name}",
+  invalidSlip: "Please choose a JPG, PNG or WebP image.",
+  slipTooLarge: "Please choose a slip image smaller than 5 MB.",
   dearGuests: "To our dear family & friends,",
   dayTogether: "A day to remember",
   skipOpening: "Skip to invitation",
@@ -506,6 +519,19 @@ Object.assign(translations.th, {
   rsvpThanksNamed: "ขอบคุณ {name}",
   rsvpThanksCopy: "เราได้รับคำตอบของคุณแล้ว และแทบรอไม่ไหวที่จะได้ฉลองด้วยกัน",
   sendAnotherRsvp: "ส่งคำตอบอื่น",
+  giftOffer: "เราไม่สามารถไปร่วมงานได้ แต่ขอส่งของขวัญแต่งงานด้วยความยินดี",
+  giftTitle: "ของขวัญที่ส่งมาด้วยความรัก",
+  giftCopy: "คำอวยพรของคุณมีความหมายกับเรามาก หากประสงค์สามารถเลือกช่องทางด้านล่างได้",
+  promptPay: "พร้อมเพย์",
+  kasikornBank: "ธนาคารกสิกรไทย",
+  kpay: "KPay",
+  paymentMethod: "ช่องทางการโอนเงิน",
+  choosePaymentMethod: "เลือกช่องทางการโอน",
+  uploadSlip: "แนบสลิปการโอนเงิน",
+  uploadSlipHelp: "ไม่บังคับ · JPG, PNG หรือ WebP · ไม่เกิน 5 MB",
+  selectedSlip: "ไฟล์ที่เลือก: {name}",
+  invalidSlip: "โปรดเลือกไฟล์ภาพ JPG, PNG หรือ WebP",
+  slipTooLarge: "โปรดเลือกภาพสลิปที่มีขนาดไม่เกิน 5 MB",
   dearGuests: "ถึงครอบครัวและเพื่อน ๆ ที่รัก",
   dayTogether: "วันแห่งความทรงจำ",
   skipOpening: "ข้ามไปยังการ์ดเชิญ",
@@ -545,6 +571,19 @@ translations.my = {
   rsvpThanksNamed: "ကျေးဇူးတင်ပါတယ်၊ {name}",
   rsvpThanksCopy: "သင့်အကြောင်းပြန်ချက်ကို လက်ခံရရှိပါပြီ။ အတူတကွ ဆင်နွှဲရမည့်နေ့ကို စောင့်မျှော်နေပါသည်။",
   sendAnotherRsvp: "နောက်ထပ် အကြောင်းပြန်ချက် ပို့ရန်",
+  giftOffer: "မတက်ရောက်နိုင်သော်လည်း မင်္ဂလာလက်ဖွဲ့ ပေးပို့လိုပါသည်",
+  giftTitle: "ချစ်ခြင်းဖြင့် ပေးပို့သော လက်ဆောင်",
+  giftCopy: "သင်၏ဆုမွန်ကောင်းများက ကျွန်ုပ်တို့အတွက် အလွန်တန်ဖိုးရှိပါသည်။ ဆန္ဒရှိပါက အောက်ပါနည်းလမ်းများမှ ပေးပို့နိုင်ပါသည်။",
+  promptPay: "PromptPay",
+  kasikornBank: "Kasikorn ဘဏ်",
+  kpay: "KPay",
+  paymentMethod: "ငွေလွှဲနည်းလမ်း",
+  choosePaymentMethod: "ငွေလွှဲနည်းလမ်း ရွေးချယ်ရန်",
+  uploadSlip: "ငွေလွှဲပြေစာပုံ တွဲရန်",
+  uploadSlipHelp: "မဖြည့်လည်းရပါသည် · JPG, PNG သို့မဟုတ် WebP · 5 MB အထိ",
+  selectedSlip: "ရွေးထားသောဖိုင်: {name}",
+  invalidSlip: "JPG, PNG သို့မဟုတ် WebP ပုံဖိုင်ကို ရွေးချယ်ပါ။",
+  slipTooLarge: "5 MB ထက်ငယ်သော ပြေစာပုံကို ရွေးချယ်ပါ။",
   dearGuests: "ချစ်ရသော မိသားစုနှင့် မိတ်ဆွေများသို့",
   dayTogether: "အမှတ်တရ နေ့လေးတစ်နေ့",
   skipOpening: "ဖိတ်စာသို့ တိုက်ရိုက်သွားရန်",
@@ -726,8 +765,16 @@ function initializeRsvp() {
   const guestCount = form.elements.namedItem("entry.1498135098");
   const plusOneField = form.querySelector("[data-plus-one-field]");
   const plusOne = form.elements.namedItem("entry.1424661284");
+  const giftSection = form.querySelector("[data-gift-section]");
+  const giftIntent = form.querySelector("[data-gift-intent]");
+  const giftDetails = form.querySelector("[data-gift-details]");
+  const giftMethod = form.querySelector("[data-gift-method]");
+  const giftSlip = form.querySelector("[data-gift-slip]");
+  const giftFilename = form.querySelector("[data-gift-filename]");
   const acceptanceValue = "Joyfully accepts / ยินดีเข้าร่วมงาน";
   const declineValue = "Regretfully declines / ขออภัย ไม่สามารถเข้าร่วมงานได้";
+  const giftSlipTypes = new Set(["image/jpeg", "image/png", "image/webp"]);
+  const maxGiftSlipBytes = 5 * 1024 * 1024;
   form.dataset.rsvpStartedAt = String(Date.now());
 
   function setPlusOneRequired(required) {
@@ -746,19 +793,72 @@ function initializeRsvp() {
     setPlusOneRequired(attending && guestCount.value === "2");
   }
 
+  function setGiftDetails(enabled) {
+    giftDetails.hidden = !enabled;
+    giftMethod.disabled = !enabled;
+    giftMethod.required = enabled;
+    giftSlip.disabled = !enabled;
+    if (!enabled) {
+      giftMethod.value = "";
+      giftSlip.value = "";
+      giftFilename.textContent = "";
+    }
+  }
+
+  function setGiftSection(visible) {
+    giftSection.hidden = !visible;
+    giftIntent.disabled = !visible;
+    if (!visible) giftIntent.checked = false;
+    setGiftDetails(visible && giftIntent.checked);
+  }
+
+  function validGiftSlip(file) {
+    if (!file) return true;
+    return giftSlipTypes.has(file.type) && file.size <= maxGiftSlipBytes;
+  }
+
   form.querySelectorAll('input[name="entry.877086558"]').forEach(choice => {
     choice.addEventListener("change", () => {
-      setAttendingDetails(choice.value === acceptanceValue);
+      const attending = choice.value === acceptanceValue;
+      setAttendingDetails(attending);
+      setGiftSection(!attending);
     });
   });
   guestCount.addEventListener("change", () => setPlusOneRequired(guestCount.value === "2"));
+  giftIntent.addEventListener("change", () => setGiftDetails(giftIntent.checked));
+  giftSlip.addEventListener("change", () => {
+    const file = giftSlip.files?.[0];
+    const copy = translations[document.documentElement.lang] || translations.en;
+    status.textContent = "";
+    if (!file) { giftFilename.textContent = ""; return; }
+    if (!giftSlipTypes.has(file.type)) {
+      giftSlip.value = "";
+      giftFilename.textContent = "";
+      status.textContent = copy.invalidSlip;
+      return;
+    }
+    if (file.size > maxGiftSlipBytes) {
+      giftSlip.value = "";
+      giftFilename.textContent = "";
+      status.textContent = copy.slipTooLarge;
+      return;
+    }
+    giftFilename.textContent = copy.selectedSlip.replace("{name}", file.name);
+  });
   setPlusOneRequired(guestCount.value === "2");
+  setGiftSection(false);
 
   form.addEventListener("submit", async event => {
     if (!("fetch" in window)) return;
     event.preventDefault();
     if (!form.reportValidity()) return;
     const copy = translations[document.documentElement.lang] || translations.en;
+    const slip = giftSlip.files?.[0];
+    if (!validGiftSlip(slip)) {
+      status.textContent = slip?.size > maxGiftSlipBytes ? copy.slipTooLarge : copy.invalidSlip;
+      giftSlip.focus({ preventScroll: true });
+      return;
+    }
     submit.disabled = true;
     form.classList.add("is-submitting");
     status.textContent = copy.sendingRsvp;
@@ -768,20 +868,27 @@ function initializeRsvp() {
       if (!apiUrl) throw new Error("RSVP service is not configured.");
       const formData = new FormData(form);
       const attendanceValue = formData.get("entry.877086558");
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          name: responseName,
-          attendance: attendanceValue === acceptanceValue ? "accept" : attendanceValue === declineValue ? "decline" : "",
-          partySize: attendanceValue === declineValue ? "0" : formData.get("entry.1498135098"),
-          plusOne: attendanceValue === declineValue ? "" : formData.get("entry.1424661284") || "",
-          dietary: attendanceValue === declineValue ? "" : formData.get("entry.649557088") || "",
-          language: document.documentElement.lang || "en",
-          website: formData.get("website") || "",
-          startedAt: Number(form.dataset.rsvpStartedAt)
-        })
-      });
+      const payload = {
+        name: responseName,
+        attendance: attendanceValue === acceptanceValue ? "accept" : attendanceValue === declineValue ? "decline" : "",
+        partySize: attendanceValue === declineValue ? "0" : formData.get("entry.1498135098"),
+        plusOne: attendanceValue === declineValue ? "" : formData.get("entry.1424661284") || "",
+        dietary: attendanceValue === declineValue ? "" : formData.get("entry.649557088") || "",
+        giftIntent: attendanceValue === declineValue && giftIntent.checked,
+        giftPaymentMethod: attendanceValue === declineValue && giftIntent.checked ? giftMethod.value : "",
+        language: document.documentElement.lang || "en",
+        website: formData.get("website") || "",
+        startedAt: Number(form.dataset.rsvpStartedAt)
+      };
+      let body = JSON.stringify(payload);
+      const headers = { "content-type": "application/json" };
+      if (slip) {
+        body = new FormData();
+        body.append("payload", JSON.stringify(payload));
+        body.append("slip", slip, slip.name);
+        delete headers["content-type"];
+      }
+      const response = await fetch(apiUrl, { method: "POST", headers, body });
       const result = await response.json().catch(() => ({}));
       if (!response.ok || !result.ok) throw new Error(result.error || "RSVP could not be saved.");
       form.hidden = true;
@@ -804,6 +911,7 @@ function initializeRsvp() {
     form.dataset.rsvpStartedAt = String(Date.now());
     setAttendingDetails(true);
     guestCount.value = "";
+    setGiftSection(false);
     submit.disabled = false;
     form.classList.remove("is-submitting");
     status.textContent = "";

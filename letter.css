@@ -624,6 +624,41 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 .rsvp-guest-details.is-single-guest { grid-template-columns:1fr; }
 .rsvp-form [data-attending-details][hidden] { display:none!important; }
 .rsvp-form [data-plus-one-field][hidden] { display:none!important; }
+.wedding-gift[hidden],.wedding-gift__details[hidden] { display:none!important; }
+.wedding-gift { padding:5px;border-radius:32px;background:linear-gradient(135deg,#f4dce6,#fffafc 58%,#f8e8ee);box-shadow:0 14px 38px #92566f14; }
+.wedding-gift__choice { display:flex;align-items:center;gap:13px;padding:18px 20px;cursor:pointer;border:1px solid #e1bdcb;border-radius:28px;background:#fffdfceb;color:#76515e;-webkit-tap-highlight-color:transparent; }
+.wedding-gift__choice input { position:absolute;width:1px;height:1px;opacity:0; }
+.wedding-gift__choice>span { display:grid;place-items:center;flex:0 0 32px;width:32px;height:32px;border:1px solid #d5a2b5;border-radius:50%;background:#fff;color:#ad6681;font:18px/1 Georgia,serif;transition:.25s ease; }
+.wedding-gift__choice b { font:500 13px/1.7 "Manrope",Arial,sans-serif; }
+.wedding-gift__choice input:checked~span { border-color:#a85f7a;background:#ad6681;color:#fff;transform:scale(1.06); }
+.wedding-gift__choice input:focus-visible~span { outline:2px solid #91516e;outline-offset:4px; }
+.wedding-gift__details { display:grid;gap:22px;padding:25px 21px 22px; }
+.wedding-gift__heading { display:flex;align-items:flex-start;gap:14px;text-align:left; }
+.wedding-gift__heading>span { color:#b78352;font-size:15px; }
+.wedding-gift__heading h3 { color:#704b58;font:italic 27px/1.15 "Cormorant Garamond",Georgia,serif; }
+.wedding-gift__heading p { margin:7px 0 0!important;color:#8b7079!important;font-size:12px!important;line-height:1.8!important; }
+.wedding-gift__methods { display:grid;grid-template-columns:1.18fr 1fr 1fr;gap:12px;align-items:stretch; }
+.payment-card { min-width:0;margin:0;padding:15px 12px;border:1px solid #ead2dc;border-radius:19px;background:#fffdfc;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;box-shadow:inset 0 0 0 4px #fff,0 8px 23px #9968790e; }
+.payment-card--qr { grid-row:span 2;padding:10px 10px 14px; }
+.payment-card--qr img { display:block;width:100%;max-width:190px;aspect-ratio:887/1200;object-fit:contain;border-radius:12px;background:#fff; }
+.payment-card figcaption { display:grid;gap:3px; }
+.payment-card strong { color:#77515f;font:600 11px/1.4 "Manrope",Arial,sans-serif; }
+.payment-card>span:not(.payment-card__mark),.payment-card figcaption span { color:#6e4b56;font:600 14px/1.3 "Manrope",Arial,sans-serif;letter-spacing:.04em;user-select:all; }
+.payment-card small { color:#9a7a85;font:500 9px/1.5 "Manrope",Arial,sans-serif; }
+.payment-card__mark { display:grid;place-items:center;min-width:42px;height:30px;padding:0 7px;border-radius:9px;background:#f2dce5;color:#a35e79;font:700 10px/1 "Manrope",Arial,sans-serif; }
+.wedding-gift__method { margin-top:2px; }
+.wedding-gift__upload { display:flex;align-items:center;gap:14px;padding:15px 17px;border:1px dashed #d4a3b6;border-radius:18px;background:#fffafc;cursor:pointer;color:#76515e;transition:border-color .25s,background .25s,transform .25s; }
+.wedding-gift__upload:hover { border-color:#ad6681;background:#fff;transform:translateY(-1px); }
+.wedding-gift__upload input { position:absolute;width:1px;height:1px;opacity:0; }
+.wedding-gift__upload-icon { display:grid;place-items:center;flex:0 0 37px;width:37px;height:37px;border-radius:50%;background:#f1d7e1;color:#a7607a;font-size:22px; }
+.wedding-gift__upload>span:last-child { display:grid;gap:3px; }
+.wedding-gift__upload b { font:600 12px/1.4 "Manrope",Arial,sans-serif; }
+.wedding-gift__upload small { color:#a1858f;font:500 9px/1.5 "Manrope",Arial,sans-serif; }
+.wedding-gift__upload input:focus-visible~.wedding-gift__upload-icon { outline:2px solid #91516e;outline-offset:3px; }
+.wedding-gift__filename { min-height:0!important;margin:-13px 0 0!important;color:#9b6177!important;font:italic 13px/1.5 "Cormorant Garamond",serif!important;text-align:center;overflow-wrap:anywhere; }
+html[lang="th"] .wedding-gift__choice b,html[lang="th"] .wedding-gift__heading h3,html[lang="th"] .wedding-gift__heading p,html[lang="th"] .wedding-gift__upload b,html[lang="th"] .wedding-gift__upload small,
+html[lang="my"] .wedding-gift__choice b,html[lang="my"] .wedding-gift__heading h3,html[lang="my"] .wedding-gift__heading p,html[lang="my"] .wedding-gift__upload b,html[lang="my"] .wedding-gift__upload small { font-family:"Noto Sans Thai",Tahoma,sans-serif;font-style:normal; }
+html[lang="my"] .wedding-gift__choice b,html[lang="my"] .wedding-gift__heading h3,html[lang="my"] .wedding-gift__heading p,html[lang="my"] .wedding-gift__upload b,html[lang="my"] .wedding-gift__upload small { font-family:"Noto Sans Myanmar","Myanmar Text",sans-serif;line-height:1.8; }
 .rsvp-form__status { min-height:20px;margin:-7px 0 -11px!important;color:#9a5f77!important;font:italic 15px/1.5 "Cormorant Garamond",serif!important;text-align:center; }
 .rsvp-form__submit { justify-self:center;gap:12px;min-width:210px; }
 .rsvp-form__submit span:last-child { font-size:13px; }
@@ -648,6 +683,13 @@ html[lang="my"] .rsvp-choice b { font-size:11px; }
   .rsvp-field>span,.rsvp-attendance legend { font-size:17px; }
   .rsvp-field input,.rsvp-field textarea,.rsvp-field select { font-size:14px; }
   .rsvp-thanks h3 { font-size:32px; }
+  .wedding-gift { border-radius:26px; }
+  .wedding-gift__choice { padding:15px;border-radius:22px; }
+  .wedding-gift__choice b { font-size:11px; }
+  .wedding-gift__details { padding:21px 13px 17px; }
+  .wedding-gift__methods { grid-template-columns:1fr 1fr; }
+  .payment-card--qr { grid-column:1/-1;grid-row:auto; }
+  .payment-card--qr img { max-width:220px; }
 }
 .motion-paused .rsvp-form.is-submitting .rsvp-form__submit span:last-child,.motion-paused .rsvp-thanks>span { animation:none!important; }
 

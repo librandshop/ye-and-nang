@@ -27,7 +27,7 @@
     <link rel="preload" as="image" href="assets/enchanted-envelope-garden.webp" />
     <link rel="preload" as="image" href="assets/pink-blossom-vine.webp" />
     <link rel="stylesheet" href="styles.css?v=20260915-buttons-1" />
-    <link rel="stylesheet" href="letter.css?v=20260916-decline-fields-11" />
+    <link rel="stylesheet" href="letter.css?v=20260916-gift-slip-12" />
   </head>
   <body class="letter-page">
     <div class="reading-progress" aria-hidden="true"></div>
@@ -291,6 +291,55 @@
                   </label>
                 </div>
               </fieldset>
+              <div class="wedding-gift" data-gift-section hidden>
+                <label class="wedding-gift__choice">
+                  <input type="checkbox" name="giftIntent" value="yes" data-gift-intent />
+                  <span aria-hidden="true">♡</span>
+                  <b data-i18n="giftOffer">We cannot attend, but we would love to send a wedding gift</b>
+                </label>
+                <div class="wedding-gift__details" data-gift-details hidden>
+                  <div class="wedding-gift__heading">
+                    <span aria-hidden="true">✦</span>
+                    <div>
+                      <h3 data-i18n="giftTitle">A gift sent with love</h3>
+                      <p data-i18n="giftCopy">Your warm wishes already mean so much to us. If you wish, you may use any option below.</p>
+                    </div>
+                  </div>
+                  <div class="wedding-gift__methods">
+                    <figure class="payment-card payment-card--qr">
+                      <img src="assets/promptpay-nang-qr.jpg" alt="PromptPay QR code for Nang Htet Htet Aung" loading="lazy" />
+                      <figcaption><strong data-i18n="promptPay">PromptPay</strong><span>0858809972</span></figcaption>
+                    </figure>
+                    <div class="payment-card">
+                      <span class="payment-card__mark" aria-hidden="true">K+</span>
+                      <strong data-i18n="kasikornBank">Kasikorn Bank</strong>
+                      <span>0751676085</span>
+                      <small>Nang Htet Htet Aung</small>
+                    </div>
+                    <div class="payment-card">
+                      <span class="payment-card__mark" aria-hidden="true">KPay</span>
+                      <strong data-i18n="kpay">KPay</strong>
+                      <span>09403735608</span>
+                      <small>Nang Htet Htet Aung</small>
+                    </div>
+                  </div>
+                  <label class="rsvp-field wedding-gift__method">
+                    <span data-i18n="paymentMethod">Payment method used</span>
+                    <select name="giftPaymentMethod" data-gift-method>
+                      <option value="" disabled selected data-i18n="choosePaymentMethod">Choose a payment method</option>
+                      <option value="promptpay" data-i18n="promptPay">PromptPay</option>
+                      <option value="kasikorn" data-i18n="kasikornBank">Kasikorn Bank</option>
+                      <option value="kpay" data-i18n="kpay">KPay</option>
+                    </select>
+                  </label>
+                  <label class="wedding-gift__upload">
+                    <input type="file" name="giftSlip" accept="image/jpeg,image/png,image/webp" data-gift-slip />
+                    <span class="wedding-gift__upload-icon" aria-hidden="true">＋</span>
+                    <span><b data-i18n="uploadSlip">Attach your transfer slip</b><small data-i18n="uploadSlipHelp">Optional · JPG, PNG or WebP · up to 5 MB</small></span>
+                  </label>
+                  <p class="wedding-gift__filename" data-gift-filename aria-live="polite"></p>
+                </div>
+              </div>
               <div class="rsvp-guest-details" data-attending-details>
                 <label class="rsvp-field">
                   <span data-i18n="partySize">Guests attending, including you</span>
@@ -334,7 +383,7 @@
     <button class="motion-toggle" type="button" aria-pressed="false" hidden><span class="motion-toggle__icon" aria-hidden="true">Ⅱ</span><span class="motion-toggle__label">Pause motion</span></button>
     <script src="photo-config.js?v=20260915-photo-ready-1"></script>
     <script src="rsvp-config.js?v=20260916-secure-rsvp-2"></script>
-    <script src="script.js?v=20260916-smart-guests-6"></script>
+    <script src="script.js?v=20260916-gift-slip-7"></script>
   </body>
 </html>
 

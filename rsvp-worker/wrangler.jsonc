@@ -10,6 +10,12 @@
     "ALLOWED_ORIGINS": "https://librandshop.github.io",
     "GITHUB_REPOSITORY": "librandshop/ye-and-nang-rsvp"
   },
+  "r2_buckets": [
+    {
+      "binding": "SLIPS",
+      "bucket_name": "ye-and-nang-rsvp-slips"
+    }
+  ],
   "secrets": {
     "required": ["GITHUB_TOKEN"]
   },
@@ -20,3 +26,4 @@
     }
   }
 }
+
