@@ -406,6 +406,93 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
   .opening-curtain { display:none!important; }
 }
 
+/* --------------------------------------------------------------------------
+   Refined luxury: pearl stationery, a clean opening state and quiet framing.
+   -------------------------------------------------------------------------- */
+.invitation-intro {
+  background:
+    radial-gradient(circle at 50% 47%,#fffefd 0 19%,#fffaf6 43%,transparent 67%),
+    radial-gradient(ellipse at 50% 112%,#c9a4a017 0 25%,transparent 64%),
+    linear-gradient(135deg,#fffdfa,#f7f0ed 52%,#fffdfb);
+}
+.invitation-intro::before {
+  border-color:#c6a77773;
+  box-shadow:inset 0 0 0 5px #fffdfb,inset 0 0 0 6px #ddcec866;
+}
+.invitation-intro::after { border-color:#ddd0cb; }
+.opening-halo {
+  background:radial-gradient(circle,#fff 0 27%,#fff9ed61 41%,#cfb3aa16 58%,transparent 71%);
+  filter:drop-shadow(0 26px 80px #76584f17);
+}
+.opening-curtain--left { background:linear-gradient(90deg,#eee3df 0,#fffdfbd9 64%,#fffdfa 100%); }
+.opening-curtain--right { background:linear-gradient(270deg,#eee3df 0,#fffdfbd9 64%,#fffdfa 100%); }
+
+.envelope::before {
+  border-color:#b99a687d;
+  box-shadow:0 0 0 3px #fffdfb,0 0 0 4px #d8c7c0,0 20px 55px #5e49411a;
+}
+.envelope__back {
+  background:repeating-linear-gradient(90deg,#a9928510 0 1px,transparent 1px 5px),linear-gradient(145deg,#e9ddd8,#d5c3bd);
+  box-shadow:inset 0 0 0 1px #fff,inset 0 -22px 45px #76594f0d,0 28px 70px #55463f1f;
+}
+.envelope__front { background:linear-gradient(145deg,#fffaf7,#eaded9 58%,#d8c6bf); }
+.envelope__front::after { background:linear-gradient(5deg,#eee3df,#fffdfb 68%);filter:drop-shadow(0 -1px 0 #a98e8460); }
+.envelope__flap {
+  background:linear-gradient(168deg,#fffefd 0,#eee4e0 60%,#d8c5be);
+  filter:drop-shadow(0 2px 1px #8d706650);
+}
+.envelope__ribbon {
+  background:linear-gradient(#efe2dd,#fffaf6 26%,#d8c5bd 49%,#f7eee8 70%,#d9c6be);
+  border-color:#fffdf8;
+  box-shadow:0 3px 8px #5f4c4530,inset 0 1px #fff,inset 0 -1px #aa9188;
+}
+.envelope__seal {
+  background:
+    radial-gradient(circle at 32% 24%,#ecd8d5 0 5%,transparent 26%),
+    radial-gradient(circle at 46% 52%,#bd8e91,#8e6367 76%);
+  border-color:#ecddda;
+  box-shadow:0 10px 20px #5b444254,inset 0 0 0 4px #b98c8f,inset 0 0 0 6px #e0c4c3;
+}
+
+/* The border belongs to the closed envelope, so it leaves with the pocket. */
+.invitation-opening .envelope::before,
+.invitation-opening .envelope::after {
+  animation:envelope-outline-away .55s ease 1.5s forwards;
+}
+@keyframes envelope-outline-away {
+  to { opacity:0;transform:translateY(45px) scale(.985); }
+}
+
+@media(max-width:700px) {
+  /* One arch and one paper edge: no lines may cross the invitation copy. */
+  .hero::after { display:none; }
+  .hero__arch {
+    top:88px!important;bottom:49px!important;width:calc(100% - 38px)!important;
+    border-color:#d4b47e9c!important;
+    box-shadow:0 -5px 38px #fff,0 24px 50px #624c4410,inset 0 0 0 5px #fff!important;
+  }
+  .hero__arch::before,.hero__arch::after { display:none!important; }
+  .hero__aura::before,.hero__aura::after { display:none; }
+  .hero__aura { top:44%;width:112vw; }
+  .hero__aura span {
+    inset:14%;
+    background:radial-gradient(circle,#fff9e8a6 0 13%,#eadbd42b 38%,transparent 68%);
+  }
+  .wedding-letter .hero .eyebrow { max-width:310px;margin-inline:auto;line-height:1.55; }
+  .wedding-letter .hero__invite { margin-inline:auto; }
+  .name-garden { width:min(560px,96%); }
+  .hero__date-card { position:relative;z-index:4; }
+}
+
+@media(max-width:360px) {
+  .hero__arch { width:calc(100% - 30px)!important; }
+  .wedding-letter .hero .eyebrow { max-width:270px;letter-spacing:.22em; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .invitation-opening .envelope::before,.invitation-opening .envelope::after { opacity:0; }
+}
+
 /* A custom reply card submits quietly to the existing Google Form. */
 .wedding-letter .rsvp__frame { width:min(760px,100%); }
 .wedding-letter .rsvp__content { width:min(610px,100%);margin-inline:auto; }

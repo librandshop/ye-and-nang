@@ -97,3 +97,9 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 - `Ye & Nang` carries the strongest contrast on the page. Its ink, ampersand, floral vines and date keepsake now form one deliberate focal composition, with richer shadows and subtle metallic accents.
 - Main-page section reveals use softer focus, masked upward movement and changing light instead of card-like motion. Floral margins and ornamental rules remain secondary and asymmetrical.
 - Phone layouts preserve the full opening choreography with smaller halos, safer edge spacing and compact typography. Paused and reduced-motion modes show the finished luxury composition without transitional effects.
+
+## Refined pearl finish
+
+- The envelope palette is pearl ivory, warm stone, muted rose and champagne rather than saturated pink.
+- The envelope outline leaves with the pocket during opening, so no rectangular frame remains around the unfolded letter.
+- Mobile hero framing is reduced to one clean inner arch and the paper edge; circular accent lines no longer cross headings, names or the date card.
