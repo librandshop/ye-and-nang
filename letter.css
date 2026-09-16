@@ -150,6 +150,7 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 .wedding-letter .rsvp__frame { width:min(760px,100%); }
 .wedding-letter .rsvp__content { width:min(610px,100%);margin-inline:auto; }
 .rsvp-form { display:grid;gap:27px;margin:38px auto 0;text-align:left; }
+.rsvp-honeypot { position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important; }
 .rsvp-field { display:grid;gap:9px; }
 .rsvp-field>span,.rsvp-attendance legend {
   color:#795563;font:italic 18px/1.45 "Cormorant Garamond",Georgia,serif;

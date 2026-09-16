@@ -539,6 +539,8 @@ function initializeRsvp() {
   const guestCount = form.elements.namedItem("entry.1498135098");
   const plusOne = form.elements.namedItem("entry.1424661284");
   const acceptanceValue = "Joyfully accepts / ยินดีเข้าร่วมงาน";
+  const declineValue = "Regretfully declines / ขออภัย ไม่สามารถเข้าร่วมงานได้";
+  form.dataset.rsvpStartedAt = String(Date.now());
 
   form.querySelectorAll('input[name="entry.877086558"]').forEach(choice => {
     choice.addEventListener("change", () => {
@@ -560,7 +562,29 @@ function initializeRsvp() {
     status.textContent = copy.sendingRsvp;
     const responseName = form.elements.namedItem("entry.1459528256").value.trim();
     try {
-      await fetch(form.action, { method: "POST", mode: "no-cors", body: new URLSearchParams(new FormData(form)) });
+      const apiUrl = typeof window.RSVP_API_URL === "string" ? window.RSVP_API_URL.trim() : "";
+      if (apiUrl) {
+        const formData = new FormData(form);
+        const attendanceValue = formData.get("entry.877086558");
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            name: responseName,
+            attendance: attendanceValue === acceptanceValue ? "accept" : attendanceValue === declineValue ? "decline" : "",
+            partySize: formData.get("entry.1498135098"),
+            plusOne: formData.get("entry.1424661284") || "",
+            dietary: formData.get("entry.649557088") || "",
+            language: document.documentElement.lang || "en",
+            website: formData.get("website") || "",
+            startedAt: Number(form.dataset.rsvpStartedAt)
+          })
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) throw new Error(result.error || "RSVP could not be saved.");
+      } else {
+        await fetch(form.action, { method: "POST", mode: "no-cors", body: new URLSearchParams(new FormData(form)) });
+      }
       form.hidden = true;
       thanks.hidden = false;
       lastRsvpName = responseName;
@@ -578,6 +602,7 @@ function initializeRsvp() {
   document.querySelector(".rsvp-again").addEventListener("click", () => {
     lastRsvpName = "";
     form.reset();
+    form.dataset.rsvpStartedAt = String(Date.now());
     guestDetails.hidden = false;
     plusOne.disabled = false;
     submit.disabled = false;
