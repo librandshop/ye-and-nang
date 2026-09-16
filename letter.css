@@ -484,3 +484,97 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
   .floral-sprig--save-right,.floral-sprig--count-right { right:-24px;width:54px;height:108px; }
   .margin-sprig { opacity:.42; }
 }
+
+/* Cinematic love-letter finish: one continuous paper, one floral journey. */
+.wedding-letter {
+  --paper-light:18%;
+  background:
+    radial-gradient(ellipse at var(--paper-light) 7%,#fff 0 7%,transparent 25%),
+    linear-gradient(90deg,#fffafc 0,#fffdfc 12%,#fff 50%,#fffdfc 88%,#fffafc 100%);
+}
+.paper-grain { opacity:.22; }
+.letter-vine-journey {
+  position:absolute;z-index:0;top:650px;bottom:310px;left:31px;width:19px;pointer-events:none;
+  transform-origin:top;opacity:.58;
+}
+.letter-vine-journey::before {
+  content:"";position:absolute;top:0;bottom:0;left:7px;width:1px;
+  background:linear-gradient(transparent,#e2bdcb 4%,#d9aabd 47%,#e7cad5 94%,transparent);
+}
+.letter-vine-journey i { position:absolute;left:3px;width:9px;height:15px;border:1px solid #cf98ad;border-radius:100% 0 100% 0;background:#fff9fb;rotate:42deg; }
+.letter-vine-journey i:nth-child(1) { top:12%; }
+.letter-vine-journey i:nth-child(2) { top:31%;left:7px;rotate:221deg; }
+.letter-vine-journey i:nth-child(3) { top:50%; }
+.letter-vine-journey i:nth-child(4) { top:69%;left:7px;rotate:221deg; }
+.letter-vine-journey i:nth-child(5) { top:88%; }
+.js-motion .letter-vine-journey { transform:scaleY(0);opacity:0; }
+.js-motion.invitation-ready .letter-vine-journey { animation:journey-grow 4.8s var(--ease) 1.25s forwards; }
+@keyframes journey-grow { to { transform:scaleY(1);opacity:.58; } }
+.motion-paused .letter-vine-journey { animation:none!important;transform:none!important;opacity:.58!important; }
+
+.wedding-letter .section:not(.hero)::after {
+  content:"✦";display:grid;place-items:center;bottom:-9px;width:96px;height:19px;
+  color:#c7879f;font:11px/1 Georgia,serif;
+  background:linear-gradient(90deg,transparent,#d9b5c3 34%,transparent 34% 66%,#d9b5c3 66%,transparent) center/100% 1px no-repeat;
+  text-shadow:0 0 0 7px #fffdfc;
+}
+
+/* Controls retreat once the guest begins reading, then expand on interaction. */
+.letter-page .site-header,.letter-page .language-switch,.motion-toggle { transition:opacity .35s ease,scale .35s var(--ease),translate .35s var(--ease),box-shadow .35s ease; }
+.controls-compact .letter-page .language-switch,.controls-compact.letter-page .language-switch { scale:.86;opacity:.72;transform-origin:100% 0;box-shadow:0 5px 17px #99687b0e; }
+.controls-compact .motion-toggle { scale:.84;opacity:.64;transform-origin:100% 100%; }
+.controls-compact .letter-page .language-switch:hover,.controls-compact.letter-page .language-switch:hover,
+.controls-compact .letter-page .language-switch:focus-within,.controls-compact.letter-page .language-switch:focus-within,
+.controls-compact .motion-toggle:hover,.controls-compact .motion-toggle:focus-visible { scale:1;opacity:1; }
+
+/* Typography is composed independently for each writing system. */
+.wedding-letter h2,.wedding-letter .hero__invite,.wedding-letter .intro__copy p { text-wrap:balance; }
+.name-garden h1 { filter:drop-shadow(0 8px 14px #8f5d6f08); }
+.name-garden h1 em { filter:drop-shadow(0 4px 8px #a56b8112); }
+html[lang="th"] .wedding-letter .intro__copy p,html[lang="th"] .wedding-letter .venue__copy>p:not(.eyebrow),html[lang="th"] .wedding-letter .rsvp__content>p:not(.eyebrow) { max-width:490px;margin-inline:auto; }
+html[lang="my"] .wedding-letter .intro__copy p,html[lang="my"] .wedding-letter .venue__copy>p:not(.eyebrow),html[lang="my"] .wedding-letter .rsvp__content>p:not(.eyebrow) { max-width:500px;margin-inline:auto; }
+html[lang="th"] .wedding-letter h2,html[lang="my"] .wedding-letter h2 { text-wrap:balance; }
+
+/* The venue is a destination vignette with quiet letterpress depth. */
+.wedding-letter .venue__layout {
+  position:relative;overflow:hidden;padding-top:55px;padding-bottom:55px;
+  border-color:#e7c9d5;background:
+    radial-gradient(circle at 50% 0,#f9e8ef 0 7%,transparent 29%),
+    linear-gradient(180deg,#fff9fb,#fff 72%);
+  box-shadow:inset 0 0 0 7px #fff,inset 0 0 0 8px #f1dfe6,0 18px 50px #9567790d;
+}
+.wedding-letter .venue__layout::before {
+  content:"";position:absolute;inset:17px;border:1px solid #efdce4;border-radius:inherit;pointer-events:none;
+}
+.wedding-letter .venue__visual .botanical { width:112px;height:49px;stroke:#b67891; }
+.wedding-letter .venue .invitation-action--maps { width:min(330px,100%);margin-inline:auto; }
+
+/* The reply is signed with the guest's name and blooms when received. */
+.rsvp-thanks { position:relative;isolation:isolate;min-height:300px;display:grid;place-content:center; }
+.rsvp-thanks[hidden] { display:none!important; }
+.rsvp-thanks::before,.rsvp-thanks::after {
+  content:"";position:absolute;z-index:-1;top:46%;width:90px;height:150px;
+  background:url("assets/blush-flower-sprig.webp") center/contain no-repeat;opacity:.42;
+}
+.rsvp-thanks::before { left:5px;rotate:-26deg; }
+.rsvp-thanks::after { right:5px;rotate:26deg;scale:-1 1; }
+.rsvp-thanks:not([hidden])::before { animation:thanks-bloom-left 1.8s var(--ease) both; }
+.rsvp-thanks:not([hidden])::after { animation:thanks-bloom-right 1.8s var(--ease) .15s both; }
+@keyframes thanks-bloom-left { from { opacity:0;transform:translate(-18px,16px) scale(.75); } to { opacity:.42;transform:none; } }
+@keyframes thanks-bloom-right { from { opacity:0;transform:translate(18px,16px) scale(.75); } to { opacity:.42;transform:none; } }
+.motion-paused .rsvp-thanks::before,.motion-paused .rsvp-thanks::after { animation:none!important; }
+
+@media(max-width:700px) {
+  .letter-vine-journey { left:13px;top:590px;bottom:250px;opacity:.42; }
+  .motion-paused .letter-vine-journey { opacity:.42!important; }
+  .controls-compact .letter-page .language-switch,.controls-compact.letter-page .language-switch { scale:.8;opacity:.66;translate:7px -3px; }
+  .controls-compact .motion-toggle { scale:.78;opacity:.58;translate:7px 5px; }
+  .wedding-letter .venue__layout { padding:45px 24px 47px;box-shadow:inset 0 0 0 5px #fff,inset 0 0 0 6px #f1dfe6,0 14px 38px #9567790b; }
+  .wedding-letter .venue__layout::before { inset:11px; }
+  .rsvp-thanks { min-height:280px;padding-inline:28px; }
+  .rsvp-thanks::before,.rsvp-thanks::after { top:48%;width:62px;height:112px;opacity:.34; }
+  .rsvp-thanks::before { left:-12px; }
+  .rsvp-thanks::after { right:-12px; }
+  html[lang="th"] .wedding-letter .hero__invite { max-width:270px;margin-inline:auto; }
+  html[lang="my"] .wedding-letter .hero__invite { max-width:285px;margin-inline:auto; }
+}

@@ -77,3 +77,14 @@ Each photograph supports an independent crop focus plus English, Thai and Burmes
 New asset: `assets/blush-flower-sprig.webp`, 667 × 1000, transparent WebP, 99,254 bytes. Generated with the built-in image-generation tool, then resized and encoded with its alpha channel preserved.
 
 Generation prompt summary: one airy contemporary flowering sprig on genuine transparency, with a slender sage stem, pale blush sweet peas, tiny white jasmine flowers and unopened buds; natural florist photography, soft daylight, open spacing, no bouquet, no large roses, no vase, no text and no background.
+
+## Cinematic love-letter finish
+
+- A fine flowering thread now runs down the stationery beneath the content, with alternating leaf-shaped nodes. It grows only after the envelope has finished and visually connects the invitation from the hero to the reply.
+- Section endings use a small star-and-rule ornament, so the page reads as one continuous printed letter instead of a stack of unrelated panels.
+- The paper receives a very subtle moving highlight tied to reading progress. This changes only the perceived light across the ivory sheet; content geometry never moves.
+- Language and motion controls become quieter after the guest starts scrolling, then return to full size and opacity on hover or keyboard focus.
+- English, Thai and Burmese receive independent balanced wrapping and line-width limits for the personal message, venue and reply copy.
+- The venue is now an inset arched destination vignette with double letterpress lines, a soft top glow and controlled Maps button width.
+- Successful replies store the submitted display name only in page memory and render a localized `Thank you, {name}` message. Two restrained floral sprigs bloom around the confirmation. No guest name is added to the URL, storage or page source.
+- Reduced-motion and paused states preserve the complete composition without growing vines, changing highlights or floral entrance animations.

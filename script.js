@@ -6,6 +6,7 @@ const pageContent = [...document.querySelectorAll(".site-header, main, footer")]
 let motionPaused = motionPreference.matches;
 let openingTimer;
 let revealObserver;
+let lastRsvpName = "";
 const openingSkip = document.querySelector(".opening-skip");
 const openingDuration = 6600;
 
@@ -48,6 +49,7 @@ function showEnvelope() {
   window.clearTimeout(openingTimer);
   revealObserver?.disconnect();
   document.body.classList.remove("invitation-ready", "invitation-opening");
+  document.body.classList.remove("controls-compact");
   openingSkip.hidden = true;
   openInvitation.removeAttribute("aria-disabled");
   window.scrollTo({ top: 0, behavior: "instant" });
@@ -136,6 +138,7 @@ function initializeInvitation() {
     if (document.hidden && document.body.classList.contains("invitation-opening")) finishOpening();
   });
   const progress = document.querySelector(".reading-progress");
+  const weddingLetter = document.querySelector(".wedding-letter");
   let scrollFrame = false;
   const hero = document.querySelector(".hero");
   const venueArt = document.querySelector(".venue__visual");
@@ -144,6 +147,8 @@ function initializeInvitation() {
     const readingProgress = distance > 0 ? Math.min(1, window.scrollY / distance) : 0;
     progress.style.setProperty("--reading-progress", readingProgress);
     progress.style.transform = `scaleX(${readingProgress})`;
+    weddingLetter.style.setProperty("--paper-light", `${18 + readingProgress * 64}%`);
+    document.body.classList.toggle("controls-compact", invitationIntro.hidden && window.scrollY > Math.min(420, window.innerHeight * .52));
     if (!motionPaused && invitationIntro.hidden) {
       const heroBounds = hero.getBoundingClientRect();
       if (heroBounds.bottom > 0) hero.style.setProperty("--flower-depth", `${Math.min(window.scrollY * .09, 70)}px`);
@@ -166,6 +171,7 @@ function initializeInvitation() {
   document.fonts.ready.then(() => {
     if (!invitationIntro.hidden && !document.body.classList.contains('invitation-opening')) positionFoldedCard();
   });
+  updateProgress();
   if (window.location.hash && document.getElementById(window.location.hash.slice(1))) {
     document.body.classList.add("invitation-ready");
     observeReveals();
@@ -281,6 +287,7 @@ Object.assign(translations.en, {
   sendingRsvp: "Sending your reply…",
   rsvpSendError: "We could not send your reply. Please check your connection and try again.",
   rsvpThanksTitle: "Thank you, dear guest",
+  rsvpThanksNamed: "Thank you, {name}",
   rsvpThanksCopy: "Your reply has been received. We cannot wait to celebrate with you.",
   sendAnotherRsvp: "Send another response",
   dearGuests: "To our dear family & friends,",
@@ -316,6 +323,7 @@ Object.assign(translations.th, {
   sendingRsvp: "กำลังส่งคำตอบของคุณ…",
   rsvpSendError: "ไม่สามารถส่งคำตอบได้ โปรดตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง",
   rsvpThanksTitle: "ขอบคุณแขกคนพิเศษของเรา",
+  rsvpThanksNamed: "ขอบคุณ {name}",
   rsvpThanksCopy: "เราได้รับคำตอบของคุณแล้ว และแทบรอไม่ไหวที่จะได้ฉลองด้วยกัน",
   sendAnotherRsvp: "ส่งคำตอบอื่น",
   dearGuests: "ถึงครอบครัวและเพื่อน ๆ ที่รัก",
@@ -352,6 +360,7 @@ translations.my = {
   sendingRsvp: "သင့်အကြောင်းပြန်ချက်ကို ပို့နေပါသည်…",
   rsvpSendError: "အကြောင်းပြန်ချက် မပို့နိုင်ပါ။ အင်တာနက်ချိတ်ဆက်မှုကို စစ်ဆေးပြီး ထပ်မံကြိုးစားပါ။",
   rsvpThanksTitle: "ချစ်ခင်ရသောဧည့်သည်ကို ကျေးဇူးတင်ပါသည်",
+  rsvpThanksNamed: "ကျေးဇူးတင်ပါတယ်၊ {name}",
   rsvpThanksCopy: "သင့်အကြောင်းပြန်ချက်ကို လက်ခံရရှိပါပြီ။ အတူတကွ ဆင်နွှဲရမည့်နေ့ကို စောင့်မျှော်နေပါသည်။",
   sendAnotherRsvp: "နောက်ထပ် အကြောင်းပြန်ချက် ပို့ရန်",
   dearGuests: "ချစ်ရသော မိသားစုနှင့် မိတ်ဆွေများသို့",
@@ -426,6 +435,13 @@ function updateWeddingPhotoLanguage(language = document.documentElement.lang) {
   });
 }
 
+function updateRsvpThankYou(language = document.documentElement.lang) {
+  const title = document.querySelector(".rsvp-thanks h3");
+  if (!title) return;
+  const copy = translations[language] || translations.en;
+  title.textContent = lastRsvpName ? copy.rsvpThanksNamed.replace("{name}", lastRsvpName) : copy.rsvpThanksTitle;
+}
+
 function initializeWeddingPhotos() {
   const section = document.querySelector(".photo-story");
   const grid = section?.querySelector(".photo-story__grid");
@@ -495,6 +511,7 @@ function setLanguage(language) {
   document.querySelectorAll("[data-i18n-aria]").forEach(element => element.setAttribute("aria-label", copy[element.dataset.i18nAria]));
   document.querySelectorAll("[data-i18n-placeholder]").forEach(element => element.setAttribute("placeholder", copy[element.dataset.i18nPlaceholder]));
   updateWeddingPhotoLanguage(language);
+  updateRsvpThankYou(language);
   refreshMotionButton();
   document.querySelectorAll("[data-language]").forEach((button) => {
     const isActive = button.dataset.language === language;
@@ -541,10 +558,13 @@ function initializeRsvp() {
     submit.disabled = true;
     form.classList.add("is-submitting");
     status.textContent = copy.sendingRsvp;
+    const responseName = form.elements.namedItem("entry.1459528256").value.trim();
     try {
       await fetch(form.action, { method: "POST", mode: "no-cors", body: new URLSearchParams(new FormData(form)) });
       form.hidden = true;
       thanks.hidden = false;
+      lastRsvpName = responseName;
+      updateRsvpThankYou();
       thanks.focus?.({ preventScroll: true });
       thanks.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
     } catch {
@@ -556,6 +576,7 @@ function initializeRsvp() {
   });
 
   document.querySelector(".rsvp-again").addEventListener("click", () => {
+    lastRsvpName = "";
     form.reset();
     guestDetails.hidden = false;
     plusOne.disabled = false;
@@ -564,6 +585,7 @@ function initializeRsvp() {
     status.textContent = "";
     thanks.hidden = true;
     form.hidden = false;
+    updateRsvpThankYou();
     form.querySelector('input[name="entry.1459528256"]').focus({ preventScroll: true });
   });
 }
