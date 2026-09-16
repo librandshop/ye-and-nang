@@ -88,3 +88,12 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 - The venue is now an inset arched destination vignette with double letterpress lines, a soft top glow and controlled Maps button width.
 - Successful replies store the submitted display name only in page memory and render a localized `Thank you, {name}` message. Two restrained floral sprigs bloom around the confirmation. No guest name is added to the URL, storage or page source.
 - Reduced-motion and paused states preserve the complete composition without growing vines, changing highlights or floral entrance animations.
+
+## Luxury-impact reveal
+
+- The envelope now sits inside a restrained champagne halo with small metallic glints and deeper rose shadows. Fine embossed lines, satin highlights and a more dimensional wax seal give the cover the tactile weight of luxury stationery.
+- Opening is staged in distinct emotional beats: the surrounding light quiets, the seal and ribbon release, the closed keepsake rises, its folds open, a warm halo blooms behind it, and two translucent blush curtains part into the main invitation.
+- The paper arrives through a soft luminous aperture rather than simply appearing. The hero arch gains layered ivory depth, champagne rules and a blush aura focused behind the couple's names.
+- `Ye & Nang` carries the strongest contrast on the page. Its ink, ampersand, floral vines and date keepsake now form one deliberate focal composition, with richer shadows and subtle metallic accents.
+- Main-page section reveals use softer focus, masked upward movement and changing light instead of card-like motion. Floral margins and ornamental rules remain secondary and asymmetrical.
+- Phone layouts preserve the full opening choreography with smaller halos, safer edge spacing and compact typography. Paused and reduced-motion modes show the finished luxury composition without transitional effects.

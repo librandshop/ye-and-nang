@@ -146,6 +146,266 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
   html[lang="th"] .wedding-letter .hero__invite,html[lang="my"] .wedding-letter .hero__invite { font-size:14px; }
 }
 
+/* --------------------------------------------------------------------------
+   Luxury-impact reveal: tactile stationery, champagne light and clear drama.
+   -------------------------------------------------------------------------- */
+:root { --champagne:#c6a16c;--champagne-light:#ead8b9;--wine:#563640;--deep-rose:#8f536b; }
+
+.invitation-intro {
+  background:
+    radial-gradient(circle at 50% 47%,#fffefd 0 16%,#fff8fa 39%,transparent 64%),
+    radial-gradient(ellipse at 50% 112%,#d99bb22b 0 25%,transparent 64%),
+    linear-gradient(135deg,#fffafb,#f9e9ef 52%,#fffafb);
+}
+.invitation-intro::before {
+  content:"";position:absolute;inset:22px;z-index:0;pointer-events:none;
+  border:1px solid #c9a6758c;box-shadow:inset 0 0 0 5px #fff9fb,inset 0 0 0 6px #e8cdd866;
+}
+.invitation-intro::after { inset:31px;border-color:#e8cbd6; }
+.opening-heading { z-index:4; }
+.opening-heading::before {
+  content:"Y  ·  N";display:block;margin-bottom:13px;color:#b38a55;
+  font:500 10px/1 "Cormorant Garamond",Georgia,serif;letter-spacing:.58em;text-indent:.58em;
+}
+.opening-heading h2 {
+  color:var(--wine);font-size:clamp(40px,4.5vw,62px);line-height:1;
+  text-shadow:0 18px 38px #8d5b6c16;
+}
+.opening-heading .eyebrow { color:#9a5e73;letter-spacing:.34em; }
+.opening-halo {
+  position:absolute;z-index:1;left:50%;top:56%;width:min(720px,72vw);aspect-ratio:1;
+  translate:-50% -50%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,#fff 0 24%,#fff8ed6b 38%,#e7b7c526 57%,transparent 70%);
+  filter:drop-shadow(0 26px 80px #a96c8124);
+}
+.opening-halo::before,.opening-halo::after,.opening-halo i {
+  content:"";position:absolute;border-radius:50%;pointer-events:none;
+}
+.opening-halo::before { inset:11%;border:1px solid #d8b57d8a;box-shadow:0 0 45px #f2dcb8aa,inset 0 0 45px #fff9e6; }
+.opening-halo::after { inset:17%;border:1px solid #f0ddbd; }
+.opening-halo i:nth-child(1) { inset:4%;border-top:1px solid #c79e61;border-right:1px solid transparent;rotate:-18deg;opacity:.7; }
+.opening-halo i:nth-child(2) { inset:7%;border-bottom:1px solid #d9b278;border-left:1px solid transparent;rotate:17deg;opacity:.46; }
+.opening-halo i:nth-child(3) { inset:23%;box-shadow:0 0 85px 25px #fff6dc88; }
+.opening-stars { position:absolute;z-index:3;inset:0;pointer-events:none; }
+.opening-stars i { position:absolute;width:5px;height:5px;rotate:45deg;background:#c6a16c;box-shadow:0 0 10px #e5cda1;opacity:.68; }
+.opening-stars i::before,.opening-stars i::after { content:"";position:absolute;inset:2px -4px;background:inherit; }
+.opening-stars i::after { inset:-4px 2px; }
+.opening-stars i:nth-child(1) { left:24%;top:31%; }
+.opening-stars i:nth-child(2) { right:24%;top:35%;scale:.65; }
+.opening-stars i:nth-child(3) { left:20%;top:64%;scale:.5; }
+.opening-stars i:nth-child(4) { right:19%;top:63%; }
+.opening-stars i:nth-child(5) { left:32%;top:78%;scale:.55; }
+.opening-stars i:nth-child(6) { right:31%;top:76%;scale:.45; }
+.opening-curtain { position:absolute;z-index:9;top:0;bottom:0;width:51%;pointer-events:none;opacity:0; }
+.opening-curtain--left { left:0;transform-origin:left;background:linear-gradient(90deg,#f7e1e9 0,#fffafbd9 64%,#fffdfa 100%); }
+.opening-curtain--right { right:0;transform-origin:right;background:linear-gradient(270deg,#f7e1e9 0,#fffafbd9 64%,#fffdfa 100%); }
+
+.envelope-scene { z-index:5;width:min(86vw,500px); }
+.envelope {
+  filter:drop-shadow(0 28px 26px #7043502b) drop-shadow(0 4px 2px #fff);
+  transition:transform .7s var(--ease),filter .7s ease;
+}
+.envelope::before {
+  content:"";position:absolute;z-index:8;inset:-8px;border:1px solid #b88b50a8;border-radius:7px;
+  box-shadow:0 0 0 3px #fff8fb,0 0 0 4px #deb8c4,0 20px 55px #8e596d22;pointer-events:none;
+}
+.envelope::after {
+  content:"";position:absolute;z-index:9;inset:-8px;overflow:hidden;border-radius:7px;pointer-events:none;
+  background:linear-gradient(108deg,transparent 30%,#fff8dfa8 46%,transparent 59%);background-size:240% 100%;
+  animation:envelope-sheen 5.4s ease-in-out infinite;
+}
+.envelope__back {
+  background:repeating-linear-gradient(90deg,#f3dbe21a 0 1px,transparent 1px 5px),linear-gradient(145deg,#e6b7c7,#d49aad);
+  box-shadow:inset 0 0 0 1px #fff6f8,inset 0 -22px 45px #8e536b18,0 28px 70px #79505e2c;
+}
+.envelope__front { background:linear-gradient(145deg,#fae6ed,#e3b0c2 58%,#d89bb0); }
+.envelope__front::after { background:linear-gradient(5deg,#edc7d5,#fff4f7 68%);filter:drop-shadow(0 -1px 0 #b9849766); }
+.envelope__flap {
+  background:linear-gradient(168deg,#fff9fb 0,#efd1dc 58%,#dba5b8);
+  filter:drop-shadow(0 2px 1px #a86e8250);
+}
+.envelope__ribbon { box-shadow:0 3px 8px #71455332,inset 0 1px #fff,inset 0 -1px #bd8c9c; }
+.envelope__seal {
+  width:82px;height:82px;background:
+    radial-gradient(circle at 32% 24%,#f1c7d1 0 5%,transparent 26%),
+    radial-gradient(circle at 46% 52%,#c27c95,#9b536d 76%);
+  border:1px solid #f5d9df;box-shadow:0 10px 20px #74425255,inset 0 0 0 4px #d49aac,inset 0 0 0 6px #f2c7d2;
+}
+.envelope__seal>span { font-size:30px;text-shadow:0 1px 1px #744252,0 0 14px #fff8f4; }
+.invitation-intro__prompt { position:relative;z-index:5;color:#704c58;font-size:24px;text-shadow:0 8px 20px #8b5d6d18; }
+.invitation-intro__prompt::after { content:"";display:block;width:48px;height:1px;margin:16px auto 0;background:linear-gradient(90deg,transparent,#c8a168,transparent); }
+
+.keepsake__inside {
+  background:
+    linear-gradient(110deg,transparent 32%,#fff9df73 47%,transparent 59%),
+    repeating-linear-gradient(0deg,#b89b8709 0 1px,transparent 1px 4px),#fffdf9;
+  border-color:#c7a26d;box-shadow:0 34px 90px #5e374344,0 0 65px #fff5d4;
+}
+.keepsake__inside::before { content:"";position:absolute;inset:7px;border:1px solid #efdcbf;pointer-events:none; }
+.keepsake__inside::after { inset:15px;border-color:#d7b881; }
+.keepsake__door { border-color:#c7a26d;box-shadow:inset 0 0 30px #bd849318; }
+.keepsake__door::before { content:"";position:absolute;inset:6px;border:1px solid #f0ddbd; }
+.keepsake__door::after { border-color:#cfad75; }
+.keepsake__band { border-color:#c9a269;box-shadow:0 7px 18px #70445027,inset 0 1px #fff; }
+.keepsake__names { color:#5d3b45;text-shadow:0 11px 24px #7e4c5a14; }
+.keepsake__divider { background:linear-gradient(90deg,transparent,#b9894c 22% 78%,transparent); }
+
+@keyframes envelope-sheen { 0%,57%,100% { background-position:160% 0;opacity:0; } 68% { opacity:.75; } 88% { background-position:-70% 0;opacity:0; } }
+@keyframes luxury-halo-breathe { 50% { scale:1.045;filter:drop-shadow(0 32px 95px #a96c8135); } }
+@keyframes luxury-star { 0%,100% { opacity:.25;scale:.55; } 46% { opacity:.95;scale:1.15; } }
+@keyframes curtain-left { 0% { opacity:0;translate:0 0; } 12% { opacity:1;translate:0 0; } 100% { opacity:0;translate:-105% 0; } }
+@keyframes curtain-right { 0% { opacity:0;translate:0 0; } 12% { opacity:1;translate:0 0; } 100% { opacity:0;translate:105% 0; } }
+@keyframes cover-focus { 0% { filter:saturate(1) brightness(1); } 45% { filter:saturate(.88) brightness(.93); } 72% { filter:saturate(1.05) brightness(1.08); } 100% { filter:saturate(1) brightness(1); } }
+.motion-enabled .opening-halo { animation:luxury-halo-breathe 6.5s ease-in-out infinite; }
+.motion-enabled .opening-stars i { animation:luxury-star 3.8s ease-in-out infinite;animation-delay:calc(var(--star-order,0) * -.55s); }
+.invitation-opening .invitation-intro { animation:cover-focus 6.55s ease both,cover-dissolve .7s ease 5.9s forwards; }
+.invitation-opening .opening-halo { animation:halo-ceremony 6.3s var(--ease) both; }
+.invitation-opening .opening-curtain--left { animation:curtain-left 1.25s var(--ease) 5.35s both; }
+.invitation-opening .opening-curtain--right { animation:curtain-right 1.25s var(--ease) 5.35s both; }
+.invitation-opening .opening-stars i { animation:star-release 2.7s ease-out both;animation-delay:calc(3.65s + var(--star-order,0) * .06s); }
+@keyframes halo-ceremony { 0%,30% { opacity:.7;scale:.88; } 58% { opacity:1;scale:1.04; } 82% { opacity:1;scale:1.25; } 100% { opacity:0;scale:1.55; } }
+@keyframes star-release { 0% { opacity:.2;transform:translate(0,0) rotate(45deg) scale(.6); } 30% { opacity:1; } 100% { opacity:0;transform:translate(0,-75px) rotate(225deg) scale(1.35); } }
+
+/* The first page is the grand reveal, not another content section. */
+.wedding-letter { background:
+  radial-gradient(circle at var(--paper-light,18%) 5%,#fffdf2 0 4%,transparent 19%),
+  linear-gradient(90deg,#fffafc,#fff 16% 84%,#fffafc);
+}
+.hero {
+  background:
+    radial-gradient(ellipse at 50% 37%,#f4dce644 0 12%,transparent 43%),
+    radial-gradient(ellipse at 50% 88%,#fff5dd75 0 3%,transparent 30%),
+    linear-gradient(180deg,#fff9fb,#fff 45%,#fffaf8);
+}
+.hero::before {
+  content:"";position:absolute;z-index:-2;inset:0;pointer-events:none;
+  background:linear-gradient(112deg,transparent 28%,#fff5d978 45%,transparent 58%);background-size:230% 100%;
+}
+.hero::after {
+  content:"";position:absolute;z-index:0;inset:38px 4.2%;pointer-events:none;
+  border-inline:1px solid #c6a16c4f;
+  mask-image:linear-gradient(transparent,#000 10% 88%,transparent);
+}
+.hero__arch {
+  display:block!important;top:82px!important;bottom:64px!important;width:min(980px,89%)!important;
+  border:1px solid #d4b47e!important;border-bottom:0!important;border-radius:50% 50% 0 0 / 25% 25% 0 0!important;
+  background:linear-gradient(180deg,#fffefdde,#fffdfbfa)!important;
+  box-shadow:0 -10px 70px #fff,0 32px 85px #794b5a18,inset 0 0 0 7px #fff,inset 0 0 0 8px #efdce3!important;
+}
+.hero__arch::before {
+  content:"";position:absolute;inset:16px;border:1px solid #efdcb9;border-bottom:0;border-radius:inherit;opacity:.72;
+}
+.hero__arch::after { inset:27px!important;border-color:#e6c8d4!important;opacity:.8!important; }
+.hero__aura { position:absolute;z-index:1;left:50%;top:44%;width:min(680px,75vw);aspect-ratio:1;translate:-50% -50%;pointer-events:none; }
+.hero__aura span { position:absolute;inset:9%;border-radius:50%;background:radial-gradient(circle,#fff9e8ba 0 12%,#efd4de55 36%,transparent 68%);filter:blur(2px); }
+.hero__aura::before,.hero__aura::after { content:"";position:absolute;border-radius:50%; }
+.hero__aura::before { inset:5%;border-top:1px solid #c7a2677d;border-right:1px solid transparent;rotate:-14deg; }
+.hero__aura::after { inset:11%;border-bottom:1px solid #e1c899;border-left:1px solid transparent;rotate:18deg; }
+.hero__aura i { position:absolute;width:4px;height:4px;rotate:45deg;background:#c59a5c;box-shadow:0 0 11px #ddbc7c; }
+.hero__aura i:nth-of-type(1) { left:12%;top:33%; }
+.hero__aura i:nth-of-type(2) { right:8%;top:39%;scale:.7; }
+.hero__aura i:nth-of-type(3) { left:23%;bottom:13%;scale:.55; }
+.hero__aura i:nth-of-type(4) { right:22%;bottom:8%; }
+.hero__copy { z-index:3!important; }
+.hero__copy-inner { max-width:760px!important; }
+.wedding-letter .hero .eyebrow { color:#95546c;font-weight:600;letter-spacing:.3em; }
+.wedding-letter .hero__invite { color:#75505d;font-size:23px;text-shadow:0 8px 24px #9c647615; }
+.name-garden { z-index:2; }
+.name-garden::before {
+  content:"";position:absolute;z-index:-1;left:50%;top:52%;width:82%;height:62%;translate:-50% -50%;border-radius:50%;
+  background:radial-gradient(ellipse,#fffdf4bd,transparent 67%);filter:blur(4px);
+}
+.name-garden h1 { color:#593b45!important;filter:drop-shadow(0 16px 22px #6c3f4d18)!important; }
+.name-garden h1 em { color:#b46f89!important;text-shadow:0 0 28px #f0c7d7; }
+.name-vines { filter:drop-shadow(0 3px 4px #66804c20); }
+.name-vines path { stroke:#91a27a;stroke-width:1.15; }
+.name-sprig img { filter:drop-shadow(0 7px 7px #6c7d541f) saturate(.96); }
+.wedding-letter .hero__full-names { color:#69464f;font-size:10px;letter-spacing:.2em; }
+.hero__date-card {
+  width:min(360px,90%);margin-top:22px;padding:29px 28px 25px;
+  background:radial-gradient(ellipse,#fff 54%,#fff9f5);filter:drop-shadow(0 18px 28px #75465412);
+}
+.hero__date-card::before { border-color:#c7a369!important;box-shadow:0 0 0 5px #fff,0 0 0 6px #ecd7df; }
+.hero__date-card::after { inset:9px;border-color:#e4c894!important; }
+.hero__date-label { color:#916077;background:#fffefa;padding-inline:19px; }
+.wedding-letter .hero__rule { color:#b08143; }
+.wedding-letter .hero__rule::before,.wedding-letter .hero__rule::after { background:linear-gradient(90deg,transparent,#c4a067); }
+.wedding-letter .hero__date { color:#583a44;font-size:33px; }
+.wedding-letter .hero__year { color:#9b6947;letter-spacing:.12em; }
+.scroll-cue { color:#8e6070!important; }
+
+/* The page enters through light; later content arrives like ink settling on paper. */
+.js-motion.invitation-ready .wedding-letter { animation:luxury-paper-arrival 1.45s var(--ease) both;transform-origin:50% 5%; }
+.js-motion.invitation-ready .hero::before { animation:hero-sheen 3.1s ease .35s both; }
+.js-motion.invitation-ready .hero__aura { animation:hero-aura-arrive 2.1s var(--ease) .2s both; }
+.js-motion.invitation-ready .hero__aura i { animation:luxury-star 3.8s ease-in-out infinite; }
+.js-motion .wedding-letter [data-reveal] { filter:blur(5px);clip-path:inset(0 0 14% 0); }
+.js-motion .wedding-letter [data-reveal].is-visible { filter:none;clip-path:inset(0); }
+.js-motion .wedding-letter .schedule-card[data-reveal],.js-motion .wedding-letter .rsvp__frame[data-reveal] { filter:blur(3px); }
+.js-motion .wedding-letter .schedule-card[data-reveal].is-visible,.js-motion .wedding-letter .rsvp__frame[data-reveal].is-visible { filter:none; }
+@keyframes luxury-paper-arrival { from { opacity:.15;transform:scale(.982);filter:blur(10px) brightness(1.12); } 55% { opacity:1; } to { transform:none;filter:none; } }
+@keyframes hero-sheen { from { background-position:160% 0;opacity:0; } 24% { opacity:1; } to { background-position:-75% 0;opacity:0; } }
+@keyframes hero-aura-arrive { from { opacity:0;scale:.68;filter:blur(15px); } to { opacity:1;scale:1;filter:none; } }
+
+/* Champagne accents stitch the remainder into one bespoke stationery suite. */
+.wedding-letter .section:not(.hero)::after { color:#b38b52;background:linear-gradient(90deg,transparent,#caa96f 34%,transparent 34% 66%,#caa96f 66%,transparent) center/100% 1px no-repeat; }
+.wedding-letter .section h2 { color:#5d3e48;text-shadow:0 12px 30px #7d4b5c10; }
+.wedding-letter .love-divider { stroke:#b98d52;filter:drop-shadow(0 3px 5px #c5a36b20); }
+.wedding-letter .letter-bow { filter:drop-shadow(0 9px 11px #985d731c); }
+.schedule-card .line-icon { filter:drop-shadow(0 6px 7px #9a657817); }
+.wedding-letter .savebar { background:linear-gradient(90deg,#fff7fa,#f7e4ec 48%,#fff9fb);border-block-color:#ddb9c7; }
+.wedding-letter .savebar__inner::before { content:"";position:absolute;inset:-18px 0;border-block:1px solid #c6a16c4f;pointer-events:none; }
+.invitation-action { border-color:#bf9660!important;box-shadow:0 13px 32px #7645551a,inset 0 0 0 1px #fff7ed; }
+
+.motion-paused .opening-halo,.motion-paused .opening-stars i,.motion-paused .hero__aura,.motion-paused .hero::before,
+.motion-paused .wedding-letter { animation:none!important;filter:none!important;transform:none!important;opacity:1!important; }
+.motion-paused .opening-curtain { display:none; }
+.motion-paused .wedding-letter [data-reveal] { filter:none!important;clip-path:none!important; }
+
+@media(max-width:700px) {
+  .invitation-intro::before { inset:12px;box-shadow:inset 0 0 0 3px #fff9fb,inset 0 0 0 4px #e8cdd866; }
+  .invitation-intro::after { inset:18px; }
+  .opening-heading::before { margin-bottom:9px;font-size:8px;letter-spacing:.45em;text-indent:.45em; }
+  .opening-heading h2 { font-size:clamp(32px,9.6vw,42px); }
+  .opening-heading .eyebrow { letter-spacing:.2em; }
+  .opening-halo { top:55%;width:132vw; }
+  .opening-stars i:nth-child(1),.opening-stars i:nth-child(3) { left:9%; }
+  .opening-stars i:nth-child(2),.opening-stars i:nth-child(4) { right:9%; }
+  .envelope-scene { width:min(82vw,390px); }
+  .envelope::before { inset:-5px;box-shadow:0 0 0 2px #fff8fb,0 0 0 3px #deb8c4,0 16px 38px #8e596d22; }
+  .envelope__seal { width:64px;height:64px; }
+  .envelope__seal>span { font-size:25px; }
+  .invitation-intro__prompt { font-size:21px; }
+  .hero { min-height:max(760px,100svh);padding:104px 18px 78px; }
+  .hero::after { inset-inline:19px; }
+  .hero__arch { top:88px!important;bottom:48px!important;width:calc(100% - 22px)!important;border-radius:49% 49% 0 0 / 17% 17% 0 0!important;box-shadow:0 -5px 45px #fff,0 25px 55px #794b5a12,inset 0 0 0 5px #fff,inset 0 0 0 6px #efdce3!important; }
+  .hero__arch::before { inset:10px; }
+  .hero__arch::after { inset:17px!important; }
+  .hero__aura { top:42%;width:135vw; }
+  .wedding-letter .hero__copy-inner { max-width:440px!important; }
+  .wedding-letter .hero__invite { max-width:300px;font-size:20px; }
+  .name-garden { margin-block:7px 12px; }
+  .name-garden h1 { filter:drop-shadow(0 12px 16px #6c3f4d15)!important; }
+  .wedding-letter .hero__full-names { max-width:285px;font-size:8px;letter-spacing:.14em; }
+  .hero__date-card { width:min(318px,89vw);margin-top:19px;padding:25px 20px 21px; }
+  .wedding-letter .hero__date { font-size:29px; }
+}
+
+@media(max-width:360px) {
+  .opening-heading h2 { font-size:30px; }
+  .opening-heading::before { font-size:7px; }
+  .envelope-scene { width:79vw; }
+  .invitation-intro__prompt { font-size:18px; }
+  .hero { padding-inline:14px; }
+  .hero__arch { width:calc(100% - 14px)!important; }
+  .hero__date-card { width:88vw; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .opening-halo,.opening-stars i,.envelope::after,.hero__aura,.hero::before,.wedding-letter { animation:none!important; }
+  .opening-curtain { display:none!important; }
+}
+
 /* A custom reply card submits quietly to the existing Google Form. */
 .wedding-letter .rsvp__frame { width:min(760px,100%); }
 .wedding-letter .rsvp__content { width:min(610px,100%);margin-inline:auto; }

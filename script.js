@@ -103,6 +103,7 @@ function initializeInvitation() {
     petal.style.setProperty("--petal-y", `${Math.sin(angle) * innerHeight * .36 + innerHeight * .2}px`);
     petal.style.setProperty("--petal-turn", `${120 + index * 37}deg`);
   });
+  document.querySelectorAll(".opening-stars i").forEach((star, index) => star.style.setProperty("--star-order", index));
   document.querySelectorAll(".hero__copy-inner > *").forEach((element, index) => element.style.setProperty("--order", index));
   const groups = [
     ".savebar__copy, .calendar-actions", ".intro__heading, .intro__copy", ".photo-story:not([hidden]) .photo-story__heading, .photo-story:not([hidden]) .photo-frame",
