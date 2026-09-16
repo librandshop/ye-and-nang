@@ -102,11 +102,13 @@ test("declined guest can record a wedding gift without a slip", async () => {
   try {
     const response = await worker.fetch(invitationRequest({
       name: "Kind Guest", attendance: "decline", partySize: "0", language: "th",
-      giftIntent: true, giftPaymentMethod: "promptpay", website: "", startedAt: Date.now() - 5000
+      giftIntent: true, giftPaymentMethod: "promptpay", giftMessage: "Wishing you a lifetime of joy!",
+      website: "", startedAt: Date.now() - 5000
     }), env);
     assert.equal(response.status, 201);
     assert.match(issue.body, /\| Wedding gift \| Yes \|/);
     assert.match(issue.body, /\| Payment method \| PromptPay \|/);
+    assert.match(issue.body, /\| Message to the couple \| Wishing you a lifetime of joy! \|/);
     assert.match(issue.body, /\| Transfer slip \| — \|/);
   } finally {
     globalThis.fetch = originalFetch;

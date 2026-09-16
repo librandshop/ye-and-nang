@@ -6,7 +6,7 @@ The invitation streams the recordings directly from Mixkit's audio CDN. It does 
 
 - English: “Wedding Harp” by Francisco Alvear (`music-en.mp3`)
 - Thai: “Possible Dreams” by Eugenio Mininni (`music-th.mp3`)
-- Burmese: “Love is Eternal” by Ahjay Stelino (`music-my.mp3`)
+- Burmese: “Wedding Music” by Arulo (`music-my.mp3`)
 
 Source: [Mixkit free romantic stock music](https://mixkit.co/free-stock-music/mood/romantic/)
 

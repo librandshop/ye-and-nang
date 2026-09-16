@@ -38,6 +38,7 @@ function validate(payload) {
     partySize: Number(payload.partySize), plusOne: clean(payload.plusOne, 120),
     dietary: clean(payload.dietary, 700), language: clean(payload.language, 2),
     giftIntent: payload.giftIntent === true, giftPaymentMethod: clean(payload.giftPaymentMethod, 20),
+    giftMessage: clean(payload.giftMessage, 700),
     website: clean(payload.website, 200), startedAt: Number(payload.startedAt)
   };
   if (response.website) return { error: "Unable to accept this response." };
@@ -54,7 +55,10 @@ function validate(payload) {
     response.giftIntent = false;
   }
   if (response.giftIntent && !PAYMENT_METHODS.has(response.giftPaymentMethod)) return { error: "Please choose a payment method." };
-  if (!response.giftIntent) response.giftPaymentMethod = "";
+  if (!response.giftIntent) {
+    response.giftPaymentMethod = "";
+    response.giftMessage = "";
+  }
   if (!LANGUAGES.has(response.language)) response.language = "en";
   if (!Number.isFinite(response.startedAt) || Date.now() - response.startedAt < 2500) return { error: "Please wait a moment and try again." };
   return { response };
@@ -72,6 +76,7 @@ function issueBody(rsvp, request, slipUrl = "") {
     `| Dietary requirements | ${markdown(rsvp.dietary)} |`,
     `| Wedding gift | ${rsvp.giftIntent ? "Yes" : "No"} |`,
     `| Payment method | ${paymentName(rsvp.giftPaymentMethod)} |`,
+    `| Message to the couple | ${markdown(rsvp.giftMessage)} |`,
     `| Transfer slip | ${slipUrl ? `[View slip](${slipUrl})` : "—"} |`,
     `| Invitation language | ${rsvp.language.toUpperCase()} |`,
     `| Received | ${new Date().toISOString()} |`, "", `<sub>RSVP ID: ${requestId}</sub>`

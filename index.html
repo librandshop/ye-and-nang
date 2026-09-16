@@ -27,7 +27,7 @@
     <link rel="preload" as="image" href="assets/enchanted-envelope-garden.webp" />
     <link rel="preload" as="image" href="assets/pink-blossom-vine.webp" />
     <link rel="stylesheet" href="styles.css?v=20260915-buttons-1" />
-    <link rel="stylesheet" href="letter.css?v=20260916-gift-slip-12" />
+    <link rel="stylesheet" href="letter.css?v=20260916-gift-message-13" />
   </head>
   <body class="letter-page">
     <div class="reading-progress" aria-hidden="true"></div>
@@ -332,6 +332,10 @@
                       <option value="kpay" data-i18n="kpay">KPay</option>
                     </select>
                   </label>
+                  <label class="rsvp-field wedding-gift__message">
+                    <span data-i18n="giftMessage">A message for the couple</span>
+                    <textarea name="giftMessage" rows="4" maxlength="700" data-gift-message data-i18n-placeholder="giftMessagePlaceholder" placeholder="Share your wishes, blessing or a few words from the heart"></textarea>
+                  </label>
                   <label class="wedding-gift__upload">
                     <input type="file" name="giftSlip" accept="image/jpeg,image/png,image/webp" data-gift-slip />
                     <span class="wedding-gift__upload-icon" aria-hidden="true">＋</span>
@@ -383,7 +387,7 @@
     <button class="motion-toggle" type="button" aria-pressed="false" hidden><span class="motion-toggle__icon" aria-hidden="true">Ⅱ</span><span class="motion-toggle__label">Pause motion</span></button>
     <script src="photo-config.js?v=20260915-photo-ready-1"></script>
     <script src="rsvp-config.js?v=20260916-secure-rsvp-2"></script>
-    <script src="script.js?v=20260916-gift-slip-7"></script>
+    <script src="script.js?v=20260916-gift-message-8"></script>
   </body>
 </html>
 

@@ -17,7 +17,7 @@ const openingAudioTimers = new Set();
 const musicTracks = {
   en: { src:"https://assets.mixkit.co/music/672/672.mp3", title:"Wedding Harp", artist:"Francisco Alvear" },
   th: { src:"https://assets.mixkit.co/music/599/599.mp3", title:"Possible Dreams", artist:"Eugenio Mininni" },
-  my: { src:"https://assets.mixkit.co/music/37/37.mp3", title:"Love is Eternal", artist:"Ahjay Stelino" },
+  my: { src:"https://assets.mixkit.co/music/272/272.mp3", title:"Wedding Music", artist:"Arulo" },
 };
 const musicPlayer = new Audio();
 musicPlayer.loop = true;
@@ -476,6 +476,8 @@ Object.assign(translations.en, {
   kpay: "KPay",
   paymentMethod: "Payment method used",
   choosePaymentMethod: "Choose a payment method",
+  giftMessage: "A message for the couple",
+  giftMessagePlaceholder: "Share your wishes, blessing or a few words from the heart",
   uploadSlip: "Attach your transfer slip",
   uploadSlipHelp: "Optional · JPG, PNG or WebP · up to 5 MB",
   selectedSlip: "Selected: {name}",
@@ -527,6 +529,8 @@ Object.assign(translations.th, {
   kpay: "KPay",
   paymentMethod: "ช่องทางการโอนเงิน",
   choosePaymentMethod: "เลือกช่องทางการโอน",
+  giftMessage: "ข้อความถึงคู่บ่าวสาว",
+  giftMessagePlaceholder: "ฝากคำอวยพรหรือข้อความจากใจถึงเรา",
   uploadSlip: "แนบสลิปการโอนเงิน",
   uploadSlipHelp: "ไม่บังคับ · JPG, PNG หรือ WebP · ไม่เกิน 5 MB",
   selectedSlip: "ไฟล์ที่เลือก: {name}",
@@ -579,6 +583,8 @@ translations.my = {
   kpay: "KPay",
   paymentMethod: "ငွေလွှဲနည်းလမ်း",
   choosePaymentMethod: "ငွေလွှဲနည်းလမ်း ရွေးချယ်ရန်",
+  giftMessage: "သတို့သားနှင့် သတို့သမီးအတွက် စာတိုလေး",
+  giftMessagePlaceholder: "သင်၏ ဆုမွန်ကောင်း သို့မဟုတ် ရင်တွင်းစကားလေး ရေးပေးပါ",
   uploadSlip: "ငွေလွှဲပြေစာပုံ တွဲရန်",
   uploadSlipHelp: "မဖြည့်လည်းရပါသည် · JPG, PNG သို့မဟုတ် WebP · 5 MB အထိ",
   selectedSlip: "ရွေးထားသောဖိုင်: {name}",
@@ -769,6 +775,7 @@ function initializeRsvp() {
   const giftIntent = form.querySelector("[data-gift-intent]");
   const giftDetails = form.querySelector("[data-gift-details]");
   const giftMethod = form.querySelector("[data-gift-method]");
+  const giftMessage = form.querySelector("[data-gift-message]");
   const giftSlip = form.querySelector("[data-gift-slip]");
   const giftFilename = form.querySelector("[data-gift-filename]");
   const acceptanceValue = "Joyfully accepts / ยินดีเข้าร่วมงาน";
@@ -797,9 +804,11 @@ function initializeRsvp() {
     giftDetails.hidden = !enabled;
     giftMethod.disabled = !enabled;
     giftMethod.required = enabled;
+    giftMessage.disabled = !enabled;
     giftSlip.disabled = !enabled;
     if (!enabled) {
       giftMethod.value = "";
+      giftMessage.value = "";
       giftSlip.value = "";
       giftFilename.textContent = "";
     }
@@ -876,6 +885,7 @@ function initializeRsvp() {
         dietary: attendanceValue === declineValue ? "" : formData.get("entry.649557088") || "",
         giftIntent: attendanceValue === declineValue && giftIntent.checked,
         giftPaymentMethod: attendanceValue === declineValue && giftIntent.checked ? giftMethod.value : "",
+        giftMessage: attendanceValue === declineValue && giftIntent.checked ? giftMessage.value.trim() : "",
         language: document.documentElement.lang || "en",
         website: formData.get("website") || "",
         startedAt: Number(form.dataset.rsvpStartedAt)

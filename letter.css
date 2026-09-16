@@ -647,6 +647,7 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 .payment-card small { color:#9a7a85;font:500 9px/1.5 "Manrope",Arial,sans-serif; }
 .payment-card__mark { display:grid;place-items:center;min-width:42px;height:30px;padding:0 7px;border-radius:9px;background:#f2dce5;color:#a35e79;font:700 10px/1 "Manrope",Arial,sans-serif; }
 .wedding-gift__method { margin-top:2px; }
+.wedding-gift__message textarea { min-height:104px;background:#fffdfd; }
 .wedding-gift__upload { display:flex;align-items:center;gap:14px;padding:15px 17px;border:1px dashed #d4a3b6;border-radius:18px;background:#fffafc;cursor:pointer;color:#76515e;transition:border-color .25s,background .25s,transform .25s; }
 .wedding-gift__upload:hover { border-color:#ad6681;background:#fff;transform:translateY(-1px); }
 .wedding-gift__upload input { position:absolute;width:1px;height:1px;opacity:0; }
