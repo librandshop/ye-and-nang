@@ -382,3 +382,105 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
   .margin-sprig--intro,.margin-sprig--venue { left:-12px; }
   .margin-sprig--schedule,.margin-sprig--reply { right:-14px; }
 }
+
+/* Romantic editorial refinement: more flowers, calmer rhythm, clearer ceremony. */
+.wedding-letter .section>.container,.wedding-letter .savebar__inner,.wedding-letter .hero__copy { position:relative;z-index:2; }
+.wedding-letter .hero { min-height:835px;padding-top:126px;padding-bottom:78px; }
+.wedding-letter .intro { padding-top:64px;padding-bottom:48px; }
+.wedding-letter .savebar { position:relative;isolation:isolate;padding-top:25px;padding-bottom:54px;overflow:hidden; }
+.wedding-letter .schedule { padding-top:54px;padding-bottom:66px; }
+.wedding-letter .venue { padding-top:58px;padding-bottom:68px; }
+.wedding-letter .countdown { padding-top:54px;padding-bottom:66px; }
+.wedding-letter .rsvp { padding-top:72px; }
+
+.floral-sprig { --flower-opacity:.66;position:absolute;z-index:0;display:block;width:112px;height:230px;pointer-events:none;opacity:var(--flower-opacity);filter:saturate(.95) contrast(1.03) drop-shadow(0 6px 9px #9f6c7a0b);transform-origin:50% 12%; }
+.floral-sprig img { display:block;width:100%;height:100%;object-fit:contain; }
+.floral-sprig--hero-left { left:-28px;top:17%;rotate:25deg; }
+.floral-sprig--hero-right { right:-25px;bottom:8%;width:100px;height:195px;rotate:-24deg;scale:-1 1;opacity:.48; }
+.floral-sprig--intro-right { right:-27px;bottom:1%;width:102px;height:190px;rotate:-24deg;scale:-1 1; }
+.floral-sprig--save-left { left:-32px;top:0;width:90px;height:165px;rotate:28deg; }
+.floral-sprig--save-right { right:-25px;bottom:-7px;width:76px;height:145px;rotate:-26deg;scale:-1 1;opacity:.42; }
+.floral-sprig--schedule-left { left:-34px;bottom:15%;width:108px;height:220px;rotate:23deg; }
+.floral-sprig--venue-right { right:-30px;top:20%;width:106px;height:215px;rotate:-20deg;scale:-1 1; }
+.floral-sprig--count-left { left:-35px;top:8%;width:106px;height:210px;rotate:29deg; }
+.floral-sprig--count-right { right:-27px;bottom:2%;width:82px;height:165px;rotate:-27deg;scale:-1 1;opacity:.42; }
+.floral-sprig--reply-left { left:-31px;top:21%;width:110px;height:220px;rotate:24deg; }
+
+/* The wedding program reads as three ceremonial moments, not business rows. */
+.wedding-letter .schedule__grid { gap:44px;max-width:500px;margin-top:44px; }
+.wedding-letter .schedule-card,
+.wedding-letter .schedule-card:nth-child(even) {
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:0;text-align:center;gap:0;
+}
+.wedding-letter .schedule-card .line-icon,
+.wedding-letter .schedule-card:nth-child(even) .line-icon {
+  position:static;grid-column:auto;grid-row:auto;box-sizing:content-box;width:45px;height:45px;
+  margin:0 auto 13px;padding:10px;border:1px solid #ead2dc;border-radius:50%;
+  background:radial-gradient(circle,#fff 0 55%,#fff5f8 100%);stroke-width:.8;
+  box-shadow:0 7px 20px #9b6d7c0c;
+}
+.wedding-letter .schedule-card h3,
+.wedding-letter .schedule-card:nth-child(even) h3 { grid-column:auto;grid-row:auto;margin:0 0 5px;text-align:center; }
+.wedding-letter .schedule-card .schedule-card__time,
+.wedding-letter .schedule-card:nth-child(even) .schedule-card__time { grid-column:auto;grid-row:auto;text-align:center; }
+.wedding-letter .schedule-card::before { display:none; }
+.program-note { margin-top:40px; }
+
+/* Four quiet keepsake medallions replace the fragile connector line. */
+.wedding-letter .countdown__grid { gap:18px;max-width:510px;margin-top:34px; }
+.wedding-letter .countdown__grid::before,
+.wedding-letter .countdown__grid>div:not(:last-child)::after { display:none; }
+.wedding-letter .countdown__grid>div { display:flex;flex-direction:column;align-items:center;padding:0; }
+.wedding-letter .countdown__grid strong {
+  display:grid;place-items:center;width:82px;height:82px;padding:0;border:1px solid #dfbdca;border-radius:50%;
+  background:radial-gradient(circle at 40% 30%,#fff 0 48%,#fbecf2 100%);font-size:50px;
+  box-shadow:inset 0 0 0 6px #fffdfc,0 9px 25px #99687910;
+}
+.wedding-letter .countdown__grid span { margin-top:10px; }
+
+/* The reply feels like the final page of the same letter. */
+.wedding-letter .rsvp__frame { box-shadow:inset 0 0 0 7px #fff,0 18px 50px #9364760d; }
+.rsvp-form { padding:30px 28px 10px;border-top:1px solid #f0dfe6;border-bottom:1px solid #f0dfe6;background:linear-gradient(180deg,#fffdfc99,#fff8fb80); }
+.rsvp-choice>span { min-height:64px; }
+.rsvp-choice input:checked+span { border-color:#aa617d;background:linear-gradient(135deg,#f1d3df,#fff8fb 62%);box-shadow:inset 0 0 0 4px #fff,0 8px 22px #a46d8018; }
+.rsvp-form__submit { box-shadow:0 11px 28px #975d741f; }
+
+/* Flowers unfurl with the letter, then settle into an almost imperceptible sway. */
+.js-motion .floral-sprig { opacity:0;clip-path:inset(0 0 100%); }
+.js-motion.invitation-ready .hero .floral-sprig { animation:flower-unfurl 2.5s var(--ease) 1.15s both; }
+.js-motion .section:has([data-reveal].is-visible) .floral-sprig,
+.js-motion .savebar:has([data-reveal].is-visible) .floral-sprig { animation:flower-unfurl 2.3s var(--ease) .2s both; }
+.motion-enabled.invitation-ready .hero .floral-sprig,
+.motion-enabled .section:has([data-reveal].is-visible) .floral-sprig,
+.motion-enabled .savebar:has([data-reveal].is-visible) .floral-sprig { animation:flower-unfurl 2.3s var(--ease) .2s both,flower-breathe 9s ease-in-out 2.7s infinite alternate; }
+.js-motion .wedding-letter .schedule-card:nth-child(odd)[data-reveal],
+.js-motion .wedding-letter .schedule-card:nth-child(even)[data-reveal] { transform:translateY(15px); }
+@keyframes flower-unfurl { from { opacity:0;clip-path:inset(0 0 100%);translate:0 -12px; } to { opacity:var(--flower-opacity);clip-path:inset(0);translate:0 0; } }
+@keyframes flower-breathe { from { translate:0 0; } to { translate:0 6px; } }
+.motion-paused .floral-sprig { animation:none!important;opacity:var(--flower-opacity)!important;clip-path:none!important;translate:0 0!important; }
+
+@media(max-width:700px) {
+  .wedding-letter .hero { min-height:760px;padding-top:104px;padding-bottom:62px; }
+  .wedding-letter .intro { padding-top:49px;padding-bottom:34px; }
+  .wedding-letter .savebar { padding-top:18px;padding-bottom:42px; }
+  .wedding-letter .schedule { padding-top:39px;padding-bottom:48px; }
+  .wedding-letter .schedule__grid { gap:38px;margin-top:34px; }
+  .wedding-letter .schedule-card,.wedding-letter .schedule-card:nth-child(even) { display:flex;padding:0;text-align:center; }
+  .wedding-letter .schedule-card .line-icon,.wedding-letter .schedule-card:nth-child(even) .line-icon { width:39px;height:39px;margin:0 auto 11px;padding:8px; }
+  .wedding-letter .schedule-card h3,.wedding-letter .schedule-card:nth-child(even) h3 { margin-bottom:4px;text-align:center; }
+  .wedding-letter .venue { padding-top:43px;padding-bottom:53px; }
+  .wedding-letter .countdown { padding-top:42px;padding-bottom:52px; }
+  .wedding-letter .countdown__grid { gap:5px;margin-top:29px; }
+  .wedding-letter .countdown__grid strong { width:clamp(53px,17vw,67px);height:clamp(53px,17vw,67px);font-size:clamp(32px,10vw,43px);box-shadow:inset 0 0 0 4px #fffdfc,0 6px 18px #9968790c; }
+  .wedding-letter .countdown__grid span { margin-top:8px;font-size:14px; }
+  .wedding-letter .rsvp { padding-top:61px;padding-bottom:66px; }
+  .rsvp-form { padding:25px 4px 8px; }
+  .floral-sprig { --flower-opacity:.58;width:78px;height:150px; }
+  .floral-sprig--hero-left { left:-24px;top:15%; }
+  .floral-sprig--hero-right { right:-24px;bottom:7%;width:58px;height:115px; }
+  .floral-sprig--intro-right,.floral-sprig--venue-right { right:-23px;width:65px;height:130px; }
+  .floral-sprig--save-left,.floral-sprig--schedule-left,.floral-sprig--count-left,.floral-sprig--reply-left { left:-25px;width:68px;height:138px; }
+  .floral-sprig--save-right,.floral-sprig--count-right { right:-24px;width:54px;height:108px; }
+  .margin-sprig { opacity:.42; }
+}

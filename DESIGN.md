@@ -56,3 +56,24 @@ The generic Google Form page is no longer part of the guest journey. A custom re
 Responses continue to use the existing Google Form as their private collection backend. The live form's five exact entry fields are preserved: guest name, attendance, party size, plus-one name and dietary requirements. The interface and confirmation copy are fully translated in English, Thai and Burmese. Native browser validation, keyboard focus, an accessible live status and a no-JavaScript Google Form fallback are retained.
 
 Automated checks intercept the submission before it reaches Google, then verify the exact encoded field names and values, attendance-dependent controls, translated placeholders, reset flow, confirmation positioning and layout at desktop, phone and 320-pixel widths. No test response is added to the couple's response sheet.
+
+## Photo-ready structure
+
+The invitation contains an optional editorial photo chapter between the personal letter and calendar actions. It is configuration-driven and remains fully hidden—with no empty gap, placeholder or network request—until `photo-config.js` is enabled. The first image is treated as the principal portrait; up to four additional moments settle into a lightly layered print arrangement that becomes a single column on phones.
+
+Each photograph supports an independent crop focus plus English, Thai and Burmese alt text and captions. Images use lazy loading and asynchronous decoding, and a missing asset removes its own frame safely. The existing envelope, typography and floral identity remain unchanged.
+
+`PHOTO-GUIDE.md` records source-quality, naming, crop and social-preview requirements. The QR sharing artwork keeps a protected lower QR region and can later receive a dedicated vertical portrait without rebuilding its composition. Its real QR code must always be revalidated after final compositing and compression.
+
+## Romantic editorial refinement
+
+- Additional blush sweet-pea and white jasmine sprigs now grow from the paper margins around the hero, personal note, calendar keepsake, wedding program, venue, countdown and reply. They remain behind the content and are deliberately asymmetric rather than forming large central bouquets.
+- The program is three centered ceremonial moments with fine round icon medallions. Alternating business-like rows and horizontal connector rules have been removed at every viewport size.
+- Countdown values sit in four softly double-lined keepsake medallions. The former continuous rule and punctuation dots are gone, eliminating mobile alignment drift while preserving the single-row rhythm.
+- The reply form receives a lightly printed inner sheet, stronger selected attendance states and more tactile button depth. Its Google Forms backend and exact response mapping are unchanged.
+- Mobile vertical spacing is tightened across the hero, program, venue, countdown and reply. Flowers scale down and retreat toward the paper edge at narrow widths.
+- New flowers unfurl as their section enters view and then move only through a very slow six-pixel sway. Paused and reduced-motion experiences display them statically.
+
+New asset: `assets/blush-flower-sprig.webp`, 667 × 1000, transparent WebP, 99,254 bytes. Generated with the built-in image-generation tool, then resized and encoded with its alpha channel preserved.
+
+Generation prompt summary: one airy contemporary flowering sprig on genuine transparency, with a slender sage stem, pale blush sweet peas, tiny white jasmine flowers and unopened buds; natural florist photography, soft daylight, open spacing, no bouquet, no large roses, no vase, no text and no background.
