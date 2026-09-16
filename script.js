@@ -2,6 +2,7 @@ const invitationIntro = document.querySelector(".invitation-intro");
 const openInvitation = document.querySelector(".envelope");
 const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
 const motionButton = document.querySelector(".motion-toggle");
+const soundButton = document.querySelector(".sound-toggle");
 const pageContent = [...document.querySelectorAll(".site-header, main, footer")];
 let motionPaused = motionPreference.matches;
 let openingTimer;
@@ -9,6 +10,152 @@ let revealObserver;
 let lastRsvpName = "";
 const openingSkip = document.querySelector(".opening-skip");
 const openingDuration = 6600;
+let audioContext;
+let masterGain;
+let effectsGain;
+let musicGain;
+let soundEnabled = false;
+let soundChoiceMade = false;
+let musicLoop;
+const openingAudioNodes = new Set();
+const musicAudioNodes = new Set();
+
+function ensureAudio() {
+  if (audioContext) return true;
+  const AudioEngine = window.AudioContext || window.webkitAudioContext;
+  if (!AudioEngine) return false;
+  try {
+    audioContext = new AudioEngine();
+    masterGain = audioContext.createGain();
+    effectsGain = audioContext.createGain();
+    musicGain = audioContext.createGain();
+    masterGain.gain.value = .72;
+    effectsGain.gain.value = .72;
+    musicGain.gain.value = .5;
+    effectsGain.connect(masterGain);
+    musicGain.connect(masterGain);
+    masterGain.connect(audioContext.destination);
+    return true;
+  } catch { return false; }
+}
+
+function stopNodes(nodes) {
+  nodes.forEach(node => { try { node.stop(); } catch { /* Already finished. */ } });
+  nodes.clear();
+}
+
+function scheduleTone(frequency, start, duration, volume, destination, type = "sine", nodes = openingAudioNodes, endFrequency) {
+  if (!audioContext || !destination) return;
+  const oscillator = audioContext.createOscillator();
+  const envelope = audioContext.createGain();
+  oscillator.type = type;
+  oscillator.frequency.setValueAtTime(frequency, start);
+  if (endFrequency) oscillator.frequency.exponentialRampToValueAtTime(endFrequency, start + duration * .78);
+  envelope.gain.setValueAtTime(.0001, start);
+  envelope.gain.exponentialRampToValueAtTime(volume, start + Math.min(.045, duration * .16));
+  envelope.gain.exponentialRampToValueAtTime(.0001, start + duration);
+  oscillator.connect(envelope).connect(destination);
+  nodes.add(oscillator);
+  oscillator.addEventListener("ended", () => nodes.delete(oscillator), { once:true });
+  oscillator.start(start);
+  oscillator.stop(start + duration + .03);
+}
+
+function scheduleRustle(start, duration, volume, frequency = 900) {
+  if (!audioContext || !effectsGain) return;
+  const frameCount = Math.max(1, Math.floor(audioContext.sampleRate * duration));
+  const buffer = audioContext.createBuffer(1, frameCount, audioContext.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < frameCount; i += 1) data[i] = (Math.random() * 2 - 1) * (1 - i / frameCount);
+  const source = audioContext.createBufferSource();
+  const filter = audioContext.createBiquadFilter();
+  const envelope = audioContext.createGain();
+  filter.type = "bandpass";
+  filter.frequency.value = frequency;
+  filter.Q.value = .65;
+  envelope.gain.setValueAtTime(.0001, start);
+  envelope.gain.exponentialRampToValueAtTime(volume, start + .04);
+  envelope.gain.exponentialRampToValueAtTime(.0001, start + duration);
+  source.buffer = buffer;
+  source.connect(filter).connect(envelope).connect(effectsGain);
+  openingAudioNodes.add(source);
+  source.addEventListener("ended", () => openingAudioNodes.delete(source), { once:true });
+  source.start(start);
+}
+
+function playOpeningSoundscape() {
+  if (!soundEnabled || !ensureAudio()) return;
+  stopNodes(openingAudioNodes);
+  const now = audioContext.currentTime + .035;
+  scheduleTone(523.25, now, .5, .042, effectsGain, "sine");
+  scheduleTone(783.99, now + .025, .64, .022, effectsGain, "triangle");
+  scheduleRustle(now + .28, .72, .032, 2200);
+  scheduleRustle(now + 1.02, 1.05, .04, 1050);
+  scheduleTone(329.63, now + 1.26, 1.25, .025, effectsGain, "sine", openingAudioNodes, 493.88);
+  scheduleTone(659.25, now + 2.65, .68, .022, effectsGain, "triangle");
+  scheduleRustle(now + 3.1, 1.45, .046, 1350);
+  scheduleRustle(now + 4.2, .9, .028, 2600);
+  [523.25, 659.25, 783.99, 987.77].forEach((note, index) => scheduleTone(note, now + 5.65 + index * .075, 1.45, .024, effectsGain, index % 2 ? "triangle" : "sine"));
+}
+
+const scores = {
+  en: { beat:.56, type:"triangle", notes:[60,64,67,69,67,64,62,67,65,69,72,69,67,64,62,59] },
+  th: { beat:.5, type:"sine", notes:[62,64,66,69,71,69,66,64,62,66,69,74,71,69,66,64] },
+  my: { beat:.54, type:"triangle", notes:[60,62,64,67,69,67,64,62,60,64,67,72,69,67,64,62] },
+};
+
+function midiToFrequency(note) { return 440 * (2 ** ((note - 69) / 12)); }
+
+function scheduleMusicPhrase(language) {
+  if (!soundEnabled || document.hidden || !audioContext || !musicGain) return;
+  const score = scores[language] || scores.en;
+  const start = audioContext.currentTime + .08;
+  score.notes.forEach((note, index) => {
+    const time = start + index * score.beat;
+    const accent = index % 4 === 0;
+    scheduleTone(midiToFrequency(note), time, score.beat * 1.7, accent ? .025 : .016, musicGain, score.type, musicAudioNodes);
+    if (accent) scheduleTone(midiToFrequency(note - 12), time, score.beat * 3.1, .012, musicGain, "sine", musicAudioNodes);
+  });
+}
+
+function stopMusic() {
+  window.clearInterval(musicLoop);
+  musicLoop = undefined;
+  stopNodes(musicAudioNodes);
+  document.body.classList.remove("music-playing");
+}
+
+function startMusic(language = document.documentElement.lang) {
+  stopMusic();
+  if (!soundEnabled || document.hidden || !invitationIntro.hidden || !ensureAudio()) return;
+  document.body.dataset.score = language;
+  document.body.classList.add("music-playing");
+  scheduleMusicPhrase(language);
+  const phraseLength = (scores[language] || scores.en).beat * 16 * 1000;
+  musicLoop = window.setInterval(() => scheduleMusicPhrase(document.documentElement.lang), phraseLength);
+}
+
+function refreshSoundButton() {
+  const copy = translations[document.documentElement.lang] || translations.en;
+  soundButton.querySelector(".sound-toggle__label").textContent = soundEnabled ? copy.muteSound : copy.playSound;
+  soundButton.querySelector(".sound-toggle__icon").textContent = soundEnabled ? "♫" : "♪";
+  soundButton.setAttribute("aria-pressed", String(soundEnabled));
+  soundButton.classList.toggle("is-active", soundEnabled);
+}
+
+function setSoundEnabled(enabled, userChoice = true) {
+  if (userChoice) soundChoiceMade = true;
+  soundEnabled = enabled && ensureAudio();
+  document.body.classList.toggle("sound-enabled", soundEnabled);
+  if (soundEnabled) {
+    audioContext.resume().catch(() => {});
+    if (invitationIntro.hidden) startMusic();
+  } else {
+    stopNodes(openingAudioNodes);
+    stopMusic();
+  }
+  refreshSoundButton();
+}
 
 function positionFoldedCard() {
   // One physical card lives between the envelope back and its front pocket.
@@ -30,12 +177,21 @@ function finishOpening() {
   document.body.classList.remove("invitation-open", "invitation-opening");
   pageContent.forEach(element => { element.inert = false; });
   document.body.classList.add("invitation-ready");
+  stopNodes(openingAudioNodes);
+  if (soundEnabled) {
+    const now = audioContext.currentTime + .025;
+    [523.25, 659.25, 783.99].forEach((note, index) => scheduleTone(note, now + index * .06, 1.25, .02, effectsGain, "sine"));
+    window.setTimeout(() => startMusic(), 420);
+  }
   document.querySelector("#couple-names").focus({ preventScroll: true });
   observeReveals();
 }
 
 function revealInvitation() {
   if (invitationIntro.hidden || document.body.classList.contains("invitation-opening")) return;
+  if (!soundChoiceMade) setSoundEnabled(true, false);
+  else if (soundEnabled) audioContext?.resume().catch(() => {});
+  playOpeningSoundscape();
   if (motionPaused) { finishOpening(); return; }
   positionFoldedCard();
   openInvitation.setAttribute("aria-disabled", "true");
@@ -48,6 +204,8 @@ function revealInvitation() {
 function showEnvelope() {
   window.clearTimeout(openingTimer);
   revealObserver?.disconnect();
+  stopNodes(openingAudioNodes);
+  stopMusic();
   document.body.classList.remove("invitation-ready", "invitation-opening");
   document.body.classList.remove("controls-compact");
   openingSkip.hidden = true;
@@ -121,13 +279,15 @@ function initializeInvitation() {
   document.querySelector(".replay-button").addEventListener("click", showEnvelope);
   motionButton.hidden = false;
   motionButton.addEventListener("click", () => setMotionPaused(!motionPaused));
+  soundButton.hidden = false;
+  soundButton.addEventListener("click", () => setSoundEnabled(!soundEnabled));
   motionPreference.addEventListener("change", event => setMotionPaused(event.matches));
   setMotionPaused(motionPaused);
   document.addEventListener("keydown", event => {
     if (invitationIntro.hidden) return;
     if (event.key === "Escape") { event.preventDefault(); finishOpening(); }
     if (event.key === "Tab") {
-      const focusable = [...invitationIntro.querySelectorAll("button"), motionButton].filter(button => !button.hidden && button.getAttribute("aria-disabled") !== "true");
+      const focusable = [...invitationIntro.querySelectorAll("button"), soundButton, motionButton].filter(button => !button.hidden && button.getAttribute("aria-disabled") !== "true");
       const index = focusable.indexOf(document.activeElement);
       event.preventDefault();
       focusable[(index + (event.shiftKey ? -1 : 1) + focusable.length) % focusable.length].focus();
@@ -137,6 +297,8 @@ function initializeInvitation() {
     document.body.classList.toggle("page-hidden", document.hidden);
     // Avoid resuming halfway through a ceremony after switching apps.
     if (document.hidden && document.body.classList.contains("invitation-opening")) finishOpening();
+    if (document.hidden) stopMusic();
+    else if (soundEnabled && invitationIntro.hidden) startMusic();
   });
   const progress = document.querySelector(".reading-progress");
   const weddingLetter = document.querySelector(".wedding-letter");
@@ -305,6 +467,8 @@ Object.assign(translations.en, {
   replay: "Open the envelope again",
   pauseMotion: "Pause motion",
   resumeMotion: "Resume motion",
+  playSound: "Play music",
+  muteSound: "Mute music",
 });
 Object.assign(translations.th, {
   photoEyebrow: "ภาพเล็ก ๆ ของเรา",
@@ -341,6 +505,8 @@ Object.assign(translations.th, {
   replay: "เปิดซองอีกครั้ง",
   pauseMotion: "หยุดภาพเคลื่อนไหว",
   resumeMotion: "เล่นภาพเคลื่อนไหว",
+  playSound: "เปิดเพลง",
+  muteSound: "ปิดเพลง",
 });
 
 translations.my = {
@@ -415,6 +581,8 @@ translations.my = {
   replay: "ဖိတ်စာအိတ်ကို ပြန်ဖွင့်ရန်",
   pauseMotion: "လှုပ်ရှားမှု ရပ်ရန်",
   resumeMotion: "လှုပ်ရှားမှု ပြန်စရန်",
+  playSound: "တေးဂီတ ဖွင့်ရန်",
+  muteSound: "တေးဂီတ ပိတ်ရန်",
 };
 
 function photoText(value, language) {
@@ -514,6 +682,8 @@ function setLanguage(language) {
   updateWeddingPhotoLanguage(language);
   updateRsvpThankYou(language);
   refreshMotionButton();
+  refreshSoundButton();
+  if (soundEnabled && invitationIntro.hidden) startMusic(language);
   document.querySelectorAll("[data-language]").forEach((button) => {
     const isActive = button.dataset.language === language;
     button.classList.toggle("is-active", isActive);
@@ -623,4 +793,5 @@ updateCountdown();
 window.setInterval(updateCountdown, 1000);
 initializeRsvp();
 initializeInvitation();
+
 

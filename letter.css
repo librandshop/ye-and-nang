@@ -526,12 +526,14 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 .envelope__botanical::before { clip-path:polygon(0 0,54% 0,54% 100%,0 100%);transform-origin:5% 96%; }
 .envelope__botanical::after { clip-path:polygon(46% 0,100% 0,100% 100%,46% 100%);transform-origin:95% 96%; }
 @keyframes forest-bank-left {
-  0%,100% { transform:rotate(-.28deg) skewX(-.12deg); }
-  50% { transform:rotate(.72deg) skewX(.25deg); }
+  0%,100% { transform:rotate(-.48deg) skewX(-.2deg); }
+  38% { transform:rotate(.42deg) skewX(.12deg); }
+  68% { transform:rotate(1.18deg) skewX(.38deg); }
 }
 @keyframes forest-bank-right {
-  0%,100% { transform:rotate(.3deg) skewX(.12deg); }
-  50% { transform:rotate(-.68deg) skewX(-.22deg); }
+  0%,100% { transform:rotate(.52deg) skewX(.18deg); }
+  42% { transform:rotate(-.38deg) skewX(-.1deg); }
+  72% { transform:rotate(-1.12deg) skewX(-.36deg); }
 }
 .motion-enabled:not(.invitation-opening) .envelope__botanical::before { animation:forest-bank-left 6.8s ease-in-out infinite; }
 .motion-enabled:not(.invitation-opening) .envelope__botanical::after { animation:forest-bank-right 7.4s ease-in-out -.9s infinite; }
@@ -787,7 +789,7 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
 @keyframes date-keepsake { from { opacity:0;transform:scale(.94); } to { opacity:1;transform:none; } }
 @keyframes oval-trace { from { clip-path:inset(0 100% 0 0); } to { clip-path:inset(0); } }
 @keyframes margin-vine-grow { from { opacity:0;clip-path:inset(0 0 100%);translate:0 -14px; } to { opacity:.45;clip-path:inset(0);translate:0 0; } }
-@keyframes margin-vine-breathe { from { translate:0 0; } to { translate:0 7px; } }
+@keyframes margin-vine-breathe { from { opacity:.42; } to { opacity:.5; } }
 .motion-paused .wedding-letter { animation:none!important;opacity:1!important;translate:0 0!important;filter:none!important; }
 .motion-paused .hero__date-card,.motion-paused .margin-sprig { opacity:1!important;transform:none!important;clip-path:none!important;translate:0 0!important; }
 
@@ -896,7 +898,7 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
 .js-motion .wedding-letter .schedule-card:nth-child(odd)[data-reveal],
 .js-motion .wedding-letter .schedule-card:nth-child(even)[data-reveal] { transform:translateY(15px); }
 @keyframes flower-unfurl { from { opacity:0;clip-path:inset(0 0 100%);translate:0 -12px; } to { opacity:var(--flower-opacity);clip-path:inset(0);translate:0 0; } }
-@keyframes flower-breathe { from { translate:0 0; } to { translate:0 6px; } }
+@keyframes flower-breathe { from { filter:saturate(.94) contrast(1.02); } to { filter:saturate(1.03) contrast(1.04); } }
 .motion-paused .floral-sprig { animation:none!important;opacity:var(--flower-opacity)!important;clip-path:none!important;translate:0 0!important; }
 
 /* Pink-only blossom accents: more romance without changing content geometry. */
@@ -934,7 +936,7 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
   from { opacity:0;clip-path:inset(0 0 100%);translate:0 15px; }
   to { opacity:var(--pink-vine-opacity);clip-path:inset(-8%);translate:0 0; }
 }
-@keyframes pink-vine-breathe { from { translate:0 0; } to { translate:2px -6px; } }
+@keyframes pink-vine-breathe { from { filter:saturate(.94) brightness(1.02); } to { filter:saturate(1.04) brightness(1.045); } }
 .motion-paused .pink-vine { animation:none!important;opacity:var(--pink-vine-opacity)!important;clip-path:none!important;translate:0 0!important; }
 
 /* Natural wind uses articulated plant sections: roots stay planted, tips bend most. */
@@ -964,13 +966,15 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
   clip-path:inset(40% 0 17% 0);transform-origin:50% 84%;
 }
 @keyframes garden-tip-bend {
-  0%,100% { transform:rotate(-1deg) skewX(-.15deg); }
-  42% { transform:rotate(.55deg) skewX(.08deg); }
-  72% { transform:rotate(1.75deg) skewX(.28deg); }
+  0%,100% { transform:rotate(-1.55deg) skewX(-.3deg); }
+  38% { transform:rotate(.7deg) skewX(.12deg); }
+  68% { transform:rotate(2.9deg) skewX(.5deg); }
+  84% { transform:rotate(1.3deg) skewX(.2deg); }
 }
 @keyframes garden-stem-bend {
-  0%,100% { transform:rotate(-.35deg); }
-  50% { transform:rotate(.72deg); }
+  0%,100% { transform:rotate(-.55deg); }
+  45% { transform:rotate(.48deg); }
+  72% { transform:rotate(1.18deg); }
 }
 .motion-enabled.invitation-ready .wedding-letter .pink-vine::before,
 .motion-enabled.invitation-ready .wedding-letter .floral-sprig::before,
@@ -1089,12 +1093,14 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
 }
 
 /* Controls retreat once the guest begins reading, then expand on interaction. */
-.letter-page .site-header,.letter-page .language-switch,.motion-toggle { transition:opacity .35s ease,scale .35s var(--ease),translate .35s var(--ease),box-shadow .35s ease; }
+.letter-page .site-header,.letter-page .language-switch,.motion-toggle,.sound-toggle { transition:opacity .35s ease,scale .35s var(--ease),translate .35s var(--ease),box-shadow .35s ease; }
 .controls-compact .letter-page .language-switch,.controls-compact.letter-page .language-switch { scale:.86;opacity:.72;transform-origin:100% 0;box-shadow:0 5px 17px #99687b0e; }
 .controls-compact .motion-toggle { scale:.84;opacity:.64;transform-origin:100% 100%; }
+.controls-compact .sound-toggle { scale:.84;opacity:.64;transform-origin:0 100%; }
 .controls-compact .letter-page .language-switch:hover,.controls-compact.letter-page .language-switch:hover,
 .controls-compact .letter-page .language-switch:focus-within,.controls-compact.letter-page .language-switch:focus-within,
-.controls-compact .motion-toggle:hover,.controls-compact .motion-toggle:focus-visible { scale:1;opacity:1; }
+.controls-compact .motion-toggle:hover,.controls-compact .motion-toggle:focus-visible,
+.controls-compact .sound-toggle:hover,.controls-compact .sound-toggle:focus-visible { scale:1;opacity:1; }
 
 /* Typography is composed independently for each writing system. */
 .wedding-letter h2,.wedding-letter .hero__invite,.wedding-letter .intro__copy p { text-wrap:balance; }
@@ -1138,6 +1144,7 @@ html[lang="th"] .wedding-letter h2,html[lang="my"] .wedding-letter h2 { text-wra
   .motion-paused .letter-vine-journey { opacity:.42!important; }
   .controls-compact .letter-page .language-switch,.controls-compact.letter-page .language-switch { scale:.8;opacity:.66;translate:7px -3px; }
   .controls-compact .motion-toggle { scale:.78;opacity:.58;translate:7px 5px; }
+  .controls-compact .sound-toggle { scale:.78;opacity:.58;translate:-7px 5px; }
   .wedding-letter .venue__layout { padding:45px 24px 47px;box-shadow:inset 0 0 0 5px #fff,inset 0 0 0 6px #f1dfe6,0 14px 38px #9567790b; }
   .wedding-letter .venue__layout::before { inset:11px; }
   .rsvp-thanks { min-height:280px;padding-inline:28px; }
@@ -1147,3 +1154,21 @@ html[lang="th"] .wedding-letter h2,html[lang="my"] .wedding-letter h2 { text-wra
   html[lang="th"] .wedding-letter .hero__invite { max-width:270px;margin-inline:auto; }
   html[lang="my"] .wedding-letter .hero__invite { max-width:285px;margin-inline:auto; }
 }
+
+/* Sound is optional, clearly controlled, and styled as part of the stationery. */
+.sound-toggle {
+  position:fixed;bottom:18px;left:20px;z-index:110;display:flex;align-items:center;gap:8px;min-height:36px;
+  padding:8px 13px;border:1px solid #e3c6d1;border-radius:30px;background:#fffdfbed;color:#684752;
+  font:500 9px/1.2 Montserrat,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;
+  box-shadow:0 5px 18px #996f7a12;backdrop-filter:blur(10px);
+}
+.sound-toggle__icon { display:grid;place-items:center;width:20px;height:20px;border-radius:50%;font:500 13px/1 Georgia,serif;background:#f7e7ed;color:#a35d78; }
+.sound-toggle.is-active { border-color:#d8aebf;background:#fff9fbf2;box-shadow:0 7px 22px #9d61791a; }
+.sound-toggle.is-active .sound-toggle__icon { background:#a85f7b;color:#fff;animation:sound-note-glow 2.4s ease-in-out infinite; }
+@keyframes sound-note-glow { 50% { box-shadow:0 0 0 5px #e8c9d54d;transform:scale(1.06); } }
+.motion-paused .sound-toggle__icon { animation:none; }
+@media(max-width:700px) {
+  .sound-toggle { left:12px;bottom:14px;padding:8px 11px; }
+  .sound-toggle__label { max-width:82px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+}
+
