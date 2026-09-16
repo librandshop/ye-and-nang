@@ -465,14 +465,14 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
   box-shadow:none;
 }
 .envelope__seal {
-  width:56px;height:56px;top:50%;transform:translate(-50%,-50%);
+  width:70px;height:70px;top:50%;transform:translate(-50%,-50%);
   background:linear-gradient(145deg,#bd7891,#8e5269);
   border:1px solid #d4b47e;
   border-radius:50%;
   box-shadow:0 9px 22px #6f405130,inset 0 0 0 4px #a9657d,inset 0 0 0 5px #e2c89c;
 }
 .envelope__seal::after { inset:-5px;border-color:#d4b47e80;animation:modern-seal-breathe 4.4s ease-in-out infinite; }
-.envelope__seal>span { color:#fffaf8;font-size:20px;letter-spacing:.015em;text-shadow:none; }
+.envelope__seal>span { color:#fffaf8;font-size:25px;letter-spacing:.015em;text-shadow:none; }
 .envelope__botanical { opacity:1; }
 .envelope__botanical img {
   width:110%;height:110%;max-width:none;left:-5%;right:auto;bottom:-5%;object-fit:contain;
@@ -517,18 +517,26 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 @keyframes ribbon-left { to { transform:translateX(-104%);opacity:0; } }
 @keyframes ribbon-right { to { transform:translateX(104%);opacity:0; } }
 @keyframes band-release { to { transform:translateY(22px);opacity:0;filter:blur(1px); } }
-@keyframes enchanted-garden-breathe {
-  0%,100% { transform:translateX(-2px) rotate(-.35deg) scale(1.005);filter:saturate(.9) brightness(1.03) drop-shadow(0 8px 10px #5d65491f); }
-  48% { transform:translateX(4px) rotate(.55deg) scale(1.022);filter:saturate(1) brightness(1.08) drop-shadow(0 10px 14px #8d6c7a25); }
-  72% { transform:translateX(1px) rotate(.12deg) scale(1.014); }
+.envelope__botanical img { opacity:0;animation:none!important; }
+.envelope__botanical::before,.envelope__botanical::after {
+  content:"";position:absolute;inset:-5%;pointer-events:none;
+  background:url("assets/enchanted-envelope-garden.webp") center/100% 100% no-repeat;
+  filter:saturate(.94) brightness(1.04) drop-shadow(0 8px 10px #5d65491f);
 }
-@keyframes enchanted-garden-awaken {
-  0% { transform:translateX(-2px) rotate(-.35deg) scale(1.005);filter:saturate(.92) brightness(1.04); }
-  55% { transform:translateX(5px) rotate(.65deg) scale(1.04);filter:saturate(1.12) brightness(1.12); }
-  100% { transform:translateX(2px) rotate(.18deg) scale(1.06);filter:saturate(1.02) brightness(1.08); }
+.envelope__botanical::before { clip-path:polygon(0 0,54% 0,54% 100%,0 100%);transform-origin:5% 96%; }
+.envelope__botanical::after { clip-path:polygon(46% 0,100% 0,100% 100%,46% 100%);transform-origin:95% 96%; }
+@keyframes forest-bank-left {
+  0%,100% { transform:rotate(-.28deg) skewX(-.12deg); }
+  50% { transform:rotate(.72deg) skewX(.25deg); }
 }
-.motion-enabled:not(.invitation-opening) .envelope__botanical img { animation:enchanted-garden-breathe 7s ease-in-out infinite; }
-.invitation-opening .envelope__botanical img { animation:enchanted-garden-awaken 1.65s var(--ease) both; }
+@keyframes forest-bank-right {
+  0%,100% { transform:rotate(.3deg) skewX(.12deg); }
+  50% { transform:rotate(-.68deg) skewX(-.22deg); }
+}
+.motion-enabled:not(.invitation-opening) .envelope__botanical::before { animation:forest-bank-left 6.8s ease-in-out infinite; }
+.motion-enabled:not(.invitation-opening) .envelope__botanical::after { animation:forest-bank-right 7.4s ease-in-out -.9s infinite; }
+.motion-enabled.invitation-opening .envelope__botanical::before { animation:forest-bank-left 2.4s ease-in-out infinite; }
+.motion-enabled.invitation-opening .envelope__botanical::after { animation:forest-bank-right 2.7s ease-in-out -.5s infinite; }
 
 /* The border belongs to the closed envelope, so it leaves with the pocket. */
 .invitation-opening .envelope::before,
@@ -543,8 +551,8 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
   .opening-halo { top:55%;width:145vw; }
   .envelope-scene { width:min(84vw,400px); }
   .envelope::before { inset:-4px;box-shadow:0 0 0 3px #fffdfc,0 14px 34px #714c5912; }
-  .envelope__seal { width:48px;height:48px; }
-  .envelope__seal>span { font-size:17px; }
+  .envelope__seal { width:60px;height:60px; }
+  .envelope__seal>span { font-size:21px; }
   .envelope__shell::after { right:16px;bottom:13px;font-size:6px; }
   /* One arch and one paper edge: no lines may cross the invitation copy. */
   .hero::after { display:none; }
@@ -929,31 +937,57 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
 @keyframes pink-vine-breathe { from { translate:0 0; } to { translate:2px -6px; } }
 .motion-paused .pink-vine { animation:none!important;opacity:var(--pink-vine-opacity)!important;clip-path:none!important;translate:0 0!important; }
 
-/* A layered breeze: stems bend slowly while each section continues its softer drift. */
-@keyframes garden-wind {
-  0%,100% { transform:translateX(-1px) rotate(-1.4deg); }
-  32% { transform:translateX(2px) rotate(.65deg); }
-  68% { transform:translateX(4px) rotate(2.15deg); }
-}
+/* Natural wind uses articulated plant sections: roots stay planted, tips bend most. */
 @keyframes garden-wind-soft {
   0%,100% { transform:translateX(-.5px) rotate(-.7deg); }
   50% { transform:translateX(2px) rotate(1.15deg); }
 }
-.motion-enabled.invitation-ready .wedding-letter .floral-sprig img,
-.motion-enabled.invitation-ready .wedding-letter .pink-vine img,
-.motion-enabled.invitation-ready .wedding-letter .margin-sprig img {
-  transform-origin:50% 8%;animation:garden-wind 5.8s ease-in-out infinite;
+.pink-vine { --wind-art:url("assets/pink-blossom-vine.webp"); }
+.margin-sprig { --wind-art:url("assets/jasmine-vine.webp"); }
+.floral-sprig--hero-left,.floral-sprig--intro-right,.floral-sprig--save-left,
+.floral-sprig--schedule-left,.floral-sprig--venue-right,.floral-sprig--count-left,
+.floral-sprig--reply-left { --wind-art:url("assets/blush-flower-sprig.webp"); }
+.floral-sprig--hero-right,.floral-sprig--save-right,.floral-sprig--count-right { --wind-art:url("assets/jasmine-vine.webp"); }
+.wedding-letter .pink-vine::before,.wedding-letter .pink-vine::after,
+.wedding-letter .floral-sprig::before,.wedding-letter .floral-sprig::after,
+.wedding-letter .margin-sprig::before,.wedding-letter .margin-sprig::after {
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:var(--wind-art) center/contain no-repeat;
 }
-.motion-enabled.invitation-ready .wedding-letter .pink-vine:nth-of-type(even) img,
-.motion-enabled.invitation-ready .wedding-letter .margin-sprig img {
-  animation-name:garden-wind-soft;animation-duration:6.7s;animation-direction:alternate-reverse;
+.wedding-letter .pink-vine img,.wedding-letter .floral-sprig img,.wedding-letter .margin-sprig img {
+  clip-path:inset(57% 0 0);animation:none!important;
 }
-.motion-enabled.invitation-ready .wedding-letter .floral-sprig--hero-right img,
-.motion-enabled.invitation-ready .wedding-letter .floral-sprig--intro-right img,
-.motion-enabled.invitation-ready .wedding-letter .pink-vine--schedule img,
-.motion-enabled.invitation-ready .wedding-letter .pink-vine--venue-bottom img,
-.motion-enabled.invitation-ready .wedding-letter .pink-vine--reply img {
-  animation-delay:-2.8s;animation-direction:alternate-reverse;
+.wedding-letter .pink-vine::before,.wedding-letter .floral-sprig::before,.wedding-letter .margin-sprig::before {
+  clip-path:inset(0 0 47% 0);transform-origin:50% 67%;
+}
+.wedding-letter .pink-vine::after,.wedding-letter .floral-sprig::after,.wedding-letter .margin-sprig::after {
+  clip-path:inset(40% 0 17% 0);transform-origin:50% 84%;
+}
+@keyframes garden-tip-bend {
+  0%,100% { transform:rotate(-1deg) skewX(-.15deg); }
+  42% { transform:rotate(.55deg) skewX(.08deg); }
+  72% { transform:rotate(1.75deg) skewX(.28deg); }
+}
+@keyframes garden-stem-bend {
+  0%,100% { transform:rotate(-.35deg); }
+  50% { transform:rotate(.72deg); }
+}
+.motion-enabled.invitation-ready .wedding-letter .pink-vine::before,
+.motion-enabled.invitation-ready .wedding-letter .floral-sprig::before,
+.motion-enabled.invitation-ready .wedding-letter .margin-sprig::before {
+  animation:garden-tip-bend 6.2s ease-in-out infinite;
+}
+.motion-enabled.invitation-ready .wedding-letter .pink-vine::after,
+.motion-enabled.invitation-ready .wedding-letter .floral-sprig::after,
+.motion-enabled.invitation-ready .wedding-letter .margin-sprig::after {
+  animation:garden-stem-bend 7.1s ease-in-out -.8s infinite;
+}
+.motion-enabled.invitation-ready .wedding-letter .floral-sprig--hero-right::before,
+.motion-enabled.invitation-ready .wedding-letter .floral-sprig--intro-right::before,
+.motion-enabled.invitation-ready .wedding-letter .pink-vine--schedule::before,
+.motion-enabled.invitation-ready .wedding-letter .pink-vine--venue-bottom::before,
+.motion-enabled.invitation-ready .wedding-letter .pink-vine--reply::before {
+  animation-delay:-3.1s;animation-direction:alternate-reverse;
 }
 .motion-enabled.invitation-ready .wedding-letter .name-sprig { animation-duration:5.9s; }
 .motion-enabled.invitation-ready .wedding-letter .letter-vine-journey i { animation:garden-wind-soft 5.4s ease-in-out infinite;transform-origin:50% 100%; }
@@ -974,6 +1008,10 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
 .motion-paused .wedding-letter .letter-vine-journey i,
 .motion-paused .keepsake__door img,
 .motion-paused .letter-vine { animation:none!important; }
+.motion-paused .wedding-letter .pink-vine::before,.motion-paused .wedding-letter .pink-vine::after,
+.motion-paused .wedding-letter .floral-sprig::before,.motion-paused .wedding-letter .floral-sprig::after,
+.motion-paused .wedding-letter .margin-sprig::before,.motion-paused .wedding-letter .margin-sprig::after,
+.motion-paused .envelope__botanical::before,.motion-paused .envelope__botanical::after { animation:none!important;transform:none!important; }
 
 @media(max-width:700px) {
   .wedding-letter .hero { min-height:760px;padding-top:104px;padding-bottom:62px; }
@@ -1010,6 +1048,10 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
 @media(prefers-reduced-motion:reduce) {
   .wedding-letter .floral-sprig img,.wedding-letter .pink-vine img,.wedding-letter .margin-sprig img,
   .wedding-letter .letter-vine-journey i,.keepsake__door img,.letter-vine { animation:none!important; }
+  .wedding-letter .pink-vine::before,.wedding-letter .pink-vine::after,
+  .wedding-letter .floral-sprig::before,.wedding-letter .floral-sprig::after,
+  .wedding-letter .margin-sprig::before,.wedding-letter .margin-sprig::after,
+  .envelope__botanical::before,.envelope__botanical::after { animation:none!important;transform:none!important; }
 }
 
 /* Cinematic love-letter finish: one continuous paper, one floral journey. */

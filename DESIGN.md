@@ -131,3 +131,9 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 - Every botanical family now participates in the breeze: enchanted envelope florals, folded-card vines, hero name sprigs, pink vines, blush sprigs, jasmine margin vines and the continuous letter vine.
 - Motion is layered rather than synchronized. Stems bend in alternating directions and durations while their parent arrangements drift more slowly, producing a natural wind effect instead of identical looping movement.
 - Pause-motion and operating-system reduced-motion preferences stop every new wind animation.
+
+## Natural articulated breeze
+
+- Large floral cutouts no longer translate as one rectangular image. Each is rendered as a planted lower stem, a gently bending middle section and a more responsive flower-heavy tip.
+- The envelope garden is split into independently moving left and right banks, each anchored at its own lower corner.
+- The monogram seal is enlarged to 70 pixels on desktop and 60 pixels on phones so it remains the visual focal point inside the fuller garden.
