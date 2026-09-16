@@ -231,6 +231,20 @@ html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif
 }
 .motion-paused .photo-frame { animation:none!important;transform:none!important;opacity:1!important; }
 
+/* Keep every name ampersand unmistakable while the names remain calligraphic. */
+.keepsake__names em,
+.keepsake__band em,
+.envelope__seal em,
+.name-garden h1 em,
+.letter-signature em,
+.rsvp__art>span>span,
+.letter-page footer p span {
+  font-family:Georgia,"Times New Roman",serif;
+  font-style:normal;
+  font-weight:400;
+  letter-spacing:-.06em;
+}
+
 /* Heirloom finish: intimate stationery, floral margins and a quiet visual cadence. */
 .letter-page {
   background:
