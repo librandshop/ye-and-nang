@@ -689,8 +689,12 @@ function initializeWeddingPhotos() {
     image.loading = "lazy";
     image.decoding = "async";
     image.style.objectPosition = moment.focus || "50% 50%";
+    const number = document.createElement("span");
+    number.className = "photo-frame__number";
+    number.textContent = String(index + 1).padStart(2, "0");
+    number.setAttribute("aria-hidden", "true");
     const caption = document.createElement("figcaption");
-    figure.append(image, caption);
+    figure.append(image, number, caption);
     grid.append(figure);
     image.addEventListener("error", () => {
       figure.remove();

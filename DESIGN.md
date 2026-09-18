@@ -61,9 +61,9 @@ Automated checks intercept the submission before it reaches Google, then verify 
 
 ## Photo story
 
-The invitation contains an editorial photo chapter between the personal letter and calendar actions. It is configuration-driven in `photo-config.js`. Five selected photographs are enabled: an intimate principal portrait, a joyful outdoor moment, a graduation chapter, a dramatic red studio portrait and a bright formal portrait. They settle into a lightly layered print arrangement that becomes a single column on phones.
+The invitation contains an editorial photo chapter between the personal letter and calendar actions. It is configuration-driven in `photo-config.js`. Five selected photographs are enabled: an intimate principal portrait, a joyful outdoor moment, a graduation chapter, a dramatic red studio portrait and a bright formal portrait. Their presentation is deliberately varied: an arched hero portrait, a tilted outdoor print, a circular graduation keepsake, a cinematic red panorama and an overlapping arched closing portrait. A fine dashed story thread, vertical chapter numbers and the couple's date make the sequence read like a designed magazine feature rather than a conventional gallery.
 
-Each photograph supports an independent crop focus plus English, Thai and Burmese alt text and captions. Images use lazy loading and asynchronous decoding, and a missing asset removes its own frame safely. The existing envelope, typography and floral identity remain unchanged.
+Each photograph supports an independent crop focus plus English, Thai and Burmese alt text and captions. Images use lazy loading and asynchronous decoding, and a missing asset removes its own frame safely. On phones, the chapter retains its asymmetrical rhythm with alternating widths and shapes while remaining inside the invitation. The existing envelope, typography and floral identity remain unchanged.
 
 `PHOTO-GUIDE.md` records source-quality, naming, crop and social-preview requirements. The QR sharing artwork keeps a protected lower QR region and can later receive a dedicated vertical portrait without rebuilding its composition. Its real QR code must always be revalidated after final compositing and compression.
 
@@ -144,5 +144,4 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 
 - English uses “Wedding Harp” by Francisco Alvear, Thai uses “Possible Dreams” by Eugenio Mininni, and Burmese uses “Love is Eternal” by Ahjay Stelino.
 - Music and paper recordings stream from Mixkit's audio CDN under the Mixkit Stock Music Free License and Mixkit Sound Effects Free License. See `AUDIO-CREDITS.md`.
-
 
