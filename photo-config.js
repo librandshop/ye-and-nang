@@ -7,7 +7,7 @@ window.WEDDING_PHOTOS = {
   enabled: true,
   moments: [
     {
-      src: "assets/photos/our-story-01.jpg",
+      src: "assets/photos/our-story-01.jpg?v=enhanced-1",
       focus: "50% 38%",
       alt: {
         en: "Ye and Nang smiling with their foreheads touching in wedding attire",
@@ -21,7 +21,7 @@ window.WEDDING_PHOTOS = {
       }
     },
     {
-      src: "assets/photos/our-story-02.jpg",
+      src: "assets/photos/our-story-02.jpg?v=enhanced-1",
       focus: "50% 48%",
       alt: {
         en: "Nang raises her bouquet while Ye looks at her on a tree-lined road",
@@ -35,7 +35,7 @@ window.WEDDING_PHOTOS = {
       }
     },
     {
-      src: "assets/photos/our-story-03.jpg",
+      src: "assets/photos/our-story-03.jpg?v=enhanced-1",
       focus: "50% 50%",
       alt: {
         en: "Ye and Nang in graduation gowns looking up at the camera",
@@ -49,7 +49,7 @@ window.WEDDING_PHOTOS = {
       }
     },
     {
-      src: "assets/photos/our-story-04.jpg?v=standing-2",
+      src: "assets/photos/our-story-04.jpg?v=enhanced-1",
       focus: "50% 50%",
       alt: {
         en: "Ye and Nang standing together in formal wedding attire against a deep red backdrop",
@@ -63,7 +63,7 @@ window.WEDDING_PHOTOS = {
       }
     },
     {
-      src: "assets/photos/our-story-05.jpg?v=2604-2",
+      src: "assets/photos/our-story-05.jpg?v=enhanced-1",
       focus: "50% 50%",
       alt: {
         en: "Ye and Nang posing together in a black tuxedo and white wedding gown against a soft gray backdrop",
@@ -77,7 +77,7 @@ window.WEDDING_PHOTOS = {
       }
     },
     {
-      src: "assets/photos/our-story-06.jpg?v=portrait-2",
+      src: "assets/photos/our-story-06.jpg?v=enhanced-1",
       focus: "50% 50%",
       alt: {
         en: "Ye and Nang smiling with a white bouquet in light wedding attire",
@@ -92,7 +92,7 @@ window.WEDDING_PHOTOS = {
     }
   ],
   shareImage: {
-    src: "assets/photos/share-ye-nang.jpg",
+    src: "assets/photos/share-ye-nang.jpg?v=enhanced-1",
     focus: "50% 38%"
   }
 };

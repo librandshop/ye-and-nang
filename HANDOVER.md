@@ -17,7 +17,9 @@ The invitation is a static GitHub Pages site presented as an animated editorial 
 
 Six optimized photographs from `assets/photos/` form a cinematic story across the invitation. Each photograph has its own section: the full-screen opening, road portrait, graduation portrait, bouquet portrait sourced from `455A2717.jpg`, red studio portrait and closing portrait before RSVP. Captions and alternative text are localized. `PHOTO-GUIDE.md` records the originals, crop focus and social-sharing image.
 
-The post-countdown closing portrait is sourced from `455A2604.jpg` and preserves its full 2:3 gown composition. Countdown numerals use deep wine ink inside pearl medallions for accessible contrast.
+The post-countdown closing portrait is sourced from enhanced `photos/9.jpg` and preserves its full 2:3 gown composition. Countdown numerals use deep wine ink inside pearl medallions for accessible contrast.
+
+All six live photographs were refreshed from the enhanced masters in `photos/`: `3.jpg`, `1.jpg`, `5.jpg`, `10.jpg`, `9.jpg` and `15.jpg`. The optimized invitation copies retain the existing scene filenames, and the social-sharing image was rebuilt from enhanced `3.jpg`.
 
 The envelope exterior uses `assets/pink-envelope-bloom-garden.webp`: an asymmetrical pink-flower-only arrangement with no green foliage. The red studio chapter uses `455A2626.jpg`, where both people are standing.
 
