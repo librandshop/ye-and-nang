@@ -463,8 +463,10 @@ const translations = {
 };
 
 Object.assign(translations.en, {
-  photoEyebrow: "A glimpse of us",
-  photoTitle: "Our love, in photographs",
+  photoEyebrow: "Before the vows",
+  photoTitle: "The best is yet to come",
+  storyEyebrow: "The moments that brought us here",
+  storyTitle: "Every chapter led us closer",
   guestName: "Your name",
   guestNamePlaceholder: "Your full name",
   willAttend: "Will you be joining us?",
@@ -516,8 +518,10 @@ Object.assign(translations.en, {
   muteSound: "Mute music",
 });
 Object.assign(translations.th, {
-  photoEyebrow: "ภาพเล็ก ๆ ของเรา",
-  photoTitle: "เรื่องราวความรักผ่านภาพถ่าย",
+  photoEyebrow: "ก่อนคำสัญญา",
+  photoTitle: "สิ่งที่ดีที่สุดกำลังจะเริ่มต้น",
+  storyEyebrow: "ทุกช่วงเวลาที่พาเรามาถึงวันนี้",
+  storyTitle: "ทุกบทของเรื่องราว พาเราใกล้กันยิ่งขึ้น",
   guestName: "ชื่อของคุณ",
   guestNamePlaceholder: "ชื่อ-นามสกุล",
   willAttend: "คุณจะมาร่วมงานกับเราไหม",
@@ -570,8 +574,10 @@ Object.assign(translations.th, {
 });
 
 translations.my = {
-  photoEyebrow: "ကျွန်ုပ်တို့ရဲ့ အမှတ်တရပုံရိပ်များ",
-  photoTitle: "ဓာတ်ပုံများထဲက ကျွန်ုပ်တို့ရဲ့ အချစ်ဇာတ်လမ်း",
+  photoEyebrow: "ကတိစကားများ မပြောမီ",
+  photoTitle: "အကောင်းဆုံးအချိန်တွေက စတင်တော့မယ်",
+  storyEyebrow: "ဒီနေ့ဆီ ခေါ်ဆောင်လာခဲ့တဲ့ အခိုက်အတန့်များ",
+  storyTitle: "အခန်းတိုင်းက ကျွန်ုပ်တို့ကို ပိုမိုနီးကပ်စေခဲ့တယ်",
   guestName: "သင့်နာမည်",
   guestNamePlaceholder: "အမည်အပြည့်အစုံ",
   willAttend: "ကျွန်ုပ်တို့နှင့်အတူ ပါဝင်ဆင်နွှဲမည်လား",
