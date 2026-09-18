@@ -459,14 +459,14 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
   filter:drop-shadow(0 1px 0 #c9aeba4d);
 }
 .envelope__ribbon {
-  top:calc(50% - 6px);height:12px;overflow:visible;
-  background:#dcaec0a6;
-  border-block:1px solid #fffafccc;
-  box-shadow:none;
+  top:calc(50% - 9px);height:18px;overflow:visible;
+  background:linear-gradient(180deg,#efd2dd 0,#fff4f8 22%,#dbaabd 50%,#f2cfdd 78%,#c98fa6 100%);
+  border-block:1px solid #fff8fbd6;
+  box-shadow:0 3px 7px #6f405121,inset 0 1px #fff;
 }
 .envelope__ribbon::before {
-  content:"";position:absolute;inset:1px 0;
-  background:linear-gradient(180deg,#fff8fc8f,transparent 34% 68%,#9e5c7626);
+  content:"";position:absolute;inset:2px 0;
+  background:linear-gradient(180deg,#fff8fc80,transparent 38% 67%,#9e5c7626);
 }
 .envelope__ribbon::after {
   content:none;
@@ -475,31 +475,30 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
   display:none;
 }
 .envelope__ribbon-knot {
-  position:absolute;z-index:4;left:50%;top:50%;width:126px;height:48px;
+  position:absolute;z-index:4;left:50%;top:50%;width:118px;height:38px;
   transform:translate(-50%,-50%);
   pointer-events:none;
 }
 .envelope__ribbon-knot::before,.envelope__ribbon-knot::after {
-  content:"";position:absolute;top:9px;width:55px;height:30px;
-  border:1px solid #fffafccc;border-radius:72% 18% 68% 24%;
+  content:"";position:absolute;top:8px;width:45px;height:22px;
+  border:1px solid #fffafcbd;
   background:
-    linear-gradient(180deg,#fffafcb8 0 12%,transparent 34% 65%,#9e5c7627 100%),
-    #dcaec0d9;
-  box-shadow:0 4px 9px #75445524,inset 0 1px #fff,inset 0 -1px #b8799242;
+    linear-gradient(180deg,#fff7fab8 0 15%,transparent 38% 62%,#99566f2e 100%),
+    linear-gradient(90deg,#c98fa6,#efd2dd 44%,#dbaabd);
+  box-shadow:0 3px 7px #75445526,inset 0 1px #fff,inset 0 -1px #b8799242;
 }
-.envelope__ribbon-knot::before { left:7px;transform:rotate(-7deg); }
-.envelope__ribbon-knot::after { right:7px;transform:scaleX(-1) rotate(-7deg); }
+.envelope__ribbon-knot::before { left:6px;border-radius:70% 12% 18% 68%;transform:rotate(-6deg) skewX(-8deg); }
+.envelope__ribbon-knot::after { right:6px;border-radius:12% 70% 68% 18%;transform:rotate(6deg) skewX(8deg); }
 .envelope__ribbon-knot>i {
+  position:absolute;z-index:2;top:10px;width:33px;height:18px;border-radius:50%;
+  background:linear-gradient(180deg,#fff7fa8f,transparent 44%,#9e5c762b);
+  box-shadow:inset 0 1px #fff9fb8c;
+}
+.envelope__ribbon-knot>i:first-child { left:16px;transform:rotate(-5deg); }
+.envelope__ribbon-knot>i:nth-child(2) { right:16px;transform:rotate(5deg); }
+.envelope__ribbon-knot>b {
   display:none;
 }
-.envelope__ribbon-knot>b {
-  position:absolute;z-index:1;top:28px;width:18px;height:22px;
-  background:linear-gradient(90deg,#e7b9ca,#fff2f7 48%,#c986a0);
-  border-inline:1px solid #fffafc;box-shadow:0 4px 7px #74415320;
-  clip-path:polygon(0 0,100% 0,88% 100%,50% 76%,10% 100%);
-}
-.envelope__ribbon-knot>b:nth-of-type(1) { left:49px;transform:rotate(9deg); }
-.envelope__ribbon-knot>b:nth-of-type(2) { right:49px;height:19px;transform:rotate(-10deg); }
 .invitation-opening .envelope__ribbon-knot { animation:ribbon-knot-release .8s var(--ease) forwards; }
 @keyframes ribbon-knot-release { to { transform:translate(-25%,72%) rotate(26deg);opacity:0; } }
 .opening-heading h2:empty,.story-opening__copy p:empty { display:none; }
@@ -552,45 +551,19 @@ html[lang="my"] .language-switch__button[lang="my"] {
   line-height:1.9;padding-block:.18em;overflow:visible;
 }
 
-/* Existing sakura vines grow into the two halves of a heart around the names. */
-.keepsake__sakura-heart {
-  position:absolute;z-index:0;left:50%;top:50%;width:300px;height:152px;
-  transform:translate(-50%,-50%);pointer-events:none;
-}
-.keepsake__sakura-heart::after {
-  content:"";position:absolute;inset:16% 13% 8%;border-radius:50%;
-  background:radial-gradient(ellipse,#f6d8e542,transparent 67%);filter:blur(5px);
-}
-.keepsake__sakura-heart img {
-  position:absolute;z-index:1;bottom:-7px;width:57%;height:118%;object-fit:contain;opacity:0;
-  transform-origin:50% 100%;filter:saturate(.78) brightness(1.08) drop-shadow(0 4px 5px #9e5a7428);
-}
-.keepsake__sakura-heart img:first-child { left:-1px;transform:translate(34px,0) scale(.18) rotate(-38deg); }
-.keepsake__sakura-heart img:last-child { right:-1px;transform:translate(-34px,0) scaleX(-1) scale(.18) rotate(-38deg); }
-.invitation-opening .keepsake__sakura-heart img:first-child { animation:sakura-heart-left 1.25s cubic-bezier(.18,.82,.24,1) 3.72s forwards; }
-.invitation-opening .keepsake__sakura-heart img:last-child { animation:sakura-heart-right 1.25s cubic-bezier(.18,.82,.24,1) 3.82s forwards; }
 .keepsake__names .letter-vine { display:none; }
-@keyframes sakura-heart-left {
-  0% { opacity:0;clip-path:inset(92% 0 0);transform:translate(34px,0) scale(.2) rotate(-20deg); }
-  48% { opacity:1;clip-path:inset(34% 0 0); }
-  78% { transform:translate(34px,0) scale(1.06) rotate(-38deg); }
-  to { opacity:1;clip-path:inset(0);transform:translate(34px,0) scale(1) rotate(-38deg); }
+.invitation-opening .opening-petals i {
+  animation:petal-heart-bloom 1.45s cubic-bezier(.2,.76,.28,1) both;
+  animation-delay:calc(4.05s + var(--petal-order,0) * .03s);
 }
-@keyframes sakura-heart-right {
-  0% { opacity:0;clip-path:inset(92% 0 0);transform:translate(-34px,0) scaleX(-1) scale(.2) rotate(-20deg); }
-  48% { opacity:1;clip-path:inset(34% 0 0); }
-  78% { transform:translate(-34px,0) scaleX(-1) scale(1.06) rotate(-38deg); }
-  to { opacity:1;clip-path:inset(0);transform:translate(-34px,0) scaleX(-1) scale(1) rotate(-38deg); }
+@keyframes petal-heart-bloom {
+  0% { opacity:0;transform:translate(0,0) rotate(0) scale(.28); }
+  18% { opacity:.82; }
+  72% { opacity:.72;transform:translate(var(--petal-x),var(--petal-y)) rotate(var(--petal-turn)) scale(1.08); }
+  100% { opacity:.68;transform:translate(var(--petal-x),var(--petal-y)) rotate(var(--petal-turn)) scale(1); }
 }
-.motion-paused .keepsake__sakura-heart img,
-body:not(.motion-enabled) .keepsake__sakura-heart img { opacity:1;clip-path:none;animation:none!important; }
-.motion-paused .keepsake__sakura-heart img:first-child,
-body:not(.motion-enabled) .keepsake__sakura-heart img:first-child { transform:translate(34px,0) scale(1) rotate(-38deg); }
-.motion-paused .keepsake__sakura-heart img:last-child,
-body:not(.motion-enabled) .keepsake__sakura-heart img:last-child { transform:translate(-34px,0) scaleX(-1) scale(1) rotate(-38deg); }
 @media(max-width:700px) {
-  .envelope__ribbon-knot { width:126px;height:48px;scale:1; }
-  .keepsake__sakura-heart { width:245px;height:122px; }
+  .envelope__ribbon-knot { width:112px;height:38px;scale:1; }
 }
 .envelope__seal {
   width:70px;height:70px;top:50%;transform:translate(-50%,-50%);
