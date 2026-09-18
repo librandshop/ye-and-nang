@@ -75,6 +75,20 @@ window.WEDDING_PHOTOS = {
         th: "สถานที่โปรดของเรา คือการได้อยู่ด้วยกัน",
         my: "အတူရှိနေခြင်းက ကျွန်ုပ်တို့ အနှစ်သက်ဆုံးနေရာ"
       }
+    },
+    {
+      src: "assets/photos/our-story-06.jpg?v=portrait-1",
+      focus: "50% 50%",
+      alt: {
+        en: "Ye and Nang smiling with a white bouquet in light wedding attire",
+        th: "Ye และ Nang ยิ้มพร้อมช่อดอกไม้ในชุดแต่งงานสีอ่อน",
+        my: "Ye နှင့် Nang တို့သည် အလင်းရောင် မင်္ဂလာဝတ်စုံများဖြင့် ပန်းစည်းကိုင်ကာ ပြုံးနေကြသည်"
+      },
+      caption: {
+        en: "You are the reason behind this smile",
+        th: "รอยยิ้มนี้ เพราะมีเธอ",
+        my: "ဒီအပြုံးတိုင်းမှာ မင်းရှိတယ်"
+      }
     }
   ],
   shareImage: {
@@ -82,3 +96,4 @@ window.WEDDING_PHOTOS = {
     focus: "50% 38%"
   }
 };
+

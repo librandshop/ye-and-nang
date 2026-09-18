@@ -1360,8 +1360,23 @@ html[lang="th"] .wedding-letter h2,html[lang="my"] .wedding-letter h2 { text-wra
 .wedding-letter .schedule-card .schedule-card__time { margin:3px 0 0; }
 .wedding-letter .program-note { margin-top:40px; }
 
+.wedding-letter .portrait-chapter { position:relative;padding:110px 70px 125px;background:linear-gradient(155deg,#fff 0 35%,#f8e8ee 35% 76%,#fffafc 76%);overflow:hidden; }
+.portrait-chapter__inner { position:relative;max-width:760px; }
+.portrait-chapter__number { position:absolute;z-index:0;top:-34px;right:-8px;color:#e9cdd8;font:italic 86px/.8 "Cormorant Garamond",Georgia,serif; }
+.portrait-chapter__figure { position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,540px) 1fr;align-items:center;margin:0; }
+.portrait-chapter__image-wrap { position:relative;padding:11px;background:#fff;box-shadow:0 32px 85px #75475929; }
+.portrait-chapter__image-wrap::before { content:"";position:absolute;z-index:2;inset:23px;border:1px solid #fff9;border-radius:245px 245px 8px 8px / 125px 125px 8px 8px;pointer-events:none; }
+.portrait-chapter__image-wrap img { display:block;width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:245px 245px 8px 8px / 125px 125px 8px 8px;filter:saturate(.84) contrast(.98); }
+.portrait-chapter__monogram { position:absolute;z-index:3;right:-28px;top:52px;display:grid;place-items:center;width:82px;height:82px;border:1px solid #d5a4b7;border-radius:50%;background:#fffaf6ed;color:#875468;font:italic 21px/1 "Cormorant Garamond",Georgia,serif;box-shadow:0 15px 35px #76506320; }
+.portrait-chapter__monogram i { font-family:Georgia,serif;font-size:.72em;font-style:normal; }
+.portrait-chapter__figure figcaption { position:relative;z-index:4;margin-left:-22px;padding:34px 30px 35px;background:#fffaf7ed;box-shadow:0 20px 48px #79495b1a; }
+.portrait-chapter__figure figcaption>span { display:block;margin-bottom:16px;color:#b77b91;font:600 8px/1.2 "Manrope",Arial,sans-serif;letter-spacing:.26em; }
+.portrait-chapter__figure figcaption p { margin:0;color:#724454;font:italic 31px/1.2 "Cormorant Garamond",Georgia,serif; }
+html[lang="th"] .portrait-chapter__figure figcaption p { font:400 22px/1.65 "Noto Serif Thai",serif; }
+html[lang="my"] .portrait-chapter__figure figcaption p { font:400 20px/1.8 "Noto Serif Myanmar",serif; }
+
 .wedding-letter .venue { position:relative;padding:105px 70px;background:linear-gradient(145deg,#fff7fa,#fff 52%,#f9e9ef); }
-.wedding-letter .venue::before { content:"04";position:absolute;z-index:1;top:80px;left:75px;color:#e9cdd8;font:italic 82px/.8 "Cormorant Garamond",Georgia,serif; }
+.wedding-letter .venue::before { content:"05";position:absolute;z-index:1;top:80px;left:75px;color:#e9cdd8;font:italic 82px/.8 "Cormorant Garamond",Georgia,serif; }
 .wedding-letter .venue__layout { display:grid;grid-template-columns:.8fr 1.2fr;align-items:stretch;max-width:760px;padding:0;border-radius:34px; }
 .wedding-letter .venue__layout::before { inset:10px; }
 .wedding-letter .venue__visual { position:relative;display:grid;place-items:center;min-height:430px;margin:0;background:linear-gradient(160deg,#efd5df,#f8e9ef 57%,#e8c4d2);border-radius:34px 0 0 34px;overflow:hidden; }
@@ -1389,7 +1404,7 @@ html[lang="th"] .wedding-letter h2,html[lang="my"] .wedding-letter h2 { text-wra
 .wedding-letter .countdown__grid strong { color:#fff;font-size:64px;text-shadow:0 7px 30px #1e0b13; }
 
 .wedding-letter .story-closing { padding-top:115px;padding-bottom:130px;background:linear-gradient(180deg,#fff9fb,#fff 70%); }
-.wedding-letter .story-closing::before { content:"05";position:absolute;top:85px;right:74px;color:#ead0da;font:italic 84px/.8 "Cormorant Garamond",Georgia,serif; }
+.wedding-letter .story-closing::before { content:"06";position:absolute;top:85px;right:74px;color:#ead0da;font:italic 84px/.8 "Cormorant Garamond",Georgia,serif; }
 
 .wedding-letter .rsvp { position:relative;padding-top:95px;background:linear-gradient(180deg,#fff,#fff7fa); }
 .wedding-letter .rsvp__frame { position:relative;width:min(720px,100%);padding:65px 52px 74px;border:1px solid #dcb3c3;border-radius:260px 260px 30px 30px / 120px 120px 30px 30px;background:#fffdfbe8;box-shadow:0 35px 90px #7f4c6018,inset 0 0 0 9px #fff,inset 0 0 0 10px #eed7e0; }
@@ -1432,6 +1447,15 @@ html[lang="th"] .wedding-letter h2,html[lang="my"] .wedding-letter h2 { text-wra
   .wedding-letter .schedule-card:nth-child(even) .schedule-card__time { grid-column:2;grid-row:2;text-align:left; }
   .schedule-card__step { top:10px;right:0;font-size:28px; }
   .wedding-letter .schedule-card h3 { font-size:29px; }
+  .wedding-letter .portrait-chapter { padding:82px 27px 95px;background:linear-gradient(160deg,#fff 0 23%,#f8e8ee 23% 82%,#fffafc 82%); }
+  .portrait-chapter__number { top:-24px;right:7px;font-size:60px; }
+  .portrait-chapter__figure { display:block; }
+  .portrait-chapter__image-wrap { padding:8px; }
+  .portrait-chapter__image-wrap::before { inset:17px;border-radius:190px 190px 6px 6px / 95px 95px 6px 6px; }
+  .portrait-chapter__image-wrap img { border-radius:190px 190px 6px 6px / 95px 95px 6px 6px; }
+  .portrait-chapter__monogram { top:42px;right:-13px;width:66px;height:66px;font-size:18px; }
+  .portrait-chapter__figure figcaption { width:88%;margin:-22px auto 0;padding:25px 23px 27px;text-align:center; }
+  .portrait-chapter__figure figcaption p { font-size:27px; }
   .wedding-letter .venue { padding:75px 20px; }
   .wedding-letter .venue::before { top:55px;left:25px;font-size:58px; }
   .wedding-letter .venue__layout { display:block;border-radius:30px; }

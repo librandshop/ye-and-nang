@@ -269,7 +269,7 @@ function initializeInvitation() {
   const groups = [
     ".story-opening__copy > *, .story-opening__sound", ".savebar__copy, .calendar-actions", ".intro__heading, .intro__copy", ".photo-story:not([hidden]) .photo-story__heading, .photo-story:not([hidden]) .photo-frame",
     ".schedule > .container > .eyebrow, .schedule h2", ".schedule-card", ".love-divider, .program-note, .letter-bow--reply",
-    ".venue__visual, .venue__copy", ".countdown .eyebrow, .countdown h2", ".story-closing__image-wrap, .story-closing__copy",
+    ".portrait-chapter__figure", ".venue__visual, .venue__copy", ".countdown .eyebrow, .countdown h2", ".story-closing__image-wrap, .story-closing__copy",
     ".countdown__grid > div", ".rsvp__frame", ".rsvp__content > :not(.rsvp-thanks):not(noscript)", "footer > *"
   ];
   groups.forEach(selector => document.querySelectorAll(selector).forEach((element, index) => {
@@ -982,5 +982,6 @@ updateCountdown();
 window.setInterval(updateCountdown, 1000);
 initializeRsvp();
 initializeInvitation();
+
 
 

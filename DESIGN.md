@@ -128,6 +128,7 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 - Venue information is presented as a destination card with a stylized blush map field and a custom date-pin emblem. The Maps destination and accessible action remain unchanged.
 - The countdown is a dramatic wine-colored interlude with pearl-white time medallions, providing a deliberate visual crescendo between logistics and the closing portrait.
 - RSVP is framed as the final formal reply card, with a date stamp, satin bow, nested paper panel and the existing localized submission experience intact.
+- `455A2717.jpg` appears as a dedicated full-height portrait chapter between the program and venue. Its original 2:3 composition is preserved inside an arched print, paired with an offset caption card on desktop and a centered overlapping caption on phones.
 - Desktop at 1200 pixels and phone at 500 pixels were visually reviewed with zero horizontal overflow. English, Thai and Burmese were verified with all three timeline steps and both date seals present, and no undefined translation output.
 
 ## Enchanted-garden envelope
