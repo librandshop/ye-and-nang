@@ -1,5 +1,6 @@
 const invitationIntro = document.querySelector(".invitation-intro");
 const openInvitation = document.querySelector(".envelope");
+const openingCard = document.querySelector(".keepsake");
 const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
 const motionButton = document.querySelector(".motion-toggle");
 const soundButton = document.querySelector(".sound-toggle");
@@ -280,6 +281,11 @@ function initializeInvitation() {
     element.style.setProperty("--delay", `${Math.min(index * 130, 390)}ms`);
   }));
   openInvitation.addEventListener("click", revealInvitation);
+  openingCard.addEventListener("click", event => {
+    if (!document.body.classList.contains("invitation-opening")) return;
+    event.stopPropagation();
+    finishOpening();
+  });
   openingSkip.addEventListener("click", finishOpening);
   document.querySelector(".replay-button").hidden = false;
   document.querySelector(".replay-button").addEventListener("click", showEnvelope);
