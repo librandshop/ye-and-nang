@@ -475,30 +475,12 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
   display:none;
 }
 .envelope__ribbon-knot {
-  position:absolute;z-index:4;left:50%;top:50%;width:118px;height:38px;
+  position:absolute;z-index:4;left:50%;top:calc(50% + 8px);width:176px;height:86px;
   transform:translate(-50%,-50%);
   pointer-events:none;
 }
-.envelope__ribbon-knot::before,.envelope__ribbon-knot::after {
-  content:"";position:absolute;top:8px;width:45px;height:22px;
-  border:1px solid #fffafcbd;
-  background:
-    linear-gradient(180deg,#fff7fab8 0 15%,transparent 38% 62%,#99566f2e 100%),
-    linear-gradient(90deg,#c98fa6,#efd2dd 44%,#dbaabd);
-  box-shadow:0 3px 7px #75445526,inset 0 1px #fff,inset 0 -1px #b8799242;
-}
-.envelope__ribbon-knot::before { left:6px;border-radius:70% 12% 18% 68%;transform:rotate(-6deg) skewX(-8deg); }
-.envelope__ribbon-knot::after { right:6px;border-radius:12% 70% 68% 18%;transform:rotate(6deg) skewX(8deg); }
-.envelope__ribbon-knot>i {
-  position:absolute;z-index:2;top:10px;width:33px;height:18px;border-radius:50%;
-  background:linear-gradient(180deg,#fff7fa8f,transparent 44%,#9e5c762b);
-  box-shadow:inset 0 1px #fff9fb8c;
-}
-.envelope__ribbon-knot>i:first-child { left:16px;transform:rotate(-5deg); }
-.envelope__ribbon-knot>i:nth-child(2) { right:16px;transform:rotate(5deg); }
-.envelope__ribbon-knot>b {
-  display:none;
-}
+.envelope__ribbon-knot::before,.envelope__ribbon-knot::after { content:none; }
+.envelope__ribbon-knot>img { display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 5px 5px #7544552b); }
 .invitation-opening .envelope__ribbon-knot { animation:ribbon-knot-release .8s var(--ease) forwards; }
 @keyframes ribbon-knot-release { to { transform:translate(-25%,72%) rotate(26deg);opacity:0; } }
 .opening-heading h2:empty,.story-opening__copy p:empty { display:none; }
@@ -556,6 +538,8 @@ html[lang="my"] .language-switch__button[lang="my"] {
   animation:petal-heart-bloom 1.45s cubic-bezier(.2,.76,.28,1) both;
   animation-delay:calc(4.05s + var(--petal-order,0) * .03s);
 }
+.opening-petals i { width:14px;height:21px; }
+.opening-petals i:nth-child(3n) { width:10px;height:15px; }
 @keyframes petal-heart-bloom {
   0% { opacity:0;transform:translate(0,0) rotate(0) scale(.28); }
   18% { opacity:.82; }
@@ -563,7 +547,7 @@ html[lang="my"] .language-switch__button[lang="my"] {
   100% { opacity:.68;transform:translate(var(--petal-x),var(--petal-y)) rotate(var(--petal-turn)) scale(1); }
 }
 @media(max-width:700px) {
-  .envelope__ribbon-knot { width:112px;height:38px;scale:1; }
+  .envelope__ribbon-knot { width:158px;height:77px;scale:1; }
 }
 .envelope__seal {
   width:70px;height:70px;top:50%;transform:translate(-50%,-50%);
