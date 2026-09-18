@@ -10,7 +10,7 @@ let openingTimer;
 let revealObserver;
 let lastRsvpName = "";
 const openingSkip = document.querySelector(".opening-skip");
-const openingDuration = 6600;
+const openingDuration = 11000;
 let soundEnabled = false;
 let soundChoiceMade = false;
 let musicFadeTimer;
