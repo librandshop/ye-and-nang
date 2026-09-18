@@ -520,6 +520,9 @@ html[lang="my"] .rsvp-thanks h3,
 html[lang="my"] .rsvp-thanks p {
   line-height:2.15;padding-block:.1em;overflow:visible;
 }
+html[lang="my"] .wedding-letter .scroll-cue {
+  z-index:6;line-height:2.45;padding:.32em 14px .14em;overflow:visible;
+}
 html[lang="my"] .opening-heading .eyebrow,
 html[lang="my"] .invitation-intro__prompt,
 html[lang="my"] .keepsake__eyebrow,
@@ -1012,6 +1015,8 @@ html[lang="my"] .photo-frame figcaption,html[lang="my"] .story-closing__copy p {
   .wedding-letter { width:calc(100% - 18px); }
   .wedding-letter::before { inset:8px;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px #f3e5ea; }
   .wedding-letter .hero { min-height:820px;padding-top:115px; }
+  html[lang="my"] .wedding-letter .hero { min-height:850px;padding-bottom:112px; }
+  html[lang="my"] .wedding-letter .scroll-cue { bottom:2px; }
   .hero__date-card { width:min(310px,94%);padding:25px 18px 21px; }
   .hero__date-label { font-size:13px; }
   .wedding-letter .intro { padding:62px 28px 45px; }
