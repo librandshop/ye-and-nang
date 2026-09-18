@@ -758,7 +758,7 @@ html[lang="my"] .photo-frame figcaption,html[lang="my"] .story-closing__copy p {
 .wedding-letter .story-closing { position:relative;padding:70px 70px 104px;overflow:hidden; }
 .story-closing__image-wrap { position:relative;width:min(650px,100%);margin:auto; }
 .story-closing__image-wrap::before { content:"";position:absolute;z-index:2;inset:15px;border:1px solid #fff9;border-radius:280px 280px 4px 4px / 125px 125px 4px 4px;pointer-events:none; }
-.story-closing__image { display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:280px 280px 4px 4px / 125px 125px 4px 4px;filter:saturate(.88);box-shadow:0 28px 70px #6f405229; }
+.story-closing__image { display:block;width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:280px 280px 4px 4px / 125px 125px 4px 4px;filter:saturate(.88);box-shadow:0 28px 70px #6f405229; }
 .story-closing__image-wrap>span { position:absolute;z-index:3;right:-22px;bottom:34px;display:grid;place-items:center;width:92px;height:92px;border:1px solid #d8aabd;border-radius:50%;background:#fffaf4eb;color:#8e5b70;font:italic 24px/1 "Cormorant Garamond",Georgia,serif;box-shadow:0 15px 32px #80516322; }
 .story-closing__image-wrap i { font-family:Georgia,serif;font-style:normal;font-size:.72em; }
 .story-closing__copy { position:relative;z-index:3;width:min(520px,88%);margin:-25px auto 0;padding:25px 30px 22px;background:#fffaf6f2;box-shadow:0 17px 38px #7e4b5d17; }
@@ -1433,7 +1433,7 @@ html[lang="my"] .portrait-chapter__figure figcaption p { font:400 20px/1.8 "Noto
 .wedding-letter .countdown__grid { position:relative;z-index:1;max-width:620px; }
 .wedding-letter .countdown__grid>div,.wedding-letter .countdown__grid>div:last-child { padding:20px 10px;border-right:1px solid #ffffff2b; }
 .wedding-letter .countdown__grid>div:last-child { border-right:0; }
-.wedding-letter .countdown__grid strong { color:#fff;font-size:64px;text-shadow:0 7px 30px #1e0b13; }
+.wedding-letter .countdown__grid strong { color:#704255;font-size:64px;text-shadow:0 1px 0 #fff,0 4px 12px #7b4d6022; }
 
 .wedding-letter .story-closing { padding-top:115px;padding-bottom:130px;background:linear-gradient(180deg,#fff9fb,#fff 70%); }
 .wedding-letter .story-closing::before { content:"06";position:absolute;top:85px;right:74px;color:#ead0da;font:italic 84px/.8 "Cormorant Garamond",Georgia,serif; }

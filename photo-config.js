@@ -63,12 +63,12 @@ window.WEDDING_PHOTOS = {
       }
     },
     {
-      src: "assets/photos/our-story-05.jpg",
+      src: "assets/photos/our-story-05.jpg?v=2604-2",
       focus: "50% 50%",
       alt: {
-        en: "Ye and Nang standing together in light formal wedding attire",
-        th: "Ye และ Nang ยืนเคียงกันในชุดแต่งงานโทนสว่าง",
-        my: "Ye နှင့် Nang အလင်းရောင်တောက်ပသော မင်္ဂလာဝတ်စုံဖြင့် အတူရပ်နေကြသည်"
+        en: "Ye and Nang posing together in a black tuxedo and white wedding gown against a soft gray backdrop",
+        th: "Ye และ Nang ยืนคู่กันในชุดทักซิโด้สีดำและชุดแต่งงานสีขาวหน้าฉากสีเทาอ่อน",
+        my: "Ye နှင့် Nang တို့သည် မီးခိုးရောင်နောက်ခံရှေ့တွင် အနက်ရောင်ဝတ်စုံနှင့် အဖြူရောင်မင်္ဂလာဝတ်စုံဖြင့် အတူရပ်နေကြသည်"
       },
       caption: {
         en: "Together is our favourite place",
