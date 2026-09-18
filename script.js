@@ -485,8 +485,8 @@ const translations = {
 };
 
 Object.assign(translations.en, {
-  photoEyebrow: "Before the vows",
-  photoTitle: "The best is yet to come",
+  photoEyebrow: "The beginning of always",
+  photoTitle: "Hand in hand, into forever",
   storyEyebrow: "The moments that brought us here",
   storyTitle: "Every chapter led us closer",
   guestName: "Your name",
@@ -698,6 +698,71 @@ translations.my = {
   playSound: "တေးဂီတ ဖွင့်ရန်",
   muteSound: "တေးဂီတ ပိတ်ရန်",
 };
+
+// Warm, guest-facing wedding copy. These overrides keep the Thai and Myanmar
+// versions conversational and celebratory instead of reading like translations.
+Object.assign(translations.th, {
+  photoEyebrow: "จุดเริ่มต้นของคำว่า ‘ตลอดไป’",
+  photoTitle: "จับมือกัน สู่วันตลอดไป",
+  storyEyebrow: "ทุกช่วงเวลาที่พาเรามาถึงวันนี้",
+  storyTitle: "ทุกบทของเรื่องราว พาเราใกล้กันยิ่งขึ้น",
+  heroEyebrow: "พร้อมด้วยครอบครัวของเราทั้งสอง",
+  heroInvite: "มีความยินดีขอเชิญท่านร่วมเป็นสักขีพยานในพิธีมงคลสมรสของ",
+  celebrateEyebrow: "ร่วมฉลองความรักของเรา",
+  celebrateTitle: "เรากำลังจะแต่งงานกัน",
+  celebrateCopy: "เราจะยินดีอย่างยิ่งที่ได้มีคุณอยู่เคียงข้างในวันเริ่มต้นบทใหม่ของชีวิต มาร่วมเป็นสักขีพยานในพิธีแห่งคำมั่นสัญญา รับประทานอาหาร และเฉลิมฉลองช่วงเวลาพิเศษนี้ไปด้วยกัน",
+  scheduleEyebrow: "กำหนดการวันสำคัญ",
+  programNote: "เราดีใจที่จะได้ร่วมแบ่งปัน<br>ทุกช่วงเวลาสำคัญกับคุณ",
+  venueEyebrow: "สถานที่แห่งวันสำคัญ",
+  venueTitle: "สถานที่จัดงานของเรา",
+  venueCopy: "แตะด้านล่างเพื่อดูสถานที่<br>และเส้นทางบน Google Maps",
+  countdownEyebrow: "นับถอยหลังสู่วันของเรา",
+  countdownTitle: "อีกไม่นาน เราจะได้พูดคำว่า ‘แต่งงานกันนะ’",
+  rsvpEyebrow: "กรุณาตอบรับ",
+  rsvpTitle: "มาร่วมฉลองกับเราไหม",
+  rsvpCopy: "โปรดแจ้งให้เราทราบว่าคุณจะมาร่วมวันสำคัญของเราได้หรือไม่",
+  rsvpNote: "กรุณาตอบกลับภายในวันที่ 30 กันยายน พ.ศ. 2569",
+  openingEyebrow: "คำเชิญจากหัวใจ",
+  openingTitle: "เรื่องราวบทใหม่กำลังจะเริ่มต้น",
+  letterEyebrow: "ขอเชิญร่วมเป็นส่วนหนึ่งในวันสำคัญของเรา",
+  openingPrompt: "ส่งถึงคุณด้วยความรัก",
+  openInvitation: "เปิดคำเชิญ",
+  scrollExplore: "เลื่อนลงเพื่อร่วมเดินทางไปกับเรา",
+});
+
+Object.assign(translations.my, {
+  photoEyebrow: "ထာဝရခရီးရဲ့ အစ",
+  photoTitle: "လက်တွဲပြီး ထာဝရဆီသို့",
+  storyEyebrow: "ဒီနေ့ဆီ ခေါ်ဆောင်လာခဲ့တဲ့ အခိုက်အတန့်များ",
+  storyTitle: "အခန်းတိုင်းက ကျွန်ုပ်တို့ကို ပိုနီးကပ်စေခဲ့တယ်",
+  heroEyebrow: "နှစ်ဖက်မိသားစုများနှင့်အတူ",
+  heroInvite: "ကျွန်ုပ်တို့၏ မင်္ဂလာအခမ်းအနားတွင် သက်သေအဖြစ် ပါဝင်ပေးရန် ချစ်ခင်လေးစားစွာ ဖိတ်ကြားအပ်ပါသည်",
+  celebrateEyebrow: "ကျွန်ုပ်တို့ရဲ့ အချစ်ကို အတူဂုဏ်ပြုကြမယ်",
+  celebrateTitle: "ကျွန်ုပ်တို့ လက်ထပ်တော့မယ်",
+  celebrateCopy: "ဘဝအခန်းသစ်ကို စတင်မယ့် ဒီနေ့လေးမှာ သင်နဲ့အတူရှိခွင့်ရရင် အရမ်းဝမ်းသာမိမှာပါ။ မင်္ဂလာကတိစကားများ၊ ညစာနှင့် ပျော်ရွှင်စရာ အမှတ်တရအချိန်များကို အတူမျှဝေကြပါစို့။",
+  scheduleEyebrow: "မင်္ဂလာနေ့ အစီအစဉ်",
+  welcomeReception: "ဧည့်ကြိုပွဲ",
+  betrothalCeremony: "စေ့စပ်ပွဲအခမ်းအနား",
+  payingRespectsCeremony: "မိဘနှင့် လူကြီးများအား ကန်တော့ခြင်း",
+  waterPouringCeremony: "မင်္ဂလာရေလောင်းပွဲ",
+  weddingCelebration: "မင်္ဂလာဧည့်ခံပွဲ",
+  programNote: "အရေးကြီးတဲ့ အခိုက်အတန့်တိုင်းကို<br>သင်နဲ့အတူ မျှဝေဖို့ မျှော်လင့်နေပါတယ်",
+  venueEyebrow: "ကျွန်ုပ်တို့ရဲ့ နေ့ထူးနေ့မြတ်နေရာ",
+  venueTitle: "မင်္ဂလာပွဲကျင်းပမည့်နေရာ",
+  venueCopy: "တည်နေရာနှင့် လမ်းညွှန်ကို ကြည့်ရန်<br>အောက်ပါ Google Maps လင့်ခ်ကို နှိပ်ပါ",
+  countdownEyebrow: "ကျွန်ုပ်တို့ရဲ့နေ့အတွက် ရေတွက်ရင်း",
+  countdownTitle: "‘လက်ထပ်ကြမယ်’ လို့ ပြောမယ့်နေ့အထိ",
+  rsvpEyebrow: "အကြောင်းပြန်ပေးပါရန်",
+  rsvpTitle: "ကျွန်ုပ်တို့နဲ့အတူ လာရောက်ဆင်နွှဲမလား",
+  rsvpCopy: "ကျွန်ုပ်တို့ရဲ့ နေ့ထူးနေ့မြတ်ကို အတူဆင်နွှဲနိုင်မလားဆိုတာ အသိပေးပါနော်",
+  rsvpNote: "၂၀၂၆ ခုနှစ်၊ စက်တင်ဘာလ ၃၀ ရက် နောက်ဆုံးထားပြီး အကြောင်းပြန်ပေးပါရန်",
+  openingEyebrow: "နှလုံးသားမှ ဖိတ်ကြားခြင်း",
+  openingTitle: "ကျွန်ုပ်တို့ရဲ့ အခန်းသစ် စတင်တော့မယ်",
+  letterEyebrow: "ကျွန်ုပ်တို့ရဲ့ နေ့ထူးနေ့မြတ်ကို အတူဆင်နွှဲပေးပါ",
+  openingPrompt: "ချစ်ခြင်းမေတ္တာဖြင့် သင့်အတွက်",
+  openInvitation: "ဖိတ်စာဖွင့်ရန်",
+  scrollExplore: "ကျွန်ုပ်တို့ရဲ့နေ့လေးကို ကြည့်ရန် အောက်သို့ဆွဲပါ",
+});
 
 function photoText(value, language) {
   if (!value) return "";
