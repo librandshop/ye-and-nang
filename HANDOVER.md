@@ -23,7 +23,7 @@ All six live photographs were refreshed from the enhanced masters in `photos/`: 
 
 The envelope exterior uses `assets/pink-envelope-bloom-garden.webp`: an asymmetrical pink-flower-only arrangement with no green foliage. The red studio chapter uses `455A2626.jpg`, where both people are standing.
 
-The invitation includes an all-day calendar event for Google Calendar, Apple Calendar and Outlook; the supplied Google Maps destination; a countdown; and a custom RSVP card. Ceremony, reception and dinner times remain explicitly unconfirmed.
+The invitation includes an all-day calendar event for Google Calendar, Apple Calendar and Outlook; the supplied Google Maps destination; a countdown; and a custom RSVP card. The confirmed program is Welcome Reception at 3:00 PM, Betrothal Ceremony at 3:30 PM, Paying Respects Ceremony at 5:00 PM, Water Pouring Ceremony at 5:30 PM and Wedding Celebration at 6:30 PM.
 
 ## RSVP architecture
 
@@ -48,10 +48,9 @@ Guests may accept for themselves and one plus-one, or decline. Declining guests 
 
 ## Remaining checks
 
-1. Replace “time to be announced” when the wedding schedule is confirmed.
-2. Test the complete opening, music, calendars, RSVP and slip upload on actual iPhone and Android devices.
-3. Monitor the private RSVP repository and Cloudflare Worker/R2 usage. The public Worker uses validation and a honeypot but currently has no Turnstile or rate limiting.
-4. Remember that payment numbers and the PromptPay QR image are intentionally public on the invitation.
+1. Test the complete opening, music, calendars, RSVP and slip upload on actual iPhone and Android devices.
+2. Monitor the private RSVP repository and Cloudflare Worker/R2 usage. The public Worker uses validation and a honeypot but currently has no Turnstile or rate limiting.
+3. Remember that payment numbers and the PromptPay QR image are intentionally public on the invitation.
 
 Publish from the `main` branch of `librandshop/ye-and-nang`. GitHub Pages deploys new commits automatically. The `.preview` folder contains local review artifacts and is not part of the public invitation.
 

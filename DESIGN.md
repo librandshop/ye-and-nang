@@ -21,7 +21,7 @@ Geometry is measured from the actual envelope and untransformed card dimensions 
 - Ye and Nang inscribe separately; the ampersand settles between them; fine stems trace around the names and small flowering vines grow into place, then gently sway.
 - The main page is one continuous white, fine-bordered letter on blush paper. A small code-native satin bow crowns the arched stationery; a matching bow introduces the reply. The envelope markup and opening functions are unchanged.
 - A personal salutation and signed note precede the calendar actions. English copy uses softer serif typography, with appropriate Thai and Burmese font shaping and line heights.
-- Ceremony, reception and dinner form a centered wedding program, without business-style numbering, cards or timeline. Unconfirmed times and the shared details notice remain explicit.
+- Five confirmed moments form the wedding program: welcome reception, betrothal, paying respects, water pouring and wedding celebration. Their exact 3:00–6:30 PM times are localized in English, Thai and Burmese.
 - Venue directions are a simple centered invitation detail; the decorative route graphic has been removed. Both calendar buttons and the Maps button retain their prominent themed design and original destinations.
 - The countdown is printed directly on the paper, without dashboard tiles. The RSVP closes the letter rather than repeating a call to action in the hero.
 - Slow ink fades, drawn ornamental dividers, a revealing signature and gentle ribbon movement replace presentation-style card tilts. `letter.css` scopes the redesign to the main invitation without changing envelope styles.
@@ -76,7 +76,7 @@ Generation prompt summary: an organic, asymmetrical pink flower meadow for a lux
 ## Romantic editorial refinement
 
 - Additional blush sweet-pea and white jasmine sprigs now grow from the paper margins around the hero, personal note, calendar keepsake, wedding program, venue, countdown and reply. They remain behind the content and are deliberately asymmetric rather than forming large central bouquets.
-- The program is three centered ceremonial moments with fine round icon medallions. Alternating business-like rows and horizontal connector rules have been removed at every viewport size.
+- The program is a five-moment ceremonial timeline with fine round icon medallions. It alternates across a central thread on wide screens and becomes one readable vertical sequence on phones.
 - Countdown values sit in four softly double-lined keepsake medallions. The former continuous rule and punctuation dots are gone, eliminating mobile alignment drift while preserving the single-row rhythm.
 - The reply form receives a lightly printed inner sheet, stronger selected attendance states and more tactile button depth. Its Google Forms backend and exact response mapping are unchanged.
 - Mobile vertical spacing is tightened across the hero, program, venue, countdown and reply. Flowers scale down and retreat toward the paper edge at narrow widths.
