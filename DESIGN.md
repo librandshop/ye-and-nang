@@ -59,9 +59,9 @@ Responses continue to use the existing Google Form as their private collection b
 
 Automated checks intercept the submission before it reaches Google, then verify the exact encoded field names and values, attendance-dependent controls, translated placeholders, reset flow, confirmation positioning and layout at desktop, phone and 320-pixel widths. No test response is added to the couple's response sheet.
 
-## Photo-ready structure
+## Photo story
 
-The invitation contains an optional editorial photo chapter between the personal letter and calendar actions. It is configuration-driven and remains fully hidden—with no empty gap, placeholder or network request—until `photo-config.js` is enabled. The first image is treated as the principal portrait; up to four additional moments settle into a lightly layered print arrangement that becomes a single column on phones.
+The invitation contains an editorial photo chapter between the personal letter and calendar actions. It is configuration-driven in `photo-config.js`. Five selected photographs are enabled: an intimate principal portrait, a joyful outdoor moment, a graduation chapter, a dramatic red studio portrait and a bright formal portrait. They settle into a lightly layered print arrangement that becomes a single column on phones.
 
 Each photograph supports an independent crop focus plus English, Thai and Burmese alt text and captions. Images use lazy loading and asynchronous decoding, and a missing asset removes its own frame safely. The existing envelope, typography and floral identity remain unchanged.
 
@@ -144,4 +144,5 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 
 - English uses “Wedding Harp” by Francisco Alvear, Thai uses “Possible Dreams” by Eugenio Mininni, and Burmese uses “Love is Eternal” by Ahjay Stelino.
 - Music and paper recordings stream from Mixkit's audio CDN under the Mixkit Stock Music Free License and Mixkit Sound Effects Free License. See `AUDIO-CREDITS.md`.
+
 

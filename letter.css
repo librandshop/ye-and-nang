@@ -713,6 +713,8 @@ html[lang="th"] .photo-frame figcaption { font-family:"Noto Serif Thai",serif;fo
 html[lang="my"] .photo-frame figcaption { font-family:"Noto Serif Myanmar",serif;font-style:normal;line-height:1.9; }
 @media(max-width:600px) {
   .wedding-letter .photo-story { padding-top:20px;padding-bottom:44px; }
+  .photo-story__heading { max-width:290px; }
+  .wedding-letter .photo-story__heading h2 { font-size:clamp(35px,10.5vw,42px); }
   .photo-story__grid { grid-template-columns:1fr;gap:24px; }
   .photo-frame,.photo-frame:nth-child(even),.photo-frame--feature { grid-column:auto;width:92%;margin:0 auto;--photo-tilt:0deg; }
   .photo-frame img,.photo-frame--feature img { aspect-ratio:4/5; }
@@ -1236,4 +1238,5 @@ html[lang="th"] .wedding-letter h2,html[lang="my"] .wedding-letter h2 { text-wra
   .sound-toggle { left:12px;bottom:14px;padding:8px 11px; }
   .sound-toggle__label { max-width:82px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
 }
+
 
