@@ -30,7 +30,7 @@
     <link rel="preload" as="image" href="assets/enchanted-envelope-garden.webp" />
     <link rel="preload" as="image" href="assets/pink-blossom-vine.webp" />
     <link rel="stylesheet" href="styles.css?v=20260915-buttons-1" />
-    <link rel="stylesheet" href="letter.css?v=20260918-photo-story-15" />
+    <link rel="stylesheet" href="letter.css?v=20260918-cinematic-story-16" />
   </head>
   <body class="letter-page">
     <div class="reading-progress" aria-hidden="true"></div>
@@ -102,6 +102,20 @@
     <main class="wedding-letter">
       <span class="paper-grain" aria-hidden="true"></span>
       <span class="letter-vine-journey" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      <section class="story-opening" aria-label="Our love story">
+        <img class="story-opening__image" data-story-photo="0" alt="" />
+        <div class="story-opening__shade" aria-hidden="true"></div>
+        <div class="story-opening__copy">
+          <p data-i18n="photoEyebrow">A glimpse of us</p>
+          <strong data-i18n="photoTitle">Our love, in photographs</strong>
+          <span>08 · 11 · 2026</span>
+        </div>
+        <button class="story-opening__sound" type="button" aria-pressed="false">
+          <span aria-hidden="true">♪</span>
+          <span data-i18n="playSound">Play music</span>
+        </button>
+        <a class="story-opening__scroll" href="#top" aria-label="Continue to the invitation"><span></span></a>
+      </section>
       <section class="hero" id="top" aria-labelledby="couple-names">
         <div class="hero__arch" aria-hidden="true"></div>
         <div class="hero__aura" aria-hidden="true"><span></span><i></i><i></i><i></i><i></i></div>
@@ -264,6 +278,17 @@
         </div>
       </section>
 
+      <section class="story-closing section" aria-label="Ye and Nang together">
+        <div class="story-closing__image-wrap">
+          <img class="story-closing__image" data-story-photo="4" alt="" loading="lazy" />
+          <span aria-hidden="true">Y <i>&amp;</i> N</span>
+        </div>
+        <div class="story-closing__copy">
+          <p data-photo-caption="4">Together is our favourite place</p>
+          <span data-i18n="letterNote">With love, always</span>
+        </div>
+      </section>
+
       <section class="rsvp section" id="rsvp" aria-labelledby="rsvp-title">
         <span class="margin-sprig margin-sprig--reply" aria-hidden="true"><img src="assets/jasmine-vine.webp" alt="" loading="lazy" /></span>
         <span class="floral-sprig floral-sprig--reply-left" aria-hidden="true"><img src="assets/blush-flower-sprig.webp" alt="" loading="lazy" /></span>
@@ -391,7 +416,7 @@
     <button class="motion-toggle" type="button" aria-pressed="false" hidden><span class="motion-toggle__icon" aria-hidden="true">Ⅱ</span><span class="motion-toggle__label">Pause motion</span></button>
     <script src="photo-config.js?v=20260918-our-story-1"></script>
     <script src="rsvp-config.js?v=20260916-secure-rsvp-2"></script>
-    <script src="script.js?v=20260918-photo-story-9"></script>
+    <script src="script.js?v=20260918-cinematic-story-10"></script>
   </body>
 </html>
 

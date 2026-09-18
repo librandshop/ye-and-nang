@@ -3,6 +3,7 @@ const openInvitation = document.querySelector(".envelope");
 const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
 const motionButton = document.querySelector(".motion-toggle");
 const soundButton = document.querySelector(".sound-toggle");
+const storySoundButton = document.querySelector(".story-opening__sound");
 const pageContent = [...document.querySelectorAll(".site-header, main, footer")];
 let motionPaused = motionPreference.matches;
 let openingTimer;
@@ -117,6 +118,12 @@ function refreshSoundButton() {
   soundButton.querySelector(".sound-toggle__icon").textContent = soundEnabled ? "♫" : "♪";
   soundButton.setAttribute("aria-pressed", String(soundEnabled));
   soundButton.classList.toggle("is-active", soundEnabled);
+  if (storySoundButton) {
+    storySoundButton.querySelector("span:last-child").textContent = soundEnabled ? copy.muteSound : copy.playSound;
+    storySoundButton.querySelector("span:first-child").textContent = soundEnabled ? "♫" : "♪";
+    storySoundButton.setAttribute("aria-pressed", String(soundEnabled));
+    storySoundButton.classList.toggle("is-active", soundEnabled);
+  }
 }
 
 function setSoundEnabled(enabled, userChoice = true) {
@@ -211,7 +218,7 @@ function observeReveals() {
 }
 
 function initializeMotionZones() {
-  const zones = document.querySelectorAll(".wedding-letter > .hero, .wedding-letter > .section, .wedding-letter > .savebar, footer");
+  const zones = document.querySelectorAll(".wedding-letter > .story-opening, .wedding-letter > .hero, .wedding-letter > .section, .wedding-letter > .savebar, footer");
   zones.forEach(zone => zone.classList.add("motion-zone"));
   if (!("IntersectionObserver" in window)) {
     zones.forEach(zone => zone.classList.add("is-motion-active"));
@@ -221,6 +228,13 @@ function initializeMotionZones() {
     entries.forEach(entry => entry.target.classList.toggle("is-motion-active", entry.isIntersecting));
   }, { rootMargin: "80% 0px 80% 0px" });
   zones.forEach(zone => observer.observe(zone));
+  const storyOpening = document.querySelector(".story-opening");
+  if (storyOpening) {
+    const storyObserver = new IntersectionObserver(entries => {
+      document.body.classList.toggle("story-opening-active", entries[0]?.isIntersecting && entries[0].intersectionRatio > .35);
+    }, { threshold: [.35] });
+    storyObserver.observe(storyOpening);
+  }
 }
 
 function refreshMotionButton() {
@@ -253,9 +267,9 @@ function initializeInvitation() {
   document.querySelectorAll(".hero__copy-inner > *").forEach((element, index) => element.style.setProperty("--order", index));
   initializeMotionZones();
   const groups = [
-    ".savebar__copy, .calendar-actions", ".intro__heading, .intro__copy", ".photo-story:not([hidden]) .photo-story__heading, .photo-story:not([hidden]) .photo-frame",
+    ".story-opening__copy > *, .story-opening__sound", ".savebar__copy, .calendar-actions", ".intro__heading, .intro__copy", ".photo-story:not([hidden]) .photo-story__heading, .photo-story:not([hidden]) .photo-frame",
     ".schedule > .container > .eyebrow, .schedule h2", ".schedule-card", ".love-divider, .program-note, .letter-bow--reply",
-    ".venue__visual, .venue__copy", ".countdown .eyebrow, .countdown h2",
+    ".venue__visual, .venue__copy", ".countdown .eyebrow, .countdown h2", ".story-closing__image-wrap, .story-closing__copy",
     ".countdown__grid > div", ".rsvp__frame", ".rsvp__content > :not(.rsvp-thanks):not(noscript)", "footer > *"
   ];
   groups.forEach(selector => document.querySelectorAll(selector).forEach((element, index) => {
@@ -270,6 +284,7 @@ function initializeInvitation() {
   motionButton.addEventListener("click", () => setMotionPaused(!motionPaused));
   soundButton.hidden = false;
   soundButton.addEventListener("click", () => setSoundEnabled(!soundEnabled));
+  storySoundButton?.addEventListener("click", () => setSoundEnabled(!soundEnabled));
   motionPreference.addEventListener("change", event => setMotionPaused(event.matches));
   setMotionPaused(motionPaused);
   document.addEventListener("keydown", event => {
@@ -653,14 +668,21 @@ function photoText(value, language) {
 
 function updateWeddingPhotoLanguage(language = document.documentElement.lang) {
   const moments = window.WEDDING_PHOTOS?.moments || [];
-  document.querySelectorAll(".photo-frame").forEach((figure) => {
-    const moment = moments[Number(figure.dataset.photoIndex)];
+  document.querySelectorAll("[data-photo-index]").forEach((element) => {
+    const moment = moments[Number(element.dataset.photoIndex)];
     if (!moment) return;
-    figure.querySelector("img").alt = photoText(moment.alt, language);
-    const caption = figure.querySelector("figcaption");
+    const image = element.matches("img") ? element : element.querySelector("img");
+    if (image) image.alt = photoText(moment.alt, language);
+    const caption = element.querySelector?.("figcaption");
     const copy = photoText(moment.caption, language);
-    caption.textContent = copy;
-    caption.hidden = !copy;
+    if (caption) {
+      caption.textContent = copy;
+      caption.hidden = !copy;
+    }
+  });
+  document.querySelectorAll("[data-photo-caption]").forEach((element) => {
+    const moment = moments[Number(element.dataset.photoCaption)];
+    if (moment) element.textContent = photoText(moment.caption, language);
   });
 }
 
@@ -680,10 +702,24 @@ function initializeWeddingPhotos() {
     : [];
   if (!section || !grid || !moments.length) return;
 
-  moments.slice(0, 5).forEach((moment, index) => {
+  document.querySelectorAll("[data-story-photo]").forEach(image => {
+    const index = Number(image.dataset.storyPhoto);
+    const moment = configuration.moments[index];
+    if (!moment?.src) {
+      image.closest("section")?.setAttribute("hidden", "");
+      return;
+    }
+    image.src = moment.src;
+    image.style.objectPosition = moment.focus || "50% 50%";
+    image.dataset.photoIndex = String(index);
+    image.addEventListener("error", () => image.closest("section")?.setAttribute("hidden", ""));
+  });
+
+  moments.slice(1, 4).forEach((moment, index) => {
+    const sourceIndex = configuration.moments.indexOf(moment);
     const figure = document.createElement("figure");
-    figure.className = `photo-frame${index === 0 ? " photo-frame--feature" : ""}`;
-    figure.dataset.photoIndex = String(configuration.moments.indexOf(moment));
+    figure.className = `photo-frame photo-frame--${["road", "chapter", "cinema"][index]}`;
+    figure.dataset.photoIndex = String(sourceIndex);
     const image = document.createElement("img");
     image.src = moment.src;
     image.loading = "lazy";
@@ -691,7 +727,7 @@ function initializeWeddingPhotos() {
     image.style.objectPosition = moment.focus || "50% 50%";
     const number = document.createElement("span");
     number.className = "photo-frame__number";
-    number.textContent = String(index + 1).padStart(2, "0");
+    number.textContent = String(index + 2).padStart(2, "0");
     number.setAttribute("aria-hidden", "true");
     const caption = document.createElement("figcaption");
     figure.append(image, number, caption);

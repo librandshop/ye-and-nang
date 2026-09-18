@@ -15,7 +15,7 @@
 
 The invitation is a static GitHub Pages site presented as an animated love letter. Guests open an enchanted floral envelope, then read one continuous pink-and-ivory invitation. It supports English, Thai and Burmese, remembers the chosen language, honors reduced-motion preferences and provides sound and motion controls.
 
-The enabled photo chapter displays five optimized photographs from `assets/photos/`, with localized captions and alternative text. `PHOTO-GUIDE.md` records the originals, crop focus and social-sharing image.
+Five optimized photographs from `assets/photos/` now form a cinematic story across the invitation: full-screen opening portrait, three varied editorial memory scenes and a closing portrait before RSVP. Captions and alternative text are localized. `PHOTO-GUIDE.md` records the originals, crop focus and social-sharing image.
 
 The invitation includes an all-day calendar event for Google Calendar, Apple Calendar and Outlook; the supplied Google Maps destination; a countdown; and a custom RSVP card. Ceremony, reception and dinner times remain explicitly unconfirmed.
 
@@ -48,4 +48,3 @@ Guests may accept for themselves and one plus-one, or decline. Declining guests 
 4. Remember that payment numbers and the PromptPay QR image are intentionally public on the invitation.
 
 Publish from the `main` branch of `librandshop/ye-and-nang`. GitHub Pages deploys new commits automatically. The `.preview` folder contains local review artifacts and is not part of the public invitation.
-
