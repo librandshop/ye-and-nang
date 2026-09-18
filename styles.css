@@ -99,6 +99,7 @@ h2{font-size:clamp(42px,5vw,68px);letter-spacing:-.035em;line-height:1.07}
 .invitation-opening .envelope__letter { animation:letter-placeholder 1.4s var(--ease) .95s forwards; }
 .invitation-opening .envelope__botanical { animation:print-away .9s ease 1.4s forwards; }
 .invitation-opening .keepsake-stage { visibility:visible; }
+.invitation-opening .keepsake { pointer-events:auto;cursor:pointer; }
 .invitation-opening .keepsake { animation:card-extract 1.8s var(--ease) 1.25s both,card-depart .8s var(--ease) 10.2s forwards; }
 .invitation-opening .keepsake__band { animation:band-release .8s var(--ease) 2.95s forwards; }
 .invitation-opening .keepsake__door--left { animation:door-left 1.65s var(--ease) 3.15s forwards; }
