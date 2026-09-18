@@ -17,7 +17,7 @@ window.WEDDING_PHOTOS = {
       caption: {
         en: "In every little moment, always us",
         th: "ทุกช่วงเวลา มีเราเสมอ",
-        my: "အချိန်တိုင်းမှာ အမြဲတမ်း ကျွန်ုပ်တို့နှစ်ယောက်"
+        my: "အချိန်တိုင်းမှာ အမြဲတမ်း ကျွန်တော်ကျွန်မတို့နှစ်ယောက်"
       }
     },
     {
@@ -31,7 +31,7 @@ window.WEDDING_PHOTOS = {
       caption: {
         en: "Joy looks a lot like this",
         th: "ความสุขของเราหน้าตาแบบนี้",
-        my: "ပျော်ရွှင်မှုဆိုတာ ဒီလိုပဲ"
+        my: "ပျော်ရွှင်ရတဲ့အခိုက်အတန့်လေး"
       }
     },
     {
@@ -45,7 +45,7 @@ window.WEDDING_PHOTOS = {
       caption: {
         en: "From one chapter to our next",
         th: "จากบทหนึ่ง สู่บทต่อไปของเรา",
-        my: "ဘဝအခန်းတစ်ခန်းမှ နောက်အခန်းသစ်ဆီသို့"
+        my: "အနာဂတ်နေ့ရက်များဆီသို့"
       }
     },
     {
@@ -59,7 +59,7 @@ window.WEDDING_PHOTOS = {
       caption: {
         en: "A love worth celebrating",
         th: "ความรักที่คู่ควรแก่การเฉลิมฉลอง",
-        my: "ဂုဏ်ပြုထိုက်သော ချစ်ခြင်းမေတ္တာ"
+        my: "နွေးထွေးတဲ့ချစ်ခြင်းမေတ္တာ"
       }
     },
     {
@@ -73,7 +73,7 @@ window.WEDDING_PHOTOS = {
       caption: {
         en: "Together is our favourite place",
         th: "สถานที่โปรดของเรา คือการได้อยู่ด้วยกัน",
-        my: "အတူရှိနေခြင်းက ကျွန်ုပ်တို့ အနှစ်သက်ဆုံးနေရာ"
+        my: "အတူရှိရတာကို အမြဲနှစ်ခြိုက်မိတယ်"
       }
     },
     {
@@ -87,7 +87,7 @@ window.WEDDING_PHOTOS = {
       caption: {
         en: "You are the reason behind this smile",
         th: "รอยยิ้มนี้ เพราะมีเธอ",
-        my: "ဒီအပြုံးတိုင်းမှာ မင်းရှိတယ်"
+        my: "ဒီအပြုံးလေးရဲ့နောက်ကွယ်ကမင်း"
       }
     }
   ],
