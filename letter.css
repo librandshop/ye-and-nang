@@ -1327,11 +1327,43 @@ html[lang="th"] .wedding-letter h2,html[lang="my"] .wedding-letter h2 { text-wra
 
 .wedding-letter .photo-story { padding-top:92px;padding-bottom:85px;background:linear-gradient(180deg,#fffafc,#fff 24% 84%,#fff8fb); }
 .photo-story__heading::after { content:"02";top:-28px;right:-20px;width:auto;height:auto;background:none;color:#ead0db;font:italic 76px/.8 "Cormorant Garamond",Georgia,serif;scale:none; }
-.photo-story__grid { grid-template-rows:auto auto;row-gap:0;padding-bottom:0; }
-.photo-frame--road { grid-row:1; }
-.photo-frame--chapter { grid-row:1;margin-top:245px; }
-.photo-frame--cinema { grid-row:2;margin-top:-20px; }
-.photo-frame--cinema::before { width:112px;background:#ead0dbd1; }
+.wedding-letter .photo-story { padding-bottom:48px; }
+
+/* Each photograph is a complete editorial scene, never a gallery tile. */
+.wedding-letter .photo-scene { position:relative;padding:60px 70px 120px;overflow:hidden; }
+.photo-scene__figure { position:relative;display:grid;grid-template-columns:minmax(0,520px) minmax(190px,1fr);align-items:center;width:min(790px,100%);margin:auto; }
+.photo-scene__image-wrap { position:relative;z-index:1;padding:11px;background:#fff;box-shadow:0 30px 80px #71435424; }
+.photo-scene__image-wrap::after { content:"";position:absolute;inset:22px;border:1px solid #fff9;pointer-events:none; }
+.photo-scene__image-wrap img { display:block;width:100%;object-fit:cover;filter:saturate(.88) contrast(.99); }
+.photo-scene__index { position:absolute;z-index:3;left:27px;bottom:25px;padding:9px 13px;background:#fffdfae8;color:#9a6076;font:600 8px/1 "Manrope",Arial,sans-serif;letter-spacing:.22em; }
+.photo-scene__figure figcaption { position:relative;z-index:2;margin-left:-25px;padding:34px 29px 36px;background:#fffaf6f2;box-shadow:0 22px 50px #7242521a; }
+.photo-scene__figure figcaption>span { display:block;margin-bottom:15px;color:#b2788e;font:600 8px/1.3 "Manrope",Arial,sans-serif;letter-spacing:.2em; }
+.photo-scene__figure figcaption p { margin:0;color:#754657;font:italic 31px/1.2 "Cormorant Garamond",Georgia,serif; }
+html[lang="th"] .photo-scene__figure figcaption p { font:400 22px/1.65 "Noto Serif Thai",serif; }
+html[lang="my"] .photo-scene__figure figcaption p { font:400 20px/1.8 "Noto Serif Myanmar",serif; }
+
+.wedding-letter .photo-scene--road { background:linear-gradient(180deg,#fff 0,#fff9fb 76%,#f8e7ee); }
+.photo-scene--road .photo-scene__image-wrap,.photo-scene--road .photo-scene__image-wrap img { border-radius:240px 240px 8px 8px / 120px 120px 8px 8px; }
+.photo-scene--road .photo-scene__image-wrap::after { border-radius:225px 225px 5px 5px / 108px 108px 5px 5px; }
+.photo-scene--road .photo-scene__image-wrap img { aspect-ratio:2/3; }
+
+.wedding-letter .photo-scene--graduation { padding-block:115px;background:linear-gradient(145deg,#f6e2ea 0 43%,#fffafc 43% 100%); }
+.photo-scene--graduation .photo-scene__figure { grid-template-columns:minmax(190px,1fr) minmax(0,520px); }
+.photo-scene--graduation .photo-scene__image-wrap { grid-column:2;grid-row:1; }
+.photo-scene--graduation .photo-scene__image-wrap img { aspect-ratio:2/3;border-radius:8px 220px 220px 8px / 8px 120px 120px 8px; }
+.photo-scene--graduation .photo-scene__image-wrap::after { border-radius:5px 205px 205px 5px / 5px 108px 108px 5px; }
+.photo-scene--graduation .photo-scene__figure figcaption { grid-column:1;grid-row:1;margin:0 -25px 0 0;text-align:right; }
+.photo-scene--graduation .photo-scene__index { right:27px;left:auto; }
+
+.wedding-letter .photo-scene--red { padding:105px 70px;background:linear-gradient(150deg,#6b3549,#321b24 72%); }
+.photo-scene--red::before { content:"Y & N";position:absolute;right:-25px;top:24px;color:#fff1;font:italic 130px/.8 "Cormorant Garamond",Georgia,serif;rotate:-8deg; }
+.photo-scene--red .photo-scene__figure { display:block;width:min(850px,100%); }
+.photo-scene--red .photo-scene__image-wrap { padding:12px;background:#fff8f5; }
+.photo-scene--red .photo-scene__image-wrap,.photo-scene--red .photo-scene__image-wrap img { border-radius:180px 180px 8px 8px / 80px 80px 8px 8px; }
+.photo-scene--red .photo-scene__image-wrap::after { border-radius:168px 168px 5px 5px / 70px 70px 5px 5px; }
+.photo-scene--red .photo-scene__image-wrap img { aspect-ratio:3/2; }
+.photo-scene--red .photo-scene__figure figcaption { width:min(480px,86%);margin:-31px auto 0;text-align:center; }
+.photo-scene--red .photo-scene__figure figcaption p { font-size:34px; }
 
 .wedding-letter .savebar { position:relative;padding:0 70px 85px;background:linear-gradient(180deg,#fff8fb,#f8e6ed 50%,#fff9fb); }
 .wedding-letter .savebar__inner { position:relative;display:grid;grid-template-columns:138px 1fr;gap:25px 37px;align-items:center;max-width:760px;padding:36px 42px 39px;border:1px solid #ddb5c4;border-radius:36px;background:#fffaf9e8;box-shadow:0 25px 70px #84506416,inset 0 0 0 8px #fff; }
@@ -1422,8 +1454,24 @@ html[lang="my"] .portrait-chapter__figure figcaption p { font:400 20px/1.8 "Noto
   .wedding-letter .intro__layout { padding:46px 22px 50px; }
   .wedding-letter .photo-story { padding-top:64px;padding-bottom:70px; }
   .photo-story__heading::after { top:-22px;right:7px;font-size:55px; }
-  .photo-frame--chapter { margin-top:0; }
-  .photo-frame--cinema { margin-top:0; }
+  .wedding-letter .photo-story { padding-bottom:26px; }
+  .wedding-letter .photo-scene { padding:50px 27px 88px; }
+  .photo-scene__figure,.photo-scene--graduation .photo-scene__figure { display:block; }
+  .photo-scene__image-wrap { padding:8px; }
+  .photo-scene__image-wrap::after { inset:17px; }
+  .photo-scene__figure figcaption,.photo-scene--graduation .photo-scene__figure figcaption { width:88%;margin:-22px auto 0;padding:25px 22px 27px;text-align:center; }
+  .photo-scene__figure figcaption p,.photo-scene--red .photo-scene__figure figcaption p { font-size:27px; }
+  .photo-scene__index { left:20px;right:auto;bottom:20px; }
+  .photo-scene--road .photo-scene__image-wrap,.photo-scene--road .photo-scene__image-wrap img { border-radius:190px 190px 6px 6px / 95px 95px 6px 6px; }
+  .photo-scene--road .photo-scene__image-wrap::after { border-radius:178px 178px 4px 4px / 84px 84px 4px 4px; }
+  .wedding-letter .photo-scene--graduation { padding-block:82px 95px;background:linear-gradient(150deg,#f6e2ea 0 36%,#fffafc 36% 100%); }
+  .photo-scene--graduation .photo-scene__image-wrap { grid-column:auto;grid-row:auto; }
+  .photo-scene--graduation .photo-scene__image-wrap img { border-radius:6px 180px 180px 6px / 6px 92px 92px 6px; }
+  .photo-scene--graduation .photo-scene__image-wrap::after { border-radius:4px 168px 168px 4px / 4px 82px 82px 4px; }
+  .wedding-letter .photo-scene--red { padding:75px 27px 88px; }
+  .photo-scene--red::before { top:28px;font-size:80px; }
+  .photo-scene--red .photo-scene__image-wrap,.photo-scene--red .photo-scene__image-wrap img { border-radius:70px 70px 6px 6px / 35px 35px 6px 6px; }
+  .photo-scene--red .photo-scene__image-wrap::after { border-radius:63px 63px 4px 4px / 30px 30px 4px 4px; }
   .wedding-letter .savebar { padding:0 20px 60px; }
   .wedding-letter .savebar__inner { display:block;padding:31px 18px 24px;border-radius:28px; }
   .savebar__date-seal { width:110px;height:110px;margin:0 auto 20px; }

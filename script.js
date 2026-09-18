@@ -267,7 +267,7 @@ function initializeInvitation() {
   document.querySelectorAll(".hero__copy-inner > *").forEach((element, index) => element.style.setProperty("--order", index));
   initializeMotionZones();
   const groups = [
-    ".story-opening__copy > *, .story-opening__sound", ".savebar__copy, .calendar-actions", ".intro__heading, .intro__copy", ".photo-story:not([hidden]) .photo-story__heading, .photo-story:not([hidden]) .photo-frame",
+    ".story-opening__copy > *, .story-opening__sound", ".savebar__copy, .calendar-actions", ".intro__heading, .intro__copy", ".photo-story:not([hidden]) .photo-story__heading, .photo-scene__figure",
     ".schedule > .container > .eyebrow, .schedule h2", ".schedule-card", ".love-divider, .program-note, .letter-bow--reply",
     ".portrait-chapter__figure", ".venue__visual, .venue__copy", ".countdown .eyebrow, .countdown h2", ".story-closing__image-wrap, .story-closing__copy",
     ".countdown__grid > div", ".rsvp__frame", ".rsvp__content > :not(.rsvp-thanks):not(noscript)", "footer > *"
@@ -695,48 +695,27 @@ function updateRsvpThankYou(language = document.documentElement.lang) {
 
 function initializeWeddingPhotos() {
   const section = document.querySelector(".photo-story");
-  const grid = section?.querySelector(".photo-story__grid");
   const configuration = window.WEDDING_PHOTOS;
   const moments = configuration?.enabled && Array.isArray(configuration.moments)
     ? configuration.moments.filter(moment => moment?.src)
     : [];
-  if (!section || !grid || !moments.length) return;
+  if (!section || !moments.length) return;
 
   document.querySelectorAll("[data-story-photo]").forEach(image => {
     const index = Number(image.dataset.storyPhoto);
     const moment = configuration.moments[index];
+    const photoSection = image.closest("section");
     if (!moment?.src) {
-      image.closest("section")?.setAttribute("hidden", "");
+      photoSection?.setAttribute("hidden", "");
       return;
     }
     image.src = moment.src;
     image.style.objectPosition = moment.focus || "50% 50%";
     image.dataset.photoIndex = String(index);
-    image.addEventListener("error", () => image.closest("section")?.setAttribute("hidden", ""));
+    photoSection?.removeAttribute("hidden");
+    image.addEventListener("error", () => photoSection?.setAttribute("hidden", ""));
   });
 
-  moments.slice(1, 4).forEach((moment, index) => {
-    const sourceIndex = configuration.moments.indexOf(moment);
-    const figure = document.createElement("figure");
-    figure.className = `photo-frame photo-frame--${["road", "chapter", "cinema"][index]}`;
-    figure.dataset.photoIndex = String(sourceIndex);
-    const image = document.createElement("img");
-    image.src = moment.src;
-    image.loading = "lazy";
-    image.decoding = "async";
-    image.style.objectPosition = moment.focus || "50% 50%";
-    const number = document.createElement("span");
-    number.className = "photo-frame__number";
-    number.textContent = String(index + 2).padStart(2, "0");
-    number.setAttribute("aria-hidden", "true");
-    const caption = document.createElement("figcaption");
-    figure.append(image, number, caption);
-    grid.append(figure);
-    image.addEventListener("error", () => {
-      figure.remove();
-      if (!grid.children.length) section.hidden = true;
-    });
-  });
   section.hidden = false;
   document.body.classList.add("has-wedding-photos");
   updateWeddingPhotoLanguage();

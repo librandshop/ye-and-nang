@@ -61,7 +61,7 @@ Automated checks intercept the submission before it reaches Google, then verify 
 
 ## Photo story
 
-The invitation now unfolds as a cinematic photo story rather than containing one isolated gallery. Immediately after the envelope, the intimate principal portrait becomes a full-viewport opening scene with title, date and an integrated music control. The typographic invitation follows as a quieter stationery scene. Three middle memories then appear as deliberately different chapters: an arched outdoor print, a circular graduation keepsake and a wide red portrait in which both the bride and groom are standing. The bright formal portrait returns near the RSVP as the emotional closing scene.
+The invitation now unfolds as a cinematic photo story rather than containing a gallery. Immediately after the envelope, the intimate principal portrait becomes a full-viewport opening scene with title, date and an integrated music control. Every later photograph occupies its own full section, woven individually between the date, program, venue, countdown and reply. The bright formal portrait returns near the RSVP as the emotional closing scene.
 
 The five photographs remain configuration-driven in `photo-config.js`, with independent crop focus plus English, Thai and Burmese alternative text and captions. Images use lazy loading and asynchronous decoding where appropriate, and a missing asset safely removes its scene. On phones, the story retains its varied shapes and pacing without horizontal overflow. The envelope, pink floral identity, RSVP, calendar actions and accessibility controls remain intact.
 
@@ -122,7 +122,7 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 ## Editorial wedding suite
 
 - The invitation now unfolds as a sequence of designed keepsakes rather than similarly styled stacked sections. Large chapter numbers, fine letterpress rules and alternating ivory/blush fields create a clear visual journey from the personal note to the formal reply.
-- The photo story uses an offset magazine composition on wide screens: the arched road portrait and circular graduation keepsake overlap as one spread, followed by a full-width red studio portrait. Phones preserve the varied silhouettes in a clean single-column sequence.
+- The photo story follows a one-photo-per-scene editorial rhythm. The arched road portrait, reverse-arched graduation portrait, bouquet portrait, wine-backed red studio portrait and final formal portrait are separated by invitation content, so each image receives a deliberate reveal rather than competing inside a gallery.
 - Calendar actions sit beside a circular `08 / 11 / 2026` date seal, making the section read like a save-the-date card rather than a utility toolbar.
 - The order of events is a numbered editorial timeline inside a double-lined ceremonial arch. Its staggered two-column desktop rhythm becomes one readable vertical thread on phones.
 - Venue information is presented as a destination card with a stylized blush map field and a custom date-pin emblem. The Maps destination and accessible action remain unchanged.

@@ -13,9 +13,9 @@
 
 ## Site status
 
-The invitation is a static GitHub Pages site presented as an animated editorial wedding suite. Guests open an enchanted floral envelope, then move through one continuous pink-and-ivory invitation with an offset photo story, keepsake date seal, numbered program, destination vignette, wine-colored countdown interlude and formal reply card. It supports English, Thai and Burmese, remembers the chosen language, honors reduced-motion preferences and provides sound and motion controls.
+The invitation is a static GitHub Pages site presented as an animated editorial wedding suite. Guests open an enchanted floral envelope, then move through one continuous pink-and-ivory invitation with one photograph per editorial scene, a keepsake date seal, numbered program, destination vignette, wine-colored countdown interlude and formal reply card. It supports English, Thai and Burmese, remembers the chosen language, honors reduced-motion preferences and provides sound and motion controls.
 
-Six optimized photographs from `assets/photos/` now form a cinematic story across the invitation: a full-screen opening portrait, three varied editorial memory scenes, a dedicated vertical bouquet portrait between the program and venue, and a closing portrait before RSVP. Captions and alternative text are localized. `PHOTO-GUIDE.md` records the originals, crop focus and social-sharing image.
+Six optimized photographs from `assets/photos/` form a cinematic story across the invitation. Each photograph has its own section: the full-screen opening, road portrait, graduation portrait, bouquet portrait sourced from `455A2717.jpg`, red studio portrait and closing portrait before RSVP. Captions and alternative text are localized. `PHOTO-GUIDE.md` records the originals, crop focus and social-sharing image.
 
 The envelope exterior uses `assets/pink-envelope-bloom-garden.webp`: an asymmetrical pink-flower-only arrangement with no green foliage. The red studio chapter uses `455A2626.jpg`, where both people are standing.
 

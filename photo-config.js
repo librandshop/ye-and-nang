@@ -77,7 +77,7 @@ window.WEDDING_PHOTOS = {
       }
     },
     {
-      src: "assets/photos/our-story-06.jpg?v=portrait-1",
+      src: "assets/photos/our-story-06.jpg?v=portrait-2",
       focus: "50% 50%",
       alt: {
         en: "Ye and Nang smiling with a white bouquet in light wedding attire",
