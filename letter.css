@@ -459,10 +459,33 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
   filter:drop-shadow(0 1px 0 #c9aeba4d);
 }
 .envelope__ribbon {
-  top:calc(50% - 6px);height:12px;
-  background:#dcaec0a6;
-  border-block:1px solid #fffafccc;
-  box-shadow:none;
+  top:calc(50% - 10px);height:20px;overflow:visible;
+  background:
+    linear-gradient(180deg,#fff8fcba 0 8%,transparent 23% 72%,#9c597635 100%),
+    linear-gradient(100deg,#c982a0 0,#efc8d8 20%,#d99ab4 48%,#f4d2df 72%,#bd7593 100%);
+  border-block:1px solid #fff8fbd9;
+  box-shadow:0 4px 10px #75445529,inset 0 1px #fff,inset 0 -2px #a9617d55;
+}
+.envelope__ribbon::before {
+  content:"";position:absolute;inset:3px 0;
+  border-block:1px solid #f8dce8a8;
+  background:
+    radial-gradient(circle,#fff8f5 0 1.1px,#c28a9e 1.25px 1.9px,transparent 2px) center/18px 8px repeat-x,
+    linear-gradient(90deg,transparent,#fff9 40%,transparent 74%);
+  opacity:.86;
+}
+.envelope__ribbon::after {
+  content:"";position:absolute;top:50%;width:20px;height:28px;
+  background:linear-gradient(90deg,#aa627f,#e8b7ca 38%,#c67f9b 68%,#f5d1df);
+  border:1px solid #f8e4ecb8;box-shadow:0 4px 8px #7443552e;
+  clip-path:polygon(0 16%,72% 0,100% 50%,72% 100%,0 84%,18% 50%);
+}
+.envelope__ribbon--left::after { right:-7px;transform:translateY(-50%); }
+.envelope__ribbon--right::after { left:-7px;transform:translateY(-50%) scaleX(-1); }
+.envelope__ribbon>i {
+  position:absolute;inset:1px 0;display:block;pointer-events:none;
+  background:repeating-linear-gradient(112deg,transparent 0 15px,#fff5fa26 16px 17px,transparent 18px 31px);
+  mix-blend-mode:screen;
 }
 .envelope__seal {
   width:70px;height:70px;top:50%;transform:translate(-50%,-50%);
