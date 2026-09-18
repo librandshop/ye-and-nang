@@ -459,34 +459,52 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
   filter:drop-shadow(0 1px 0 #c9aeba4d);
 }
 .envelope__ribbon {
-  top:calc(50% - 10px);height:20px;overflow:visible;
+  top:calc(50% - 13px);height:26px;overflow:visible;
   background:
-    linear-gradient(180deg,#fff8fcba 0 8%,transparent 23% 72%,#9c597635 100%),
-    linear-gradient(100deg,#c982a0 0,#efc8d8 20%,#d99ab4 48%,#f4d2df 72%,#bd7593 100%);
-  border-block:1px solid #fff8fbd9;
-  box-shadow:0 4px 10px #75445529,inset 0 1px #fff,inset 0 -2px #a9617d55;
+    linear-gradient(180deg,#fff9fca8 0 9%,#f0bfd2 17%,#ca7f9f 48%,#e9aec5 72%,#a75e7c 100%),
+    #d895af;
+  border-block:1px solid #f9deead9;
+  box-shadow:0 5px 12px #75445538,inset 0 2px #fff8fc,inset 0 -3px #8f4d694d;
 }
 .envelope__ribbon::before {
-  content:"";position:absolute;inset:3px 0;
-  border-block:1px solid #f8dce8a8;
+  content:"";position:absolute;inset:4px 0;
+  border-block:1px dashed #fbe7efad;
   background:
-    radial-gradient(circle,#fff8f5 0 1.1px,#c28a9e 1.25px 1.9px,transparent 2px) center/18px 8px repeat-x,
-    linear-gradient(90deg,transparent,#fff9 40%,transparent 74%);
-  opacity:.86;
+    repeating-linear-gradient(112deg,transparent 0 13px,#fff6fa35 14px 16px,transparent 17px 29px),
+    linear-gradient(90deg,transparent,#fff8 42%,transparent 78%);
+  opacity:.9;
 }
 .envelope__ribbon::after {
-  content:"";position:absolute;top:50%;width:20px;height:28px;
-  background:linear-gradient(90deg,#aa627f,#e8b7ca 38%,#c67f9b 68%,#f5d1df);
-  border:1px solid #f8e4ecb8;box-shadow:0 4px 8px #7443552e;
-  clip-path:polygon(0 16%,72% 0,100% 50%,72% 100%,0 84%,18% 50%);
+  content:"";position:absolute;top:50%;width:24px;height:34px;
+  background:linear-gradient(90deg,#9d5674,#e6abc2 38%,#bc6e8c 70%,#f4c9d9);
+  border:1px solid #f8e4ecb8;box-shadow:0 4px 8px #74435538;
+  clip-path:polygon(0 14%,72% 0,100% 50%,72% 100%,0 86%,22% 50%);
 }
-.envelope__ribbon--left::after { right:-7px;transform:translateY(-50%); }
-.envelope__ribbon--right::after { left:-7px;transform:translateY(-50%) scaleX(-1); }
+.envelope__ribbon--left::after { right:-9px;transform:translateY(-50%); }
+.envelope__ribbon--right::after { left:-9px;transform:translateY(-50%) scaleX(-1); }
 .envelope__ribbon>i {
   position:absolute;inset:1px 0;display:block;pointer-events:none;
   background:repeating-linear-gradient(112deg,transparent 0 15px,#fff5fa26 16px 17px,transparent 18px 31px);
   mix-blend-mode:screen;
 }
+.envelope__ribbon-tails {
+  position:absolute;z-index:4;left:50%;top:50%;width:0;height:0;pointer-events:none;
+}
+.envelope__ribbon-tails i {
+  position:absolute;top:14px;width:30px;height:88px;transform-origin:50% 0;
+  background:linear-gradient(90deg,#a75d7a 0,#edbfd1 28%,#c97d9b 57%,#f2c8d8 78%,#a85e7b 100%);
+  border-inline:1px solid #f8dce7b8;
+  box-shadow:0 7px 12px #71435436,inset 2px 0 #fff8fb99,inset -2px 0 #8c49654a;
+  clip-path:polygon(0 0,100% 0,100% 100%,50% 84%,0 100%);
+}
+.envelope__ribbon-tails i:first-child { left:-21px;transform:rotate(23deg); }
+.envelope__ribbon-tails i:last-child { left:-9px;height:76px;transform:rotate(-25deg); }
+.invitation-opening .envelope__ribbon-tails { animation:ribbon-tail-release .75s var(--ease) forwards; }
+@keyframes ribbon-tail-release {
+  45% { transform:translateY(12px) rotate(6deg); }
+  to { transform:translate(30px,72px) rotate(22deg);opacity:0; }
+}
+.opening-heading h2:empty,.story-opening__copy p:empty { display:none; }
 .envelope__seal {
   width:70px;height:70px;top:50%;transform:translate(-50%,-50%);
   background:linear-gradient(145deg,#bd7891,#8e5269);
