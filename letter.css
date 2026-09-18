@@ -1518,8 +1518,8 @@ html[lang="my"] .portrait-chapter__figure figcaption p { font:400 20px/1.8 "Noto
 .venue__pin>* { position:relative;z-index:1; }
 .venue__pin>span { margin-top:-27px;font:italic 20px/1 "Cormorant Garamond",Georgia,serif; }
 .venue__pin>span i { font-family:Georgia,serif;font-style:normal;font-size:.7em; }
-.venue__pin>b { margin-top:-43px;font:italic 64px/.8 "Cormorant Garamond",Georgia,serif;font-weight:500; }
-.venue__pin>small { margin-top:-47px;font:600 8px/1 "Manrope",Arial,sans-serif;letter-spacing:.22em; }
+.venue__pin>b { margin-top:-42px;font:italic 25px/1 "Cormorant Garamond",Georgia,serif;font-weight:600;white-space:nowrap; }
+.venue__pin>small { margin-top:-48px;font:600 10px/1.2 "Manrope",Arial,sans-serif;letter-spacing:.1em;white-space:nowrap; }
 .wedding-letter .venue__visual .botanical { position:absolute;z-index:3;bottom:25px;width:100px;opacity:.55; }
 .wedding-letter .venue__copy { display:grid;align-content:center;padding:55px 48px;text-align:left; }
 .wedding-letter .venue__copy h2 { font-size:47px; }
