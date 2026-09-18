@@ -262,8 +262,8 @@ function initializeInvitation() {
     const heartX = 16 * Math.sin(angle) ** 3;
     const heartY = 13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle);
     petal.style.setProperty("--petal-order", index);
-    petal.style.setProperty("--petal-x", `${heartX * Math.min(innerWidth * .011, 7)}px`);
-    petal.style.setProperty("--petal-y", `${-heartY * Math.min(innerWidth * .009, 5.5) + 5}px`);
+    petal.style.setProperty("--petal-x", `${heartX * Math.min(innerWidth * .0175, 7.8)}px`);
+    petal.style.setProperty("--petal-y", `${-heartY * Math.min(innerWidth * .0125, 5.8)}px`);
     petal.style.setProperty("--petal-turn", `${120 + index * 37}deg`);
   });
   document.querySelectorAll(".opening-stars i").forEach((star, index) => star.style.setProperty("--star-order", index));
