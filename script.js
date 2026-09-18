@@ -256,11 +256,14 @@ function setMotionPaused(paused) {
 function initializeInvitation() {
   document.body.classList.add("js-motion");
   document.querySelectorAll(".keepsake__words > *").forEach((element, index) => element.style.setProperty("--ink-order", index));
-  document.querySelectorAll(".opening-petals i").forEach((petal, index) => {
-    const angle = index * Math.PI * 2 / 12;
+  const openingPetals = document.querySelectorAll(".opening-petals i");
+  openingPetals.forEach((petal, index) => {
+    const angle = index * Math.PI * 2 / openingPetals.length;
+    const heartX = 16 * Math.sin(angle) ** 3;
+    const heartY = 13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle);
     petal.style.setProperty("--petal-order", index);
-    petal.style.setProperty("--petal-x", `${Math.cos(angle) * Math.min(innerWidth * .48, 400)}px`);
-    petal.style.setProperty("--petal-y", `${Math.sin(angle) * innerHeight * .36 + innerHeight * .2}px`);
+    petal.style.setProperty("--petal-x", `${heartX * Math.min(innerWidth * .011, 7)}px`);
+    petal.style.setProperty("--petal-y", `${-heartY * Math.min(innerWidth * .009, 5.5) + 5}px`);
     petal.style.setProperty("--petal-turn", `${120 + index * 37}deg`);
   });
   document.querySelectorAll(".opening-stars i").forEach((star, index) => star.style.setProperty("--star-order", index));
