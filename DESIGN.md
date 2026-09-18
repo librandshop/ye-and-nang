@@ -119,6 +119,17 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 - The ambient effect is a soft field of paper light rather than concentric rings. The seal lifts and the band parts horizontally for a cleaner editorial opening gesture.
 - These changes are limited to the cover envelope; the approved main invitation composition is unchanged.
 
+## Editorial wedding suite
+
+- The invitation now unfolds as a sequence of designed keepsakes rather than similarly styled stacked sections. Large chapter numbers, fine letterpress rules and alternating ivory/blush fields create a clear visual journey from the personal note to the formal reply.
+- The photo story uses an offset magazine composition on wide screens: the arched road portrait and circular graduation keepsake overlap as one spread, followed by a full-width red studio portrait. Phones preserve the varied silhouettes in a clean single-column sequence.
+- Calendar actions sit beside a circular `08 / 11 / 2026` date seal, making the section read like a save-the-date card rather than a utility toolbar.
+- The order of events is a numbered editorial timeline inside a double-lined ceremonial arch. Its staggered two-column desktop rhythm becomes one readable vertical thread on phones.
+- Venue information is presented as a destination card with a stylized blush map field and a custom date-pin emblem. The Maps destination and accessible action remain unchanged.
+- The countdown is a dramatic wine-colored interlude with pearl-white time medallions, providing a deliberate visual crescendo between logistics and the closing portrait.
+- RSVP is framed as the final formal reply card, with a date stamp, satin bow, nested paper panel and the existing localized submission experience intact.
+- Desktop at 1200 pixels and phone at 500 pixels were visually reviewed with zero horizontal overflow. English, Thai and Burmese were verified with all three timeline steps and both date seals present, and no undefined translation output.
+
 ## Enchanted-garden envelope
 
 - The opening cover now feels like a romantic fairytale garden: blush and ivory flowers, sage climbing vines and warm firefly-like light form a living doorway around the seal.
@@ -150,4 +161,5 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 
 - English uses “Wedding Harp” by Francisco Alvear, Thai uses “Possible Dreams” by Eugenio Mininni, and Burmese uses “Love is Eternal” by Ahjay Stelino.
 - Music and paper recordings stream from Mixkit's audio CDN under the Mixkit Stock Music Free License and Mixkit Sound Effects Free License. See `AUDIO-CREDITS.md`.
+
 
