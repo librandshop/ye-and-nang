@@ -459,52 +459,88 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
   filter:drop-shadow(0 1px 0 #c9aeba4d);
 }
 .envelope__ribbon {
-  top:calc(50% - 13px);height:26px;overflow:visible;
-  background:
-    linear-gradient(180deg,#fff9fca8 0 9%,#f0bfd2 17%,#ca7f9f 48%,#e9aec5 72%,#a75e7c 100%),
-    #d895af;
-  border-block:1px solid #f9deead9;
-  box-shadow:0 5px 12px #75445538,inset 0 2px #fff8fc,inset 0 -3px #8f4d694d;
+  top:calc(50% - 6px);height:12px;overflow:visible;
+  background:#dcaec0a6;
+  border-block:1px solid #fffafccc;
+  box-shadow:none;
 }
 .envelope__ribbon::before {
-  content:"";position:absolute;inset:4px 0;
-  border-block:1px dashed #fbe7efad;
-  background:
-    repeating-linear-gradient(112deg,transparent 0 13px,#fff6fa35 14px 16px,transparent 17px 29px),
-    linear-gradient(90deg,transparent,#fff8 42%,transparent 78%);
-  opacity:.9;
+  content:"";position:absolute;inset:1px 0;
+  background:linear-gradient(180deg,#fff8fc8f,transparent 34% 68%,#9e5c7626);
 }
 .envelope__ribbon::after {
-  content:"";position:absolute;top:50%;width:24px;height:34px;
-  background:linear-gradient(90deg,#9d5674,#e6abc2 38%,#bc6e8c 70%,#f4c9d9);
-  border:1px solid #f8e4ecb8;box-shadow:0 4px 8px #74435538;
-  clip-path:polygon(0 14%,72% 0,100% 50%,72% 100%,0 86%,22% 50%);
+  content:none;
 }
-.envelope__ribbon--left::after { right:-9px;transform:translateY(-50%); }
-.envelope__ribbon--right::after { left:-9px;transform:translateY(-50%) scaleX(-1); }
 .envelope__ribbon>i {
-  position:absolute;inset:1px 0;display:block;pointer-events:none;
-  background:repeating-linear-gradient(112deg,transparent 0 15px,#fff5fa26 16px 17px,transparent 18px 31px);
-  mix-blend-mode:screen;
+  display:none;
 }
-.envelope__ribbon-tails {
-  position:absolute;z-index:4;left:50%;top:50%;width:0;height:0;pointer-events:none;
+.envelope__ribbon-knot {
+  position:absolute;z-index:4;left:50%;top:50%;width:106px;height:38px;
+  transform:translate(-50%,-50%);
+  border:1px solid #f5d8e4;border-radius:50% 50% 45% 45%;
+  background:
+    linear-gradient(100deg,#a95f7d 0,#e5adc2 20%,#bf738f 43%,#f0c6d5 58%,#b46683 79%,#e2a9bf 100%);
+  box-shadow:0 5px 10px #75445533,inset 0 2px #fff8fc,inset 0 -2px #8d4a6547;
+  pointer-events:none;
 }
-.envelope__ribbon-tails i {
-  position:absolute;top:14px;width:30px;height:88px;transform-origin:50% 0;
-  background:linear-gradient(90deg,#a75d7a 0,#edbfd1 28%,#c97d9b 57%,#f2c8d8 78%,#a85e7b 100%);
-  border-inline:1px solid #f8dce7b8;
-  box-shadow:0 7px 12px #71435436,inset 2px 0 #fff8fb99,inset -2px 0 #8c49654a;
-  clip-path:polygon(0 0,100% 0,100% 100%,50% 84%,0 100%);
+.envelope__ribbon-knot::before,.envelope__ribbon-knot::after {
+  content:"";position:absolute;top:5px;width:26px;height:26px;border-radius:5px 50% 5px 50%;
+  background:linear-gradient(135deg,#f4cedd,#b86d8a 72%);
+  box-shadow:inset 1px 1px #fff9fa,inset -2px -2px #8e4b6640;
 }
-.envelope__ribbon-tails i:first-child { left:-21px;transform:rotate(23deg); }
-.envelope__ribbon-tails i:last-child { left:-9px;height:76px;transform:rotate(-25deg); }
-.invitation-opening .envelope__ribbon-tails { animation:ribbon-tail-release .75s var(--ease) forwards; }
-@keyframes ribbon-tail-release {
-  45% { transform:translateY(12px) rotate(6deg); }
-  to { transform:translate(30px,72px) rotate(22deg);opacity:0; }
-}
+.envelope__ribbon-knot::before { left:8px;transform:rotate(-19deg); }
+.envelope__ribbon-knot::after { right:8px;transform:scaleX(-1) rotate(-19deg); }
+.invitation-opening .envelope__ribbon-knot { animation:ribbon-knot-release .8s var(--ease) forwards; }
+@keyframes ribbon-knot-release { to { transform:translate(-25%,72%) rotate(26deg);opacity:0; } }
 .opening-heading h2:empty,.story-opening__copy p:empty { display:none; }
+
+/* Myanmar glyphs need a taller line box than Latin and Thai characters. */
+html[lang="my"] .story-opening__copy strong {
+  font:400 clamp(36px,6vw,54px)/1.75 "Noto Serif Myanmar","Myanmar Text",serif;
+  font-style:normal;letter-spacing:0;padding-block:.12em;
+}
+html[lang="my"] .story-opening__sound {
+  min-height:50px;padding-block:5px;font-family:"Noto Sans Myanmar","Myanmar Text",sans-serif;
+  font-size:11px;line-height:1.9;letter-spacing:0;text-transform:none;
+}
+html[lang="my"] .wedding-letter h2,
+html[lang="my"] .wedding-letter .schedule-card h3,
+html[lang="my"] .photo-scene__figure figcaption p,
+html[lang="my"] .portrait-chapter__figure figcaption p,
+html[lang="my"] .story-closing__copy p {
+  line-height:2;padding-block:.12em;overflow:visible;
+}
+html[lang="my"] .wedding-letter .eyebrow,
+html[lang="my"] .letter-salutation,
+html[lang="my"] .wedding-letter .hero__invite,
+html[lang="my"] .wedding-letter .hero__date,
+html[lang="my"] .wedding-letter .hero__year,
+html[lang="my"] .wedding-letter .savebar__copy p,
+html[lang="my"] .wedding-letter .countdown__grid span,
+html[lang="my"] .wedding-letter .scroll-cue,
+html[lang="my"] .wedding-letter .program-note,
+html[lang="my"] .wedding-letter .schedule-card__time,
+html[lang="my"] .invitation-action__label,
+html[lang="my"] .rsvp-field>span,
+html[lang="my"] .rsvp-attendance legend,
+html[lang="my"] .rsvp-choice b,
+html[lang="my"] .rsvp-thanks h3,
+html[lang="my"] .rsvp-thanks p {
+  line-height:2.15;padding-block:.1em;overflow:visible;
+}
+html[lang="my"] .opening-heading .eyebrow,
+html[lang="my"] .invitation-intro__prompt,
+html[lang="my"] .keepsake__eyebrow,
+html[lang="my"] .keepsake__date,
+html[lang="my"] .keepsake__year,
+html[lang="my"] .keepsake__note {
+  line-height:2.15;padding-block:.12em;overflow:visible;
+}
+html[lang="my"] .sound-toggle__label,
+html[lang="my"] .motion-toggle__label,
+html[lang="my"] .language-switch__button[lang="my"] {
+  line-height:1.9;padding-block:.18em;overflow:visible;
+}
 .envelope__seal {
   width:70px;height:70px;top:50%;transform:translate(-50%,-50%);
   background:linear-gradient(145deg,#bd7891,#8e5269);
