@@ -460,11 +460,11 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 }
 .envelope__ribbon {
   top:calc(50% - 9px);height:18px;overflow:visible;
-  background-color:#d9a3b6;
-  background-image:url("assets/blush-lace-ribbon.svg");
+  background-color:#ddaec052;
+  background-image:url("assets/blush-organza-ribbon.svg");
   background-repeat:repeat-x;background-position:center;background-size:auto 100%;
-  border-block:1px solid #f9e9ef;
-  box-shadow:0 3px 7px #6f405121,inset 0 1px #fff8fb;
+  border-block:1px solid #f9e9efb8;
+  box-shadow:0 3px 7px #6f405117,inset 0 1px #fff8fbc4;
 }
 .envelope__ribbon::before {
   content:none;
