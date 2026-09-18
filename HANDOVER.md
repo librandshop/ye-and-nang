@@ -6,35 +6,46 @@
 - Wedding: Sunday, 8 November 2026
 - Live site: https://librandshop.github.io/ye-and-nang/
 - Thai preview: https://librandshop.github.io/ye-and-nang/?lang=th
+- Burmese preview: https://librandshop.github.io/ye-and-nang/?lang=my
 - Repository: https://github.com/librandshop/ye-and-nang
-- RSVP form: https://forms.gle/t9pPc5BuD8Esa8QF6
 - RSVP deadline: 30 September 2026
 - Venue map: https://maps.app.goo.gl/vTDBF3szrC5VXmnKA
 
 ## Site status
 
-The invitation is a static, mobile-friendly GitHub Pages site. Its current visual direction is a premium pink-only floral design with editorial rose photography; there are no green design accents. It supports English and Thai, remembers the chosen language, and accepts `?lang=th` for a direct Thai link.
+The invitation is a static GitHub Pages site presented as an animated love letter. Guests open an enchanted floral envelope, then read one continuous pink-and-ivory invitation. It supports English, Thai and Burmese, remembers the chosen language, honors reduced-motion preferences and provides sound and motion controls.
 
-The site includes the invitation, wedding-day schedule, venue link, countdown, RSVP button, a Google Calendar link, and an Apple Calendar/Outlook `.ics` file. The RSVP button points to the published responder link above. The Google Calendar button opens a prefilled event; Apple Calendar and Outlook use the `.ics` file, which the visitor must confirm in their calendar app.
+The enabled photo chapter displays five optimized photographs from `assets/photos/`, with localized captions and alternative text. `PHOTO-GUIDE.md` records the originals, crop focus and social-sharing image.
 
-Event times and on-page venue text are intentionally not invented: the schedule says they will be announced. The venue button opens the supplied Google Maps location.
+The invitation includes an all-day calendar event for Google Calendar, Apple Calendar and Outlook; the supplied Google Maps destination; a countdown; and a custom RSVP card. Ceremony, reception and dinner times remain explicitly unconfirmed.
 
-## Files
+## RSVP architecture
+
+The public Google Form is archived and no longer receives invitation submissions. The custom form posts to `https://ye-and-nang-rsvp.librandshop.workers.dev`. The Cloudflare Worker validates the request and creates an issue in the private `librandshop/ye-and-nang-rsvp` repository. Transfer slips are validated as JPG, PNG or WebP and stored in the `ye-and-nang-rsvp-slips` R2 bucket.
+
+Guests may accept for themselves and one plus-one, or decline. Declining guests can optionally view the public payment details, leave a message and attach a transfer slip. The GitHub token must remain only in the Worker's encrypted `GITHUB_TOKEN` secret.
+
+## Important files
 
 | File | Purpose |
 | --- | --- |
-| [`index.html`](index.html) | Invitation content, sections, links, and language controls. |
-| [`styles.css`](styles.css) | Pink floral visual system and responsive layout. |
-| [`assets/editorial-roses.jpg`](assets/editorial-roses.jpg) | Optimized floral artwork used on the site. |
-| [`script.js`](script.js) | English/Thai copy, language selection, and countdown. |
-| [`ye-nang-wedding.ics`](ye-nang-wedding.ics) | Apple Calendar and Outlook event file. |
-| [`RSVP-GOOGLE-FORM.md`](RSVP-GOOGLE-FORM.md) | Bilingual form question reference. |
+| `index.html` | Envelope, invitation content, RSVP form and social metadata. |
+| `styles.css` | Base layout and envelope choreography. |
+| `letter.css` | Love-letter styling, photo chapter, RSVP and motion refinement. |
+| `script.js` | Languages, animation, music, photos, countdown and RSVP behavior. |
+| `photo-config.js` | Enabled photographs, crop focus, captions and alt text. |
+| `PHOTO-GUIDE.md` | Photo source and optimization record. |
+| `rsvp-config.js` | Public Cloudflare Worker endpoint. |
+| `rsvp-worker/` | Worker source, tests and deployment configuration. |
+| `AUDIO-CREDITS.md` | Music and sound-effect sources and licenses. |
+| `ye-nang-wedding.ics` | Apple Calendar and Outlook event. |
 
-## Remaining checks before sharing widely
+## Remaining checks
 
-1. Confirm ceremony/reception times and replace all “time to be announced” copy when known.
-2. Check the published RSVP form still permits intended guests to respond. Each guest may bring at most one plus-one; Thai guests should enter both their own and their plus-one's nicknames, as specified in the form reference.
-3. Test the live invitation and calendar choices on actual iPhone and Android devices.
+1. Replace “time to be announced” when the wedding schedule is confirmed.
+2. Test the complete opening, music, calendars, RSVP and slip upload on actual iPhone and Android devices.
+3. Monitor the private RSVP repository and Cloudflare Worker/R2 usage. The public Worker uses validation and a honeypot but currently has no Turnstile or rate limiting.
+4. Remember that payment numbers and the PromptPay QR image are intentionally public on the invitation.
 
-To publish changes, update the `main` branch of `librandshop/ye-and-nang`; GitHub Pages deploys from it. The `.preview` directory holds local screenshots only and is not part of the site.
+Publish from the `main` branch of `librandshop/ye-and-nang`. GitHub Pages deploys new commits automatically. The `.preview` folder contains local review artifacts and is not part of the public invitation.
 
