@@ -61,11 +61,17 @@ Automated checks intercept the submission before it reaches Google, then verify 
 
 ## Photo story
 
-The invitation now unfolds as a cinematic photo story rather than containing one isolated gallery. Immediately after the envelope, the intimate principal portrait becomes a full-viewport opening scene with title, date and an integrated music control. The typographic invitation follows as a quieter stationery scene. Three middle memories then appear as deliberately different chapters: an arched outdoor print, a circular graduation keepsake and a wide red cinematic panorama. The bright formal portrait returns near the RSVP as the emotional closing scene.
+The invitation now unfolds as a cinematic photo story rather than containing one isolated gallery. Immediately after the envelope, the intimate principal portrait becomes a full-viewport opening scene with title, date and an integrated music control. The typographic invitation follows as a quieter stationery scene. Three middle memories then appear as deliberately different chapters: an arched outdoor print, a circular graduation keepsake and a wide red portrait in which both the bride and groom are standing. The bright formal portrait returns near the RSVP as the emotional closing scene.
 
 The five photographs remain configuration-driven in `photo-config.js`, with independent crop focus plus English, Thai and Burmese alternative text and captions. Images use lazy loading and asynchronous decoding where appropriate, and a missing asset safely removes its scene. On phones, the story retains its varied shapes and pacing without horizontal overflow. The envelope, pink floral identity, RSVP, calendar actions and accessibility controls remain intact.
 
 `PHOTO-GUIDE.md` records source-quality, naming, crop and social-preview requirements. The QR sharing artwork keeps a protected lower QR region and can later receive a dedicated vertical portrait without rebuilding its composition. Its real QR code must always be revalidated after final compositing and compression.
+
+## Pink envelope garden
+
+The closed envelope now uses `assets/pink-envelope-bloom-garden.webp`, a transparent 1200 × 800 WebP floral composition. It is one continuous asymmetrical sweep of pink peonies, ranunculus, sweet peas, cherry blossoms and small florets, rising on the left and trailing lightly to the right. The open center protects the seal and monogram. There are no green leaves or green foliage.
+
+Generation prompt summary: an organic, asymmetrical pink flower meadow for a luxury wedding envelope; many pink blossoms only, one continuous bottom sweep, tall on the left and sparse on the right, transparent background, open seal area, no mirrored bouquets, no paired mounds, no greenery, no white or yellow flowers, no text and no envelope.
 
 ## Romantic editorial refinement
 

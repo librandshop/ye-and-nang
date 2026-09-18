@@ -49,10 +49,10 @@ window.WEDDING_PHOTOS = {
       }
     },
     {
-      src: "assets/photos/our-story-04.jpg",
+      src: "assets/photos/our-story-04.jpg?v=standing-2",
       focus: "50% 50%",
       alt: {
-        en: "Ye and Nang together against a deep red wedding backdrop",
+        en: "Ye and Nang standing together in formal wedding attire against a deep red backdrop",
         th: "Ye และ Nang อยู่ด้วยกันหน้าฉากแต่งงานสีแดงเข้ม",
         my: "အနီရောင် မင်္ဂလာနောက်ခံရှေ့တွင် Ye နှင့် Nang အတူရှိနေကြသည်"
       },
@@ -82,4 +82,3 @@ window.WEDDING_PHOTOS = {
     focus: "50% 38%"
   }
 };
-

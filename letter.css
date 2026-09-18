@@ -476,7 +476,7 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 .envelope__botanical { opacity:1; }
 .envelope__botanical img {
   width:110%;height:110%;max-width:none;left:-5%;right:auto;bottom:-5%;object-fit:contain;
-  transform:none;filter:saturate(.92) brightness(1.04) drop-shadow(0 8px 10px #5d654926);
+  transform:none;filter:saturate(.96) brightness(1.04) drop-shadow(0 8px 10px #8e536b2b);
 }
 .envelope__shell::after {
   content:"08  ·  11  ·  2026";position:absolute;z-index:5;right:22px;bottom:18px;
@@ -520,8 +520,8 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 .envelope__botanical img { opacity:0;animation:none!important; }
 .envelope__botanical::before,.envelope__botanical::after {
   content:"";position:absolute;inset:-5%;pointer-events:none;
-  background:url("assets/enchanted-envelope-garden.webp") center/100% 100% no-repeat;
-  filter:saturate(.94) brightness(1.04) drop-shadow(0 8px 10px #5d65491f);
+  background:url("assets/pink-envelope-bloom-garden.webp") center/100% 100% no-repeat;
+  filter:saturate(.98) brightness(1.04) drop-shadow(0 8px 10px #8e536b24);
 }
 .envelope__botanical::before { clip-path:polygon(0 0,54% 0,54% 100%,0 100%);transform-origin:5% 96%; }
 .envelope__botanical::after { clip-path:polygon(46% 0,100% 0,100% 100%,46% 100%);transform-origin:95% 96%; }
@@ -742,8 +742,9 @@ html[lang="my"] .rsvp-choice b { font-size:11px; }
 .photo-frame--chapter::before { content:"✦";display:grid;place-items:center;left:auto;right:18px;width:35px;height:35px;border-radius:50%;background:#f3dce5;color:#a86a81;font-size:12px;transform:rotate(7deg); }
 .photo-frame--chapter::after { border-radius:50% 50% 3px 3px / 37% 37% 3px 3px; }
 .photo-frame--chapter img { aspect-ratio:1;border-radius:50%; }
-.photo-frame--cinema { grid-column:1/13;margin-top:20px;--photo-tilt:.7deg;padding-bottom:39px; }
-.photo-frame--cinema img { aspect-ratio:16/9; }
+.photo-frame--cinema { grid-column:1/13;width:100%;justify-self:center;margin-top:25px;--photo-tilt:.7deg;padding-bottom:39px;border-radius:140px 140px 3px 3px / 70px 70px 3px 3px; }
+.photo-frame--cinema::after { border-radius:132px 132px 2px 2px / 64px 64px 2px 2px; }
+.photo-frame--cinema img { aspect-ratio:3/2;border-radius:128px 128px 2px 2px / 60px 60px 2px 2px; }
 .photo-frame[hidden],.photo-frame figcaption[hidden] { display:none!important; }
 .js-motion .photo-frame.is-visible { animation:photo-settle 1.9s var(--ease) both; }
 .js-motion .photo-frame--road.is-visible { animation-name:photo-settle-left; }
@@ -786,8 +787,9 @@ html[lang="my"] .photo-frame figcaption,html[lang="my"] .story-closing__copy p {
   .photo-frame,.photo-frame--road,.photo-frame--chapter,.photo-frame--cinema { grid-column:auto;margin-top:0; }
   .photo-frame--road { width:92%;align-self:flex-start;--photo-tilt:-1.1deg; }
   .photo-frame--chapter { width:78%;align-self:flex-end;--photo-tilt:1.5deg; }
-  .photo-frame--cinema { width:100%;align-self:center;--photo-tilt:-.6deg; }
-  .photo-frame--cinema img { aspect-ratio:3/2; }
+  .photo-frame--cinema { width:100%;align-self:center;--photo-tilt:-.6deg;border-radius:72px 72px 3px 3px / 38px 38px 3px 3px; }
+  .photo-frame--cinema::after { border-radius:67px 67px 2px 2px / 34px 34px 2px 2px; }
+  .photo-frame--cinema img { aspect-ratio:3/2;border-radius:64px 64px 2px 2px / 32px 32px 2px 2px; }
   .photo-frame__number { left:-18px;font-size:18px; }
   .photo-frame figcaption { font-size:17px; }
   .wedding-letter .story-closing { padding:45px 27px 80px; }

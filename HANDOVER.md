@@ -17,6 +17,8 @@ The invitation is a static GitHub Pages site presented as an animated love lette
 
 Five optimized photographs from `assets/photos/` now form a cinematic story across the invitation: full-screen opening portrait, three varied editorial memory scenes and a closing portrait before RSVP. Captions and alternative text are localized. `PHOTO-GUIDE.md` records the originals, crop focus and social-sharing image.
 
+The envelope exterior uses `assets/pink-envelope-bloom-garden.webp`: an asymmetrical pink-flower-only arrangement with no green foliage. The red studio chapter uses `455A2626.jpg`, where both people are standing.
+
 The invitation includes an all-day calendar event for Google Calendar, Apple Calendar and Outlook; the supplied Google Maps destination; a countdown; and a custom RSVP card. Ceremony, reception and dinner times remain explicitly unconfirmed.
 
 ## RSVP architecture
