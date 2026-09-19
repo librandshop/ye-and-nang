@@ -17,10 +17,13 @@ let soundChoiceMade = false;
 let musicFadeTimer;
 const openingAudioTimers = new Set();
 const musicTracks = {
-  en: { src:"https://assets.mixkit.co/music/672/672.mp3", title:"Wedding Harp", artist:"Francisco Alvear" },
-  th: { src:"https://assets.mixkit.co/music/599/599.mp3", title:"Possible Dreams", artist:"Eugenio Mininni" },
-  my: { src:"https://assets.mixkit.co/music/272/272.mp3", title:"Wedding Music", artist:"Arulo" },
+  en: { localSrc:"songs/english.mp3", parts:["songs/english-01.part","songs/english-02.part","songs/english-03.part","songs/english-04.part","songs/english-05.part"], title:"English wedding song" },
+  th: { localSrc:"songs/thai.mp3", parts:["songs/thai-01.part","songs/thai-02.part","songs/thai-03.part","songs/thai-04.part","songs/thai-05.part"], title:"Thai wedding song" },
+  my: { localSrc:"songs/myanmar.mp3", parts:["songs/myanmar-01.part","songs/myanmar-02.part","songs/myanmar-03.part","songs/myanmar-04.part","songs/myanmar-05.part"], title:"Myanmar wedding song" },
 };
+const musicSourcePromises = new Map();
+const musicObjectUrls = new Map();
+let musicRequestId = 0;
 const musicPlayer = new Audio();
 musicPlayer.loop = true;
 musicPlayer.preload = "metadata";
@@ -76,7 +79,34 @@ function playOpeningSoundscape() {
   scheduleOpeningSound("unfold", 2600, .32);
 }
 
-function stopMusic(reset = true) {
+async function resolveMusicSource(language) {
+  const track = musicTracks[language] || musicTracks.en;
+  if (location.protocol === "file:") return track.localSrc;
+  if (musicObjectUrls.has(language)) return musicObjectUrls.get(language);
+  if (!musicSourcePromises.has(language)) {
+    musicSourcePromises.set(language, Promise.all(track.parts.map(async part => {
+      const response = await fetch(part);
+      if (!response.ok) throw new Error(`Unable to load ${part}`);
+      return response.arrayBuffer();
+    })).then(chunks => {
+      const source = URL.createObjectURL(new Blob(chunks, { type:"audio/mpeg" }));
+      musicObjectUrls.set(language, source);
+      return source;
+    }).catch(error => {
+      musicSourcePromises.delete(language);
+      throw error;
+    }));
+  }
+  return musicSourcePromises.get(language);
+}
+
+function preloadMusicTrack(language = document.documentElement.lang) {
+  language = musicTracks[language] ? language : "en";
+  resolveMusicSource(language).catch(() => {});
+}
+
+function stopMusic(reset = true, cancelPending = true) {
+  if (cancelPending) musicRequestId += 1;
   window.clearInterval(musicFadeTimer);
   musicFadeTimer = undefined;
   musicPlayer.pause();
@@ -86,21 +116,26 @@ function stopMusic(reset = true) {
   document.body.classList.remove("music-playing");
 }
 
-function startMusic(language = document.documentElement.lang) {
+async function startMusic(language = document.documentElement.lang) {
   if (!soundEnabled || document.hidden || !invitationIntro.hidden) return;
   language = musicTracks[language] ? language : "en";
   const track = musicTracks[language];
-  const changingTrack = musicPlayer.dataset.language !== language;
-  if (changingTrack) {
-    stopMusic();
-    musicPlayer.src = track.src;
-    musicPlayer.dataset.language = language;
-    musicPlayer.load();
-  }
-  musicPlayer.volume = 0;
-  document.body.dataset.score = language;
-  document.body.dataset.track = track.title;
-  musicPlayer.play().then(() => {
+  const requestId = ++musicRequestId;
+  try {
+    const source = await resolveMusicSource(language);
+    if (requestId !== musicRequestId || !soundEnabled || document.hidden || !invitationIntro.hidden) return;
+    const changingTrack = musicPlayer.dataset.language !== language;
+    if (changingTrack) {
+      stopMusic(true, false);
+      musicPlayer.src = source;
+      musicPlayer.dataset.language = language;
+      musicPlayer.load();
+    }
+    musicPlayer.volume = 0;
+    document.body.dataset.score = language;
+    document.body.dataset.track = track.title;
+    await musicPlayer.play();
+    if (requestId !== musicRequestId) return;
     document.body.classList.add("music-playing");
     window.clearInterval(musicFadeTimer);
     musicFadeTimer = window.setInterval(() => {
@@ -110,7 +145,9 @@ function startMusic(language = document.documentElement.lang) {
         musicFadeTimer = undefined;
       }
     }, 110);
-  }).catch(() => document.body.classList.remove("music-playing"));
+  } catch {
+    if (requestId === musicRequestId) document.body.classList.remove("music-playing");
+  }
 }
 
 function refreshSoundButton() {
@@ -169,6 +206,7 @@ function finishOpening() {
 function revealInvitation() {
   if (invitationIntro.hidden || document.body.classList.contains("invitation-opening")) return;
   if (!soundChoiceMade) setSoundEnabled(true, false);
+  if (soundEnabled) preloadMusicTrack();
   playOpeningSoundscape();
   if (motionPaused) { finishOpening(); return; }
   positionFoldedCard();
