@@ -258,10 +258,10 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 @keyframes cover-focus { 0% { filter:saturate(1) brightness(1); } 45% { filter:saturate(.88) brightness(.93); } 72% { filter:saturate(1.05) brightness(1.08); } 100% { filter:saturate(1) brightness(1); } }
 .motion-enabled .opening-halo { animation:luxury-halo-breathe 6.5s ease-in-out infinite; }
 .motion-enabled .opening-stars i { animation:luxury-star 3.8s ease-in-out infinite;animation-delay:calc(var(--star-order,0) * -.55s); }
-.invitation-opening .invitation-intro { animation:cover-focus 10.85s ease both,cover-dissolve .7s ease 10.2s forwards; }
+.invitation-opening .invitation-intro { animation:cover-focus 8.85s ease both,cover-dissolve .7s ease 8.2s forwards; }
 .invitation-opening .opening-halo { animation:halo-ceremony 6.3s var(--ease) both; }
-.invitation-opening .opening-curtain--left { animation:curtain-left 1.25s var(--ease) 9.65s both; }
-.invitation-opening .opening-curtain--right { animation:curtain-right 1.25s var(--ease) 9.65s both; }
+.invitation-opening .opening-curtain--left { animation:curtain-left 1.25s var(--ease) 7.65s both; }
+.invitation-opening .opening-curtain--right { animation:curtain-right 1.25s var(--ease) 7.65s both; }
 .invitation-opening .opening-stars i { animation:star-release 2.7s ease-out both;animation-delay:calc(3.65s + var(--star-order,0) * .06s); }
 @keyframes halo-ceremony { 0%,30% { opacity:.7;scale:.88; } 58% { opacity:1;scale:1.04; } 82% { opacity:1;scale:1.25; } 100% { opacity:0;scale:1.55; } }
 @keyframes star-release { 0% { opacity:.2;transform:translate(0,0) rotate(45deg) scale(.6); } 30% { opacity:1; } 100% { opacity:0;transform:translate(0,-75px) rotate(225deg) scale(1.35); } }
@@ -530,6 +530,12 @@ html[lang="my"] .keepsake__date,
 html[lang="my"] .keepsake__year,
 html[lang="my"] .keepsake__note {
   line-height:2.15;padding-block:.12em;overflow:visible;
+}
+html[lang="my"] .opening-heading .eyebrow {
+  font-size:14px;line-height:2.3;padding:.24em 0 .16em;overflow:visible;
+}
+@media(max-width:700px) {
+  html[lang="my"] .opening-heading .eyebrow { font-size:12px; }
 }
 html[lang="my"] .sound-toggle__label,
 html[lang="my"] .motion-toggle__label,
