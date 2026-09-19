@@ -11,7 +11,7 @@ let openingTimer;
 let revealObserver;
 let lastRsvpName = "";
 const openingSkip = document.querySelector(".opening-skip");
-const openingDuration = 9000;
+const openingDuration = 5000;
 let soundEnabled = false;
 let soundChoiceMade = false;
 let musicFadeTimer;
@@ -70,10 +70,10 @@ function playOpeningSoundscape() {
   if (!soundEnabled) return;
   stopOpeningAudio();
   playRecordedSound(openingSounds.seal, .48);
-  scheduleOpeningSound("lift", 650, .28, .18);
-  scheduleOpeningSound("rustle", 2050, .24, .35);
-  scheduleOpeningSound("unfold", 3580, .42);
-  scheduleOpeningSound("unfold", 4480, .32);
+  scheduleOpeningSound("lift", 400, .28, .18);
+  scheduleOpeningSound("rustle", 1250, .24, .35);
+  scheduleOpeningSound("unfold", 2050, .42);
+  scheduleOpeningSound("unfold", 2600, .32);
 }
 
 function stopMusic(reset = true) {
