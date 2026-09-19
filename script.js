@@ -499,7 +499,7 @@ Object.assign(translations.en, {
   storyEyebrow: "The moments that brought us here",
   storyTitle: "Every chapter led us closer",
   guestName: "Your name (Thai guests: please use your nickname)",
-  guestNamePlaceholder: "Full name, or nickname for Thai guests",
+  guestNamePlaceholder: "Use nickname for Thai guests",
   willAttend: "Will you be joining us?",
   joyfullyAccepts: "Joyfully accepts",
   regretfullyDeclines: "Regretfully declines",
