@@ -258,11 +258,11 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 @keyframes cover-focus { 0% { filter:saturate(1) brightness(1); } 45% { filter:saturate(.88) brightness(.93); } 72% { filter:saturate(1.05) brightness(1.08); } 100% { filter:saturate(1) brightness(1); } }
 .motion-enabled .opening-halo { animation:luxury-halo-breathe 6.5s ease-in-out infinite; }
 .motion-enabled .opening-stars i { animation:luxury-star 3.8s ease-in-out infinite;animation-delay:calc(var(--star-order,0) * -.55s); }
-.invitation-opening .invitation-intro { animation:cover-focus 8.85s ease both,cover-dissolve .7s ease 8.2s forwards; }
-.invitation-opening .opening-halo { animation:halo-ceremony 6.3s var(--ease) both; }
-.invitation-opening .opening-curtain--left { animation:curtain-left 1.25s var(--ease) 7.65s both; }
-.invitation-opening .opening-curtain--right { animation:curtain-right 1.25s var(--ease) 7.65s both; }
-.invitation-opening .opening-stars i { animation:star-release 2.7s ease-out both;animation-delay:calc(3.65s + var(--star-order,0) * .06s); }
+.invitation-opening .invitation-intro { animation:cover-focus 4.9s ease both,cover-dissolve .65s ease 4.25s forwards; }
+.invitation-opening .opening-halo { animation:halo-ceremony 4.5s var(--ease) both; }
+.invitation-opening .opening-curtain--left { animation:curtain-left .9s var(--ease) 4s both; }
+.invitation-opening .opening-curtain--right { animation:curtain-right .9s var(--ease) 4s both; }
+.invitation-opening .opening-stars i { animation:star-release 1.5s ease-out both;animation-delay:calc(2.15s + var(--star-order,0) * .04s); }
 @keyframes halo-ceremony { 0%,30% { opacity:.7;scale:.88; } 58% { opacity:1;scale:1.04; } 82% { opacity:1;scale:1.25; } 100% { opacity:0;scale:1.55; } }
 @keyframes star-release { 0% { opacity:.2;transform:translate(0,0) rotate(45deg) scale(.6); } 30% { opacity:1; } 100% { opacity:0;transform:translate(0,-75px) rotate(225deg) scale(1.35); } }
 
@@ -482,7 +482,7 @@ html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "No
 }
 .envelope__ribbon-knot::before,.envelope__ribbon-knot::after { content:none; }
 .envelope__ribbon-knot>img { display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 5px 5px #7544552b); }
-.invitation-opening .envelope__ribbon-knot { animation:ribbon-knot-release .8s var(--ease) forwards; }
+.invitation-opening .envelope__ribbon-knot { animation:ribbon-knot-release .5s var(--ease) forwards; }
 @keyframes ribbon-knot-release { to { transform:translate(-25%,72%) rotate(26deg);opacity:0; } }
 .opening-heading h2:empty,.story-opening__copy p:empty { display:none; }
 
@@ -545,8 +545,8 @@ html[lang="my"] .language-switch__button[lang="my"] {
 
 .keepsake__names .letter-vine { display:none; }
 .invitation-opening .opening-petals i {
-  animation:petal-heart-bloom 1.45s cubic-bezier(.2,.76,.28,1) both;
-  animation-delay:calc(4.05s + var(--petal-order,0) * .03s);
+  animation:petal-heart-bloom 1.15s cubic-bezier(.2,.76,.28,1) both;
+  animation-delay:calc(2.35s + var(--petal-order,0) * .025s);
 }
 .opening-petals i { width:14px;height:21px; }
 .opening-petals i:nth-child(3n) { width:10px;height:15px; }
@@ -639,7 +639,7 @@ html[lang="my"] .language-switch__button[lang="my"] {
 /* The border belongs to the closed envelope, so it leaves with the pocket. */
 .invitation-opening .envelope::before,
 .invitation-opening .envelope::after {
-  animation:envelope-outline-away .55s ease 1.5s forwards;
+  animation:envelope-outline-away .4s ease .85s forwards;
 }
 @keyframes envelope-outline-away {
   to { opacity:0;transform:translateY(45px) scale(.985); }
