@@ -8,7 +8,6 @@
 - Thai preview: https://librandshop.github.io/ye-and-nang/?lang=th
 - Burmese preview: https://librandshop.github.io/ye-and-nang/?lang=my
 - Repository: https://github.com/librandshop/ye-and-nang
-- RSVP deadline: 30 September 2026
 - Venue map: https://maps.app.goo.gl/vTDBF3szrC5VXmnKA
 
 ## Site status

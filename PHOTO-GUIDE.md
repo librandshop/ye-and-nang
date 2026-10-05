@@ -1,6 +1,6 @@
 # Wedding photo chapter
 
-The invitation photo chapter is enabled in `photo-config.js` and displays five optimized JPEGs from `assets/photos/`.
+The invitation photo chapter is enabled in `photo-config.js` and displays six optimized JPEGs from `assets/photos/`. These files and their configuration were pulled from the published GitHub repository; local retouched output folders are not used.
 
 | Invitation file | Original | Role | Crop focus |
 | --- | --- | --- | --- |

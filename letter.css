@@ -78,7 +78,6 @@ html[lang="my"] .gift-preference-note>p { font:400 13px/2.05 "Noto Serif Myanmar
 .wedding-letter .rsvp__content { padding:18px 20px 0; }
 .wedding-letter .rsvp__content h2 { font-size:52px; }
 .wedding-letter .rsvp__content>p:not(.eyebrow) { font:400 22px/1.7 "Cormorant Garamond",serif;max-width:430px; }
-.wedding-letter .rsvp__content .rsvp__note { margin-top:22px;font:italic 17px/1.7 "Cormorant Garamond",serif!important;text-transform:none;letter-spacing:0; }
 .wedding-letter .rsvp .button { margin-top:3px;min-height:52px;padding-inline:42px; }
 .letter-page footer { width:min(940px,calc(100% - 64px));margin:0 auto 45px;padding:0 24px 65px;background:#fffdfc;box-shadow:0 22px 45px #9d6a7b12; }
 .letter-page footer .botanical { width:80px;height:35px; }
@@ -115,8 +114,6 @@ html[lang="my"] .wedding-letter .hero__invite,html[lang="my"] .wedding-letter .h
 html[lang="th"] .wedding-letter .hero__invite,html[lang="my"] .wedding-letter .hero__invite { font-size:16px; }
 html[lang="th"] .wedding-letter .savebar__copy .savebar__eyebrow,html[lang="th"] .wedding-letter .countdown__grid span,html[lang="th"] .wedding-letter .scroll-cue,html[lang="th"] .wedding-letter .hero__year { font-family:"Noto Serif Thai",serif;font-style:normal;font-size:13px;letter-spacing:0; }
 html[lang="my"] .wedding-letter .savebar__copy .savebar__eyebrow,html[lang="my"] .wedding-letter .countdown__grid span,html[lang="my"] .wedding-letter .scroll-cue,html[lang="my"] .wedding-letter .hero__year { font-family:"Noto Serif Myanmar",serif;font-style:normal;font-size:12px;letter-spacing:0; }
-html[lang="th"] .wedding-letter .rsvp__content .rsvp__note { font:400 13px/1.9 "Noto Serif Thai",serif!important; }
-html[lang="my"] .wedding-letter .rsvp__content .rsvp__note { font:400 12px/2 "Noto Serif Myanmar",serif!important; }
 
 @media(max-width:700px) {
   .gift-preference-note { grid-template-columns:30px 1fr;gap:11px;padding:17px 16px;border-radius:16px; }
