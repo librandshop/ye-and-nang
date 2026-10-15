@@ -180,7 +180,7 @@ html[lang="my"] .wedding-letter .savebar__copy .savebar__eyebrow,html[lang="my"]
 .invitation-intro::after { inset:31px;border-color:#e8cbd6; }
 .opening-heading { z-index:4; }
 .opening-heading::before {
-  content:"Y  ·  N";display:block;margin-bottom:13px;color:#b38a55;
+  content:"N  ·  Y";display:block;margin-bottom:13px;color:#b38a55;
   font:500 10px/1 "Cormorant Garamond",Georgia,serif;letter-spacing:.58em;text-indent:.58em;
 }
 .opening-heading h2 {
@@ -871,7 +871,7 @@ html[lang="my"] .photo-frame figcaption,html[lang="my"] .story-closing__copy p {
 .story-closing__image-wrap { position:relative;width:min(650px,100%);margin:auto; }
 .story-closing__image-wrap::before { content:"";position:absolute;z-index:2;inset:15px;border:1px solid #fff9;border-radius:280px 280px 4px 4px / 125px 125px 4px 4px;pointer-events:none; }
 .story-closing__image { display:block;width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:280px 280px 4px 4px / 125px 125px 4px 4px;filter:saturate(.88);box-shadow:0 28px 70px #6f405229; }
-.story-closing__image-wrap>span { position:absolute;z-index:3;right:-22px;bottom:34px;display:grid;place-items:center;width:92px;height:92px;border:1px solid #d8aabd;border-radius:50%;background:#fffaf4eb;color:#8e5b70;font:italic 24px/1 "Cormorant Garamond",Georgia,serif;box-shadow:0 15px 32px #80516322; }
+.story-closing__image-wrap>span { position:absolute;z-index:3;right:-22px;bottom:34px;display:flex;align-items:center;justify-content:center;gap:.16em;width:92px;height:92px;border:1px solid #d8aabd;border-radius:50%;background:#fffaf4eb;color:#8e5b70;font:italic 24px/1 "Cormorant Garamond",Georgia,serif;box-shadow:0 15px 32px #80516322; }
 .story-closing__image-wrap i { font-family:Georgia,serif;font-style:normal;font-size:.72em; }
 .story-closing__copy { position:relative;z-index:3;width:min(520px,88%);margin:-25px auto 0;padding:25px 30px 22px;background:#fffaf6f2;box-shadow:0 17px 38px #7e4b5d17; }
 .story-closing__copy p { margin:0;color:#805768;font:italic 31px/1.25 "Cormorant Garamond",Georgia,serif; }
@@ -1521,7 +1521,7 @@ html[lang="my"] .photo-scene__figure figcaption p { font:400 20px/1.8 "Noto Seri
 .portrait-chapter__image-wrap { position:relative;padding:11px;background:#fff;box-shadow:0 32px 85px #75475929; }
 .portrait-chapter__image-wrap::before { content:"";position:absolute;z-index:2;inset:23px;border:1px solid #fff9;border-radius:245px 245px 8px 8px / 125px 125px 8px 8px;pointer-events:none; }
 .portrait-chapter__image-wrap img { display:block;width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:245px 245px 8px 8px / 125px 125px 8px 8px;filter:saturate(.84) contrast(.98); }
-.portrait-chapter__monogram { position:absolute;z-index:3;right:-28px;top:52px;display:grid;place-items:center;width:82px;height:82px;border:1px solid #d5a4b7;border-radius:50%;background:#fffaf6ed;color:#875468;font:italic 21px/1 "Cormorant Garamond",Georgia,serif;box-shadow:0 15px 35px #76506320; }
+.portrait-chapter__monogram { position:absolute;z-index:3;right:-28px;top:52px;display:flex;align-items:center;justify-content:center;gap:.16em;width:82px;height:82px;border:1px solid #d5a4b7;border-radius:50%;background:#fffaf6ed;color:#875468;font:italic 21px/1 "Cormorant Garamond",Georgia,serif;box-shadow:0 15px 35px #76506320; }
 .portrait-chapter__monogram i { font-family:Georgia,serif;font-size:.72em;font-style:normal; }
 .portrait-chapter__figure figcaption { position:relative;z-index:4;margin-left:-22px;padding:34px 30px 35px;background:#fffaf7ed;box-shadow:0 20px 48px #79495b1a; }
 .portrait-chapter__figure figcaption>span { display:block;margin-bottom:16px;color:#b77b91;font:600 8px/1.2 "Manrope",Arial,sans-serif;letter-spacing:.26em; }
