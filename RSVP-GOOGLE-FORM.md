@@ -10,7 +10,7 @@ Create the form at [forms.google.com](https://forms.google.com). Use every Engli
 
 ## Form details
 
-- Title: `Ye & Nang | Wedding RSVP / &#x0e41;&#x0e1a;&#x0e1a;&#x0e15;&#x0e2d;&#x0e1a;&#x0e23;&#x0e31;&#x0e1a;&#x0e07;&#x0e32;&#x0e19;&#x0e41;&#x0e15;&#x0e48;&#x0e07;&#x0e07;&#x0e32;&#x0e19;&#x0e02;&#x0e2d;&#x0e07; Ye & Nang`
+- Title: `Nang & Ye | Wedding RSVP / &#x0e41;&#x0e1a;&#x0e1a;&#x0e15;&#x0e2d;&#x0e1a;&#x0e23;&#x0e31;&#x0e1a;&#x0e07;&#x0e32;&#x0e19;&#x0e41;&#x0e15;&#x0e48;&#x0e07;&#x0e07;&#x0e32;&#x0e19;&#x0e02;&#x0e2d;&#x0e07; Nang & Ye`
 - Description: `We are so happy to celebrate with you on November 8, 2026.`
 - Confirmation message: `Thank you for your RSVP. We can't wait to celebrate with you! / &#x0e02;&#x0e2d;&#x0e1a;&#x0e04;&#x0e38;&#x0e13;&#x0e2a;&#x0e33;&#x0e2b;&#x0e23;&#x0e31;&#x0e1a;&#x0e01;&#x0e32;&#x0e23;&#x0e15;&#x0e2d;&#x0e1a;&#x0e23;&#x0e31;&#x0e1a; &#x0e40;&#x0e23;&#x0e32;&#x0e41;&#x0e17;&#x0e1a;&#x0e23;&#x0e2d;&#x0e44;&#x0e21;&#x0e48;&#x0e44;&#x0e2b;&#x0e27;&#x0e17;&#x0e35;&#x0e48;&#x0e08;&#x0e30;&#x0e44;&#x0e14;&#x0e49;&#x0e23;&#x0e48;&#x0e27;&#x0e21;&#x0e09;&#x0e25;&#x0e2d;&#x0e07;&#x0e01;&#x0e31;&#x0e1a;&#x0e04;&#x0e38;&#x0e13;!`
 
@@ -28,7 +28,7 @@ Create the form at [forms.google.com](https://forms.google.com). Use every Engli
    - 4
 4. `Names of attending guests / &#x0e0a;&#x0e37;&#x0e48;&#x0e2d;&#x0e1c;&#x0e39;&#x0e49;&#x0e40;&#x0e02;&#x0e49;&#x0e32;&#x0e23;&#x0e48;&#x0e27;&#x0e21;&#x0e07;&#x0e32;&#x0e19;` - Paragraph - Optional
 5. `Dietary requirements or allergies / &#x0e02;&#x0e49;&#x0e2d;&#x0e08;&#x0e33;&#x0e01;&#x0e31;&#x0e14;&#x0e14;&#x0e49;&#x0e32;&#x0e19;&#x0e2d;&#x0e32;&#x0e2b;&#x0e32;&#x0e23;&#x0e2b;&#x0e23;&#x0e37;&#x0e2d;&#x0e2d;&#x0e32;&#x0e01;&#x0e32;&#x0e23;&#x0e41;&#x0e1e;&#x0e49;` - Paragraph - Optional
-6. `A message for Ye & Nang / &#x0e02;&#x0e49;&#x0e2d;&#x0e04;&#x0e27;&#x0e32;&#x0e21;&#x0e16;&#x0e36;&#x0e07; Ye & Nang` - Paragraph - Optional
+6. `A message for Nang & Ye / &#x0e02;&#x0e49;&#x0e2d;&#x0e04;&#x0e27;&#x0e32;&#x0e21;&#x0e16;&#x0e36;&#x0e07; Nang & Ye` - Paragraph - Optional
 
 ## Before sharing
 

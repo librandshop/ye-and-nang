@@ -10,9 +10,9 @@ window.WEDDING_PHOTOS = {
       src: "assets/photos/our-story-01.jpg?v=enhanced-1",
       focus: "50% 38%",
       alt: {
-        en: "Ye and Nang smiling with their foreheads touching in wedding attire",
-        th: "Ye และ Nang ยิ้มให้กันพร้อมแนบหน้าผากในชุดแต่งงาน",
-        my: "Ye နှင့် Nang မင်္ဂလာဝတ်စုံဖြင့် နဖူးချင်းထိကာ ပြုံးနေကြသည်"
+        en: "Nang and Ye smiling with their foreheads touching in wedding attire",
+        th: "Nang และ Ye ยิ้มให้กันพร้อมแนบหน้าผากในชุดแต่งงาน",
+        my: "Nang နှင့် Ye မင်္ဂလာဝတ်စုံဖြင့် နဖူးချင်းထိကာ ပြုံးနေကြသည်"
       },
       caption: {
         en: "In every little moment, always us",
@@ -38,9 +38,9 @@ window.WEDDING_PHOTOS = {
       src: "assets/photos/our-story-03.jpg?v=enhanced-1",
       focus: "50% 50%",
       alt: {
-        en: "Ye and Nang in graduation gowns looking up at the camera",
-        th: "Ye และ Nang ในชุดครุยมองขึ้นมาที่กล้อง",
-        my: "Ye နှင့် Nang ဘွဲ့ဝတ်စုံများဖြင့် ကင်မရာကို အပေါ်သို့ မော့ကြည့်နေကြသည်"
+        en: "Nang and Ye in graduation gowns looking up at the camera",
+        th: "Nang และ Ye ในชุดครุยมองขึ้นมาที่กล้อง",
+        my: "Nang နှင့် Ye ဘွဲ့ဝတ်စုံများဖြင့် ကင်မရာကို အပေါ်သို့ မော့ကြည့်နေကြသည်"
       },
       caption: {
         en: "From one chapter to our next",
@@ -52,9 +52,9 @@ window.WEDDING_PHOTOS = {
       src: "assets/photos/our-story-04.jpg?v=enhanced-1",
       focus: "50% 50%",
       alt: {
-        en: "Ye and Nang standing together in formal wedding attire against a deep red backdrop",
-        th: "Ye และ Nang อยู่ด้วยกันหน้าฉากแต่งงานสีแดงเข้ม",
-        my: "အနီရောင် မင်္ဂလာနောက်ခံရှေ့တွင် Ye နှင့် Nang အတူရှိနေကြသည်"
+        en: "Nang and Ye standing together in formal wedding attire against a deep red backdrop",
+        th: "Nang และ Ye อยู่ด้วยกันหน้าฉากแต่งงานสีแดงเข้ม",
+        my: "အနီရောင် မင်္ဂလာနောက်ခံရှေ့တွင် Nang နှင့် Ye အတူရှိနေကြသည်"
       },
       caption: {
         en: "A love worth celebrating",
@@ -66,9 +66,9 @@ window.WEDDING_PHOTOS = {
       src: "assets/photos/our-story-05.jpg?v=enhanced-1",
       focus: "50% 50%",
       alt: {
-        en: "Ye and Nang posing together in a black tuxedo and white wedding gown against a soft gray backdrop",
-        th: "Ye และ Nang ยืนคู่กันในชุดทักซิโด้สีดำและชุดแต่งงานสีขาวหน้าฉากสีเทาอ่อน",
-        my: "Ye နှင့် Nang တို့သည် မီးခိုးရောင်နောက်ခံရှေ့တွင် အနက်ရောင်ဝတ်စုံနှင့် အဖြူရောင်မင်္ဂလာဝတ်စုံဖြင့် အတူရပ်နေကြသည်"
+        en: "Nang and Ye posing together in a black tuxedo and white wedding gown against a soft gray backdrop",
+        th: "Nang และ Ye ยืนคู่กันในชุดทักซิโด้สีดำและชุดแต่งงานสีขาวหน้าฉากสีเทาอ่อน",
+        my: "Nang နှင့် Ye တို့သည် မီးခိုးရောင်နောက်ခံရှေ့တွင် အနက်ရောင်ဝတ်စုံနှင့် အဖြူရောင်မင်္ဂလာဝတ်စုံဖြင့် အတူရပ်နေကြသည်"
       },
       caption: {
         en: "Together is our favourite place",
@@ -80,9 +80,9 @@ window.WEDDING_PHOTOS = {
       src: "assets/photos/our-story-06.jpg?v=enhanced-1",
       focus: "50% 50%",
       alt: {
-        en: "Ye and Nang smiling with a white bouquet in light wedding attire",
-        th: "Ye และ Nang ยิ้มพร้อมช่อดอกไม้ในชุดแต่งงานสีอ่อน",
-        my: "Ye နှင့် Nang တို့သည် အလင်းရောင် မင်္ဂလာဝတ်စုံများဖြင့် ပန်းစည်းကိုင်ကာ ပြုံးနေကြသည်"
+        en: "Nang and Ye smiling with a white bouquet in light wedding attire",
+        th: "Nang และ Ye ยิ้มพร้อมช่อดอกไม้ในชุดแต่งงานสีอ่อน",
+        my: "Nang နှင့် Ye တို့သည် အလင်းရောင် မင်္ဂလာဝတ်စုံများဖြင့် ပန်းစည်းကိုင်ကာ ပြုံးနေကြသည်"
       },
       caption: {
         en: "You are the reason behind this smile",

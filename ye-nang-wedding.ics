@@ -1,17 +1,17 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Ye & Nang//Wedding Invitation//EN
+PRODID:-//Nang & Ye//Wedding Invitation//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:ye-nang-wedding-20261108@librandshop.github.io
-DTSTAMP:20260915T000000Z
-SEQUENCE:1
+DTSTAMP:20261015T000000Z
+SEQUENCE:2
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
-SUMMARY:Ye & Nang's Wedding
+SUMMARY:Nang & Ye's Wedding
 LOCATION:https://maps.app.goo.gl/vTDBF3szrC5VXmnKA
-DESCRIPTION:Ye Moe Myint and Nang Htet Htet Aung are getting married.
+DESCRIPTION:Nang Htet Htet Aung and Ye Moe Myint are getting married.
  \n\nDirections: https://maps.app.goo.gl/vTDBF3szrC5VXmnKA
  \nInvitation: https://librandshop.github.io/ye-and-nang/
 URL:https://librandshop.github.io/ye-and-nang/

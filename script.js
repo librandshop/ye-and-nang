@@ -430,8 +430,8 @@ if ("IntersectionObserver" in window) {
 
 const translations = {
   en: {
-    pageTitle: "Ye & Nang's Wedding Invitation",
-    pageDescription: "Wedding invitation for Ye Moe Myint and Nang Htet Htet Aung.",
+    pageTitle: "Nang & Ye's Wedding Invitation",
+    pageDescription: "Wedding invitation for Nang Htet Htet Aung and Ye Moe Myint.",
     heroEyebrow: "Together with their families",
     heroInvite: "joyfully invite you to celebrate the wedding of",
     heroDate: "Sunday, the eighth<br>of November",
@@ -480,8 +480,8 @@ const translations = {
     footerDate: "November 8, 2026",
   },
   th: {
-    pageTitle: "\u0e01\u0e32\u0e23\u0e4c\u0e14\u0e40\u0e0a\u0e34\u0e0d\u0e07\u0e32\u0e19\u0e41\u0e15\u0e48\u0e07\u0e07\u0e32\u0e19 Ye & Nang",
-    pageDescription: "\u0e01\u0e32\u0e23\u0e4c\u0e14\u0e40\u0e0a\u0e34\u0e0d\u0e07\u0e32\u0e19\u0e41\u0e15\u0e48\u0e07\u0e07\u0e32\u0e19\u0e02\u0e2d\u0e07 Ye Moe Myint \u0e41\u0e25\u0e30 Nang Htet Htet Aung",
+    pageTitle: "\u0e01\u0e32\u0e23\u0e4c\u0e14\u0e40\u0e0a\u0e34\u0e0d\u0e07\u0e32\u0e19\u0e41\u0e15\u0e48\u0e07\u0e07\u0e32\u0e19 Nang & Ye",
+    pageDescription: "\u0e01\u0e32\u0e23\u0e4c\u0e14\u0e40\u0e0a\u0e34\u0e0d\u0e07\u0e32\u0e19\u0e41\u0e15\u0e48\u0e07\u0e07\u0e32\u0e19\u0e02\u0e2d\u0e07 Nang Htet Htet Aung \u0e41\u0e25\u0e30 Ye Moe Myint",
     heroEyebrow: "\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e14\u0e49\u0e27\u0e22\u0e04\u0e23\u0e2d\u0e1a\u0e04\u0e23\u0e31\u0e27\u0e02\u0e2d\u0e07\u0e17\u0e31\u0e49\u0e07\u0e2a\u0e2d\u0e07\u0e1d\u0e48\u0e32\u0e22",
     heroInvite: "\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e22\u0e34\u0e19\u0e14\u0e35\u0e02\u0e2d\u0e40\u0e0a\u0e34\u0e0d\u0e23\u0e48\u0e27\u0e21\u0e40\u0e1b\u0e47\u0e19\u0e2a\u0e31\u0e01\u0e02\u0e35\u0e1e\u0e22\u0e32\u0e19\u0e43\u0e19\u0e07\u0e32\u0e19\u0e21\u0e07\u0e04\u0e25\u0e2a\u0e21\u0e23\u0e2a\u0e02\u0e2d\u0e07",
     heroDate: "\u0e27\u0e31\u0e19\u0e2d\u0e32\u0e17\u0e34\u0e15\u0e22\u0e4c\u0e17\u0e35\u0e48 8<br>\u0e1e\u0e24\u0e28\u0e08\u0e34\u0e01\u0e32\u0e22\u0e19",
@@ -683,8 +683,8 @@ translations.my = {
   dayTogether: "အမှတ်တရ နေ့လေးတစ်နေ့",
   skipOpening: "ဖိတ်စာသို့ တိုက်ရိုက်သွားရန်",
   letterNote: "ချစ်ခြင်းမေတ္တာဖြင့် …",
-  pageTitle: "Ye နှင့် Nang တို့၏ မင်္ဂလာဖိတ်စာ",
-  pageDescription: "Ye Moe Myint နှင့် Nang Htet Htet Aung တို့၏ မင်္ဂလာဖိတ်စာ။",
+  pageTitle: "Nang နှင့် Ye တို့၏ မင်္ဂလာဖိတ်စာ",
+  pageDescription: "Nang Htet Htet Aung နှင့် Ye Moe Myint တို့၏ မင်္ဂလာဖိတ်စာ။",
   chooseLanguage: "ဘာသာစကား ရွေးချယ်ရန်",
   heroEyebrow: "နှစ်ဖက်မိသားစုများနှင့်အတူ",
   heroInvite: "ကျွန်တော်ကျွန်မတို့၏ မင်္ဂလာပွဲသို့ တက်ရောက်ချီးမြှင့်ပေးပါရန် ခင်မင်လေးစားစွာ ဖိတ်ကြားအပ်ပါသည်",

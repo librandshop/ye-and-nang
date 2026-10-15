@@ -1,6 +1,6 @@
 # A personal wedding letter
 
-White and floral-pink stationery with oversized, asymmetric italic name lettering. Small jasmine and blush sweet-pea vines weave around the Y and the end of Nang; fine animated stems pass behind and in front of the letters. There are no large standalone bouquets. Full names remain beneath the centerpiece, and Y & N remains the seal monogram.
+White and floral-pink stationery with oversized, asymmetric italic name lettering. Small jasmine and blush sweet-pea vines weave around Nang and the Y in Ye; fine animated stems pass behind and in front of the letters. There are no large standalone bouquets. Full names remain beneath the centerpiece, and N & Y remains the seal monogram.
 
 English, Thai and Burmese are preserved, with synchronized cover and main-page selectors, saved language preference and `?lang=en`, `?lang=th`, `?lang=my` links. Wedding details, RSVP, calendar and map destinations are unchanged.
 
@@ -18,7 +18,7 @@ Geometry is measured from the actual envelope and untransformed card dimensions 
 
 ## Main-page motion and layout
 
-- Ye and Nang inscribe separately; the ampersand settles between them; fine stems trace around the names and small flowering vines grow into place, then gently sway.
+- Nang and Ye inscribe separately; the ampersand settles between them; fine stems trace around the names and small flowering vines grow into place, then gently sway.
 - The main page is one continuous white, fine-bordered letter on blush paper. A small code-native satin bow crowns the arched stationery; a matching bow introduces the reply. The envelope markup and opening functions are unchanged.
 - A personal salutation and signed note precede the calendar actions. English copy uses softer serif typography, with appropriate Thai and Burmese font shaping and line heights.
 - Five confirmed moments form the wedding program: welcome reception, betrothal, paying respects, water pouring and wedding celebration. Their exact 3:00–6:30 PM times are localized in English, Thai and Burmese.
@@ -102,7 +102,7 @@ Generation prompt summary: one airy contemporary flowering sprig on genuine tran
 - The envelope now sits inside a restrained champagne halo with small metallic glints and deeper rose shadows. Fine embossed lines, satin highlights and a more dimensional wax seal give the cover the tactile weight of luxury stationery.
 - Opening is staged in distinct emotional beats: the surrounding light quiets, the seal and ribbon release, the closed keepsake rises, its folds open, a warm halo blooms behind it, and two translucent blush curtains part into the main invitation.
 - The paper arrives through a soft luminous aperture rather than simply appearing. The hero arch gains layered ivory depth, champagne rules and a blush aura focused behind the couple's names.
-- `Ye & Nang` carries the strongest contrast on the page. Its ink, ampersand, floral vines and date keepsake now form one deliberate focal composition, with richer shadows and subtle metallic accents.
+- `Nang & Ye` carries the strongest contrast on the page. Its ink, ampersand, floral vines and date keepsake now form one deliberate focal composition, with richer shadows and subtle metallic accents.
 - Main-page section reveals use softer focus, masked upward movement and changing light instead of card-like motion. Floral margins and ornamental rules remain secondary and asymmetrical.
 - Phone layouts preserve the full opening choreography with smaller halos, safer edge spacing and compact typography. Paused and reduced-motion modes show the finished luxury composition without transitional effects.
 

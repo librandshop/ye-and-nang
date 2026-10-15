@@ -1,4 +1,4 @@
-# Ye & Nang's wedding invitation
+# Nang & Ye's wedding invitation
 
 A bilingual, no-build wedding invitation published with GitHub Pages.
 

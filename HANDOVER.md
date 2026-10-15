@@ -1,8 +1,8 @@
-# Ye & Nang wedding invitation — handover
+# Nang & Ye wedding invitation — handover
 
 ## Current invitation
 
-- Couple: Ye Moe Myint (Ye) and Nang Htet Htet Aung (Nang)
+- Couple: Nang Htet Htet Aung (Nang) and Ye Moe Myint (Ye)
 - Wedding: Sunday, 8 November 2026
 - Live site: https://librandshop.github.io/ye-and-nang/
 - Thai preview: https://librandshop.github.io/ye-and-nang/?lang=th

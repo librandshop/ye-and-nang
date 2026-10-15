@@ -494,16 +494,16 @@ html[lang="my"] .countdown__grid span{font-size:10px;letter-spacing:0}
 .name-garden { position:relative;isolation:isolate;width:min(600px,100%);aspect-ratio:600 / 350;margin:0 auto 22px; }
 .name-garden h1 { position:absolute;inset:0;display:block;margin:0;font-size:170px;font-weight:500;font-style:italic;line-height:.95;letter-spacing:-.07em; }
 .name-garden .name { position:absolute;display:block;z-index:2; }
-.name--ye { top:0;left:18%; }
-.name--nang { right:10%;bottom:5%; }
+.name--first { top:0;left:18%; }
+.name--second { right:10%;bottom:5%; }
 .name-garden h1 em { position:absolute;top:37%;left:48%;font-size:65px;font-weight:400;line-height:1;z-index:2;color:#bf859b; }
 .name-vines { position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#93a084;stroke-width:1.1;stroke-linecap:round;pointer-events:none; }
 .name-vines--behind { z-index:1; }
 .name-vines--front { z-index:3; }
 .name-sprig { position:absolute;z-index:4;pointer-events:none;width:21%;aspect-ratio:2 / 3;transform-origin:50% 5%; }
 .name-sprig img { width:100%;height:100%;object-fit:contain;display:block; }
-.name-sprig--ye { left:20%;top:7%;transform:rotate(13deg); }
-.name-sprig--nang { right:8%;bottom:-6%;transform:rotate(-21deg) scaleX(-1); }
+.name-sprig--first { left:20%;top:7%;transform:rotate(13deg); }
+.name-sprig--second { right:8%;bottom:-6%;transform:rotate(-21deg) scaleX(-1); }
 .hero__rule { margin:25px auto 20px; }
 .hero__full-names { font-size:9px;letter-spacing:.17em; }
 .hero__date { font-size:29px; }
@@ -555,16 +555,16 @@ footer { background:#fff5f9;padding-top:25px; }
 /* Name ink, growing vines, the day thread, and the postcard each have a beat. */
 .js-motion.invitation-ready .name-garden { animation:none;opacity:1;transform:none; }
 .js-motion.invitation-ready .name-garden .name { animation:name-inscribe 1.8s var(--ease) .2s both; }
-.js-motion.invitation-ready .name-garden .name--nang { animation-delay:.7s; }
+.js-motion.invitation-ready .name-garden .name--second { animation-delay:.7s; }
 .js-motion.invitation-ready .name-garden h1 em { animation:ampersand-arrive 1.6s var(--ease) .5s both; }
 .js-motion .name-vines path { stroke-dasharray:1;stroke-dashoffset:1; }
 .js-motion.invitation-ready .name-vines path { animation:vine-trace 2.7s ease 1s forwards; }
 .js-motion.invitation-ready .name-vines--front path { animation-delay:1.9s; }
 .js-motion .name-sprig img { opacity:0; }
 .js-motion.invitation-ready .name-sprig img { animation:sprig-grow 2s var(--ease) 1.6s both; }
-.js-motion.invitation-ready .name-sprig--nang img { animation-delay:2s; }
+.js-motion.invitation-ready .name-sprig--second img { animation-delay:2s; }
 .motion-enabled.invitation-ready .name-sprig { animation:vine-swing 7s ease-in-out 3.5s infinite alternate; }
-.motion-enabled.invitation-ready .name-sprig--nang { animation-delay:4.1s;animation-direction:alternate-reverse; }
+.motion-enabled.invitation-ready .name-sprig--second { animation-delay:4.1s;animation-direction:alternate-reverse; }
 .js-motion h2.is-visible,.js-motion .intro__heading.is-visible h2 { animation:heading-rise 1.5s var(--ease) both; }
 .js-motion .schedule__thread[data-reveal] { opacity:1;transform:none; }
 .js-motion .schedule__thread span { transform:scaleX(0);transition:transform 2s ease .4s; }
