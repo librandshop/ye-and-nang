@@ -21,7 +21,7 @@ Geometry is measured from the actual envelope and untransformed card dimensions 
 - Nang and Ye inscribe separately; the ampersand settles between them; fine stems trace around the names and small flowering vines grow into place, then gently sway.
 - The main page is one continuous white, fine-bordered letter on blush paper. A small code-native satin bow crowns the arched stationery; a matching bow introduces the reply. The envelope markup and opening functions are unchanged.
 - A personal salutation and signed note precede the calendar actions. English copy uses softer serif typography, with appropriate Thai and Burmese font shaping and line heights.
-- Five confirmed moments form the wedding program: welcome reception, betrothal, paying respects, water pouring and wedding celebration. Their exact 3:00–6:30 PM times are localized in English, Thai and Burmese.
+- Five confirmed moments form the wedding program: welcome reception, betrothal, paying respects, water pouring and wedding celebration. Their exact 3:00–6:00 PM times are localized in English, Thai and Burmese.
 - Venue directions are a simple centered invitation detail; the decorative route graphic has been removed. Both calendar buttons and the Maps button retain their prominent themed design and original destinations.
 - The countdown is printed directly on the paper, without dashboard tiles. The RSVP closes the letter rather than repeating a call to action in the hero.
 - Slow ink fades, drawn ornamental dividers, a revealing signature and gentle ribbon movement replace presentation-style card tilts. `letter.css` scopes the redesign to the main invitation without changing envelope styles.
