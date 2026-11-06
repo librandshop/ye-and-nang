@@ -22,7 +22,7 @@ All six live photographs were refreshed from the enhanced masters in `photos/`: 
 
 The envelope exterior uses `assets/pink-envelope-bloom-garden.webp`: an asymmetrical pink-flower-only arrangement with no green foliage. The red studio chapter uses `455A2626.jpg`, where both people are standing.
 
-The invitation includes an all-day calendar event for Google Calendar, Apple Calendar and Outlook; the supplied Google Maps destination; a countdown; and a custom RSVP card. The confirmed program is Welcome Reception at 3:00 PM, Betrothal Ceremony at 3:30 PM, Paying Respects Ceremony at 5:00 PM, Water Pouring Ceremony at 5:30 PM and Wedding Celebration at 6:00 PM.
+The invitation includes an all-day calendar event for Google Calendar, Apple Calendar and Outlook; the supplied Google Maps destination; a countdown; and a custom RSVP card. The confirmed program is Welcome Reception at 15:00, Khan Maak Procession at 15:30, Betrothal Ceremony at 15:45, Wedding Registration at 16:10, Paying Respects Ceremony at 16:20, Water Pouring Ceremony at 16:30 and Wedding Celebration at 18:00. All seven entries have English, Thai and Burmese labels and localized times.
 
 ## RSVP architecture
 
